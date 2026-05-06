@@ -1037,6 +1037,7 @@ p { color: var(--c-main); }
   margin: -76px auto 20px;
   width: 168px; height: 168px;
 }
+.founder-photo-wrap-lower { margin-top: -40px; }
 .founder-photo {
   width: 100%; height: 100%;
   object-fit: cover;
