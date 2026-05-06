@@ -220,7 +220,26 @@ p { color: var(--c-main); }
 .hero-visual {
   position: relative;
   display: flex; justify-content: center; align-items: center;
-  min-height: 600px;
+  min-height: 520px;
+}
+.hero-desktop {
+  position: relative;
+  width: 100%; max-width: 580px;
+  z-index: 1;
+}
+.hero-desktop .browser-frame {
+  transform: perspective(1500px) rotateX(3deg) rotateY(-2deg);
+  transform-origin: 60% 50%;
+}
+.browser-frame-sm .browser-bar { padding: 8px 12px; }
+.browser-frame-sm .browser-dots span { width: 10px; height: 10px; }
+.browser-frame-sm .browser-url { font-size: 11px; padding: 4px 10px; }
+
+.hero-phone {
+  position: absolute;
+  inset-inline-end: -3%;
+  bottom: -8%;
+  z-index: 3;
 }
 .phone-frame {
   position: relative;
@@ -232,27 +251,27 @@ p { color: var(--c-main); }
   border: 8px solid #1a1a1a;
 }
 .phone-frame img { width: 100%; height: auto; display: block; }
-.phone-hero { transform: rotate(-3deg); z-index: 2; }
-.phone-hero-back {
-  position: absolute;
-  inset-inline-end: 8%;
-  top: 8%;
-  transform: rotate(7deg) scale(.92);
-  opacity: .85;
-  z-index: 1;
+.phone-hero-overlay {
+  width: 200px;
+  border-width: 6px;
+  border-radius: 30px;
+  transform: rotate(-6deg);
+  box-shadow: 0 30px 60px rgba(12, 64, 104, 0.30);
 }
 .hero-badge {
   position: absolute;
-  inset-inline-start: 10%;
-  bottom: 10%;
+  inset-inline-end: -10px;
+  top: -18px;
   background: var(--c-white);
   color: var(--c-main);
-  padding: 12px 18px;
+  padding: 10px 16px;
   border-radius: var(--radius-pill);
-  font-size: 14px; font-weight: 500;
+  font-size: 13px; font-weight: 500;
   display: inline-flex; align-items: center; gap: 8px;
   box-shadow: var(--shadow-soft);
-  z-index: 3;
+  white-space: nowrap;
+  z-index: 4;
+  transform: rotate(-3deg);
 }
 .badge-dot {
   width: 8px; height: 8px; border-radius: 50%;
@@ -262,14 +281,17 @@ p { color: var(--c-main); }
 
 @media (max-width: 980px) {
   .hero-grid { grid-template-columns: 1fr; gap: 48px; }
-  .hero-visual { min-height: 520px; }
-  .phone-hero-back { inset-inline-end: 14%; }
+  .hero-visual { min-height: auto; padding-bottom: 60px; }
+  .hero-desktop .browser-frame { transform: none; }
+  .hero-phone { inset-inline-start: -2%; bottom: -20px; }
+  .hero-badge { margin-inline-end: 0; }
 }
 @media (max-width: 560px) {
   .hero { padding-block: 32px 64px; }
   .hero-stats { grid-template-columns: 1fr; gap: 12px; padding: 16px 0; }
-  .phone-frame { width: 230px; border-width: 6px; }
-  .hero-visual { min-height: 460px; }
+  .hero-phone { position: static; align-self: flex-start; margin-top: -40px; padding-inline-start: 8px; }
+  .phone-hero-overlay { width: 130px; border-width: 5px; border-radius: 22px; }
+  .hero-badge { font-size: 11px; padding: 7px 12px; }
 }
 
 /* ---------- PROBLEM ---------- */
@@ -385,6 +407,22 @@ p { color: var(--c-main); }
 
 .phone-frame-sm { width: 220px; border-width: 7px; border-radius: 32px; }
 .phone-frame-md { width: 260px; border-width: 8px; border-radius: 36px; }
+.phone-frame-mini { width: 130px; border-width: 5px; border-radius: 22px; }
+
+/* Mini browser frame — used in solution layer 02 */
+.browser-frame-mini {
+  width: 100%; max-width: 320px;
+  border-radius: 10px;
+  transform: rotate(-1deg);
+}
+.browser-frame-mini .browser-bar { padding: 6px 10px; gap: 8px; }
+.browser-frame-mini .browser-dots span { width: 8px; height: 8px; }
+.browser-frame-mini .browser-dots { gap: 5px; }
+.browser-frame-mini .browser-url {
+  font-size: 9px; padding: 3px 8px;
+  max-width: none;
+}
+.browser-frame-mini .browser-url svg { width: 9px; height: 9px; }
 
 @media (max-width: 980px) {
   .solution-card {
@@ -655,39 +693,190 @@ p { color: var(--c-main); }
 .panel-frame:hover { transform: translateY(-4px); }
 .panel-frame-tall { max-width: 360px; }
 
-/* -- Client-side mini section -- */
-.client-side {
-  margin-block: 96px;
-  padding: 56px 40px;
+/* -- Task system mockup (CSS-only) -- */
+.mockup-tasks {
+  padding: 24px 24px 20px;
+  text-align: start;
+  font-size: 14px;
+  display: flex; flex-direction: column;
+  gap: 16px;
+}
+.mock-head {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--c-divider);
+}
+.mock-eyebrow {
+  font-size: 11px; color: var(--c-grey);
+  margin-bottom: 4px;
+}
+.mock-head h4 {
+  font-size: 17px; font-weight: 500; color: var(--c-main);
+  line-height: 1.2;
+}
+.mock-btn-add {
+  background: var(--c-baby-blue);
+  color: var(--c-blue);
+  border: none;
+  padding: 7px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: default;
+  white-space: nowrap;
+  font-family: var(--font);
+}
+
+.mock-task-list { display: flex; flex-direction: column; gap: 10px; }
+.mock-task {
+  display: flex; align-items: flex-start;
+  gap: 10px;
+  padding: 12px;
+  background: var(--c-white);
+  border: 1px solid var(--c-light-grey);
+  border-radius: 12px;
+  transition: border-color .15s ease;
+}
+.mock-task:hover { border-color: var(--c-blue); }
+.mock-task-done { opacity: .65; background: #fbfcfd; }
+
+.mock-check {
+  flex-shrink: 0;
+  width: 18px; height: 18px;
+  border: 2px solid var(--c-divider);
+  border-radius: 5px;
+  margin-top: 2px;
+  display: flex; align-items: center; justify-content: center;
+  color: transparent;
+  background: var(--c-white);
+}
+.mock-check-done {
+  background: var(--c-green);
+  border-color: var(--c-green);
+  color: var(--c-white);
+}
+
+.mock-task-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.mock-task-title {
+  font-size: 14px; font-weight: 500; color: var(--c-main);
+  line-height: 1.3;
+}
+.mock-task-title-done {
+  text-decoration: line-through;
+  color: var(--c-grey);
+}
+.mock-task-meta {
+  display: flex; flex-wrap: wrap; gap: 6px;
+}
+.mock-chip {
+  display: inline-flex; align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: var(--c-grey);
+  background: var(--c-light-grey);
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+}
+.mock-chip-recur {
+  background: var(--c-baby-blue);
+  color: var(--c-blue);
+}
+.mock-chip-success {
+  background: #e6f7e0;
+  color: #389e0d;
+}
+
+.mock-task-send {
+  flex-shrink: 0;
+  background: transparent;
+  color: var(--c-cta);
+  border: 1px solid var(--c-cta);
+  padding: 5px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 500;
+  cursor: default;
+  white-space: nowrap;
+  font-family: var(--font);
+  margin-top: 2px;
+}
+
+.mock-add-form {
+  background: linear-gradient(180deg, #f7fafd 0%, #f0f6fb 100%);
+  border-radius: 12px;
+  padding: 12px;
+}
+.mock-form-row {
+  display: flex; align-items: center;
+  gap: 8px; flex-wrap: wrap;
+}
+.mock-field {
+  display: inline-flex; align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: var(--c-main);
+  background: var(--c-white);
+  padding: 6px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--c-divider);
+  white-space: nowrap;
+}
+.mock-form-send {
+  margin-inline-start: auto;
+  background: var(--c-cta);
+  color: var(--c-white);
+  border: none;
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 500;
+  cursor: default;
+  white-space: nowrap;
+  font-family: var(--font);
+}
+
+/* -- Client app compact strip -- */
+.client-strip {
+  margin-block: 80px;
+  padding: 32px 40px;
   background: linear-gradient(135deg, var(--c-baby-blue) 0%, #f4fbff 100%);
   border-radius: var(--radius-xl);
-  text-align: center;
-}
-.client-side-head { margin-bottom: 40px; }
-.client-side-head h3 {
-  font-size: clamp(22px, 2.4vw, 28px);
-  font-weight: 500; color: var(--c-main);
-  margin-bottom: 10px;
-}
-.client-side-head p {
-  color: var(--c-main); opacity: .75;
-  max-width: 560px; margin: 0 auto;
-  font-size: 16px;
-}
-.client-phones {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  align-items: end;
-  justify-items: center;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 40px;
+  align-items: center;
 }
-.client-phones .phone-frame {
-  width: 180px;
-  border-width: 6px;
-  border-radius: 28px;
+.client-strip-text { display: flex; flex-direction: column; gap: 10px; }
+.client-strip-eyebrow {
+  display: inline-block;
+  width: max-content;
+  font-size: 12px; font-weight: 500;
+  color: var(--c-blue);
+  background: var(--c-white);
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.02em;
 }
-.client-phones .phone-frame:nth-child(odd) { transform: translateY(-12px) rotate(-2deg); }
-.client-phones .phone-frame:nth-child(even) { transform: translateY(12px) rotate(2deg); }
+.client-strip-text h3 {
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 500;
+  color: var(--c-main);
+  line-height: 1.35;
+}
+.client-strip-text p {
+  color: var(--c-main); opacity: .8;
+  font-size: 15px; line-height: 1.55;
+  max-width: 460px;
+}
+.client-strip-phones {
+  display: flex; gap: 14px;
+  justify-content: center; align-items: center;
+}
+.client-strip-phones .phone-frame:nth-child(1) { transform: translateY(-8px) rotate(-3deg); }
+.client-strip-phones .phone-frame:nth-child(2) { transform: translateY(4px) rotate(0deg); z-index: 1; }
+.client-strip-phones .phone-frame:nth-child(3) { transform: translateY(-8px) rotate(3deg); }
 
 .system-bonus {
   display: grid; grid-template-columns: repeat(2, 1fr);
@@ -728,15 +917,17 @@ p { color: var(--c-main); }
   .browser-url { font-size: 11px; padding: 5px 10px; }
   .browser-url span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .dashboard-callouts { grid-template-columns: 1fr; gap: 12px; margin-top: 20px; }
-  .client-side { padding: 40px 20px; margin-block: 56px; }
-  .client-phones { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-  .client-phones .phone-frame { width: 100%; max-width: 160px; }
+  .client-strip { padding: 32px 24px; margin-block: 56px; grid-template-columns: 1fr; gap: 28px; text-align: center; }
+  .client-strip-text { align-items: center; }
+  .client-strip-text p { margin-inline: auto; }
+  .client-strip-phones { flex-wrap: wrap; }
   .panel-frame-tall { max-width: 100%; }
+  .browser-frame-mini { max-width: 100%; transform: none; }
 }
 @media (max-width: 520px) {
-  .client-phones { grid-template-columns: 1fr; max-width: 220px; margin-inline: auto; }
-  .client-phones .phone-frame:nth-child(odd),
-  .client-phones .phone-frame:nth-child(even) { transform: none; }
+  .client-strip-phones .phone-frame:nth-child(1),
+  .client-strip-phones .phone-frame:nth-child(2),
+  .client-strip-phones .phone-frame:nth-child(3) { transform: none; }
 }
 
 /* ---------- TRUST ---------- */
