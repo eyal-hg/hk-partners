@@ -23,6 +23,7 @@ build/
 
 # Local dev
 .cache/
+.claude/
 
 # Raw Figma asset downloads (kept locally, not in repo)
 figma-assets/
