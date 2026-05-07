@@ -584,8 +584,33 @@ p { color: var(--c-main); }
   .steps { grid-template-columns: 1fr; }
 }
 
+/* ---------- SECTION HEAD (shared across 01/02/03) ---------- */
+.section-head {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto 56px;
+  display: flex; flex-direction: column; align-items: center;
+}
+.section-head .section-title { margin-bottom: 16px; }
+.section-head .section-sub { margin-bottom: 0; }
+.section-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 13px; font-weight: 500;
+  color: var(--c-blue);
+  letter-spacing: 0.04em;
+  margin-bottom: 18px;
+}
+.section-eyebrow-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px;
+  background: var(--c-baby-blue);
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 12px;
+}
+
 /* ---------- SYSTEM ---------- */
-.system { padding-block: 110px; background: var(--c-bg-soft); }
+.system { padding-block: 110px; }
 
 /* -- Dashboard hero (browser frame) -- */
 .dashboard-hero {
@@ -665,7 +690,6 @@ p { color: var(--c-main); }
 /* -- Feature deep-dives -- */
 .system-grid {
   display: flex; flex-direction: column; gap: 96px;
-  margin-bottom: 96px;
 }
 .feature-card {
   display: grid;
@@ -1551,4 +1575,196 @@ p { color: var(--c-main); }
   line-height: 1.5;
 }
 .rep-insight-icon { flex-shrink: 0; }
+
+/* =========================================================
+   OPERATIONS — behind-the-scenes workflow
+========================================================= */
+.operations {
+  padding-block: 110px;
+  background: var(--c-bg-soft);
+}
+.ops-flow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  position: relative;
+  margin-bottom: 64px;
+}
+.ops-flow::before {
+  content: '';
+  position: absolute;
+  top: 60px;
+  inset-inline: 12%;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, var(--c-blue) 0 6px, transparent 6px 12px);
+  opacity: 0.35;
+  z-index: 0;
+}
+.ops-step {
+  position: relative;
+  z-index: 1;
+  background: var(--c-white);
+  border: 1px solid var(--c-divider);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  display: flex; flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  box-shadow: var(--shadow-soft);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.ops-step:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+.ops-num {
+  font-size: 12px; font-weight: 700;
+  color: var(--c-blue);
+  letter-spacing: 0.14em;
+}
+.ops-icon {
+  width: 48px; height: 48px;
+  border-radius: 14px;
+  background: var(--c-baby-blue);
+  color: var(--c-blue);
+  display: flex; align-items: center; justify-content: center;
+}
+.ops-icon-ai { background: rgba(228, 131, 117, 0.14); color: var(--c-cta); }
+.ops-icon-human { background: rgba(57, 171, 226, 0.18); color: var(--c-main); }
+.ops-icon-done { background: rgba(82, 196, 26, 0.14); color: #2ea857; }
+.ops-icon svg { width: 22px; height: 22px; }
+.ops-step h3 {
+  font-size: 19px;
+  font-weight: 500;
+  margin: 0;
+  color: var(--c-main);
+  line-height: 1.25;
+}
+.ops-step p {
+  color: var(--c-grey);
+  font-size: 14.5px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.ops-outcome {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+  background: linear-gradient(135deg, var(--c-main) 0%, #163d63 100%);
+  border-radius: var(--radius-xl);
+  padding: 36px 40px;
+  box-shadow: var(--shadow-card);
+}
+.ops-outcome-stat {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+.ops-outcome-num {
+  font-size: clamp(34px, 4.2vw, 48px);
+  font-weight: 700;
+  color: var(--c-blue);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.ops-outcome-label {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+}
+.ops-outcome-divider {
+  width: 1px; height: 36px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+@media (max-width: 880px) {
+  .operations { padding-block: 72px; }
+  .ops-flow { grid-template-columns: 1fr; gap: 14px; margin-bottom: 40px; }
+  .ops-flow::before { display: none; }
+  .ops-outcome {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 28px 24px;
+  }
+  .ops-outcome-divider {
+    width: 36px; height: 1px;
+  }
+}
+
+/* =========================================================
+   CLIENT (3 channels: App + WhatsApp + Monthly Report)
+========================================================= */
+.client { padding-block: 110px; }
+.client-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-bottom: 36px;
+}
+.client .exp-card {
+  padding: 28px 26px;
+  gap: 16px;
+}
+.client .exp-card-titles h4 {
+  font-size: clamp(18px, 1.8vw, 22px);
+}
+.client .exp-bullets li { font-size: 14px; }
+.client .exp-desc { font-size: 14.5px; }
+.client .exp-visual { padding-top: 14px; }
+.client .exp-visual .phone-frame { width: 120px; }
+.client .exp-visual .phone-frame:nth-child(1) { transform: translateY(-4px) rotate(-3deg); }
+.client .exp-visual .phone-frame:nth-child(2) { transform: translateY(2px) rotate(3deg); }
+.client .wa-mock { max-width: 280px; font-size: 12px; }
+.client .wa-mock-body { padding: 10px; gap: 6px; max-height: 240px; }
+.client .wa-mock .wa-bubble { font-size: 12px; padding: 7px 10px; }
+.client .mockup-report {
+  padding: 16px 16px 14px;
+  gap: 12px;
+  font-size: 12px;
+}
+.client .rep-head h4 { font-size: 15px; }
+.client .rep-eyebrow { font-size: 10px; }
+.client .rep-pill { font-size: 10px; padding: 3px 8px; }
+.client .rep-totals { padding: 10px 0; gap: 6px; }
+.client .rep-total-num { font-size: 13px; }
+.client .rep-total-label { font-size: 10px; }
+.client .rep-cat { grid-template-columns: 70px 1fr auto; gap: 8px; font-size: 11px; }
+.client .rep-cat-bar { height: 5px; }
+.client .rep-insight { font-size: 11px; padding: 8px 10px; }
+
+/* Report card accent */
+.exp-report::before { background: var(--c-cta); }
+.exp-icon-report { background: rgba(228, 131, 117, 0.14); color: var(--c-cta); }
+.exp-report .exp-bullets li::before { background: rgba(228, 131, 117, 0.16); }
+.exp-report .exp-bullets li::after { border-color: var(--c-cta); }
+
+.exp-visual-report { padding-top: 14px; }
+
+.client-foot {
+  display: flex; align-items: center; justify-content: center;
+  gap: 14px;
+  padding: 22px 28px;
+  background: var(--c-baby-blue);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+.client-foot p {
+  color: var(--c-main);
+  font-size: 15.5px;
+  line-height: 1.55;
+  margin: 0;
+}
+.client-foot strong { color: var(--c-main); font-weight: 700; }
+
+@media (max-width: 980px) {
+  .client-grid { grid-template-columns: 1fr; gap: 20px; }
+  .client .exp-card { padding: 28px 24px; }
+  .client .wa-mock, .client .mockup-report { max-width: 360px; margin-inline: auto; }
+}
+@media (max-width: 880px) {
+  .client { padding-block: 72px; }
+  .client-foot { flex-direction: column; gap: 10px; padding: 18px; }
+}
 
