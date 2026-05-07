@@ -198,12 +198,27 @@ p { color: var(--c-main); }
   pointer-events: none;
   overflow: hidden;
   background:
-    linear-gradient(180deg,
-      rgba(255, 255, 255, 0.78) 0%,
-      rgba(255, 255, 255, 0.45) 30%,
-      rgba(255, 255, 255, 0.18) 60%,
-      rgba(255, 255, 255, 0.55) 100%),
-    url('assets/screens/hero-bg.jpg') center/cover no-repeat;
+    radial-gradient(ellipse 90% 60% at 50% 0%, rgba(57, 171, 226, 0.10), transparent 60%),
+    radial-gradient(ellipse 80% 50% at 50% 100%, rgba(228, 131, 117, 0.08), transparent 60%),
+    linear-gradient(180deg, #f5faff 0%, #ffffff 50%, #fff8f5 100%);
+}
+.hero-grid-pattern {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(57, 171, 226, 0.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(57, 171, 226, 0.18) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 85% 70% at 50% 45%, #000 30%, transparent 90%);
+          mask-image: radial-gradient(ellipse 85% 70% at 50% 45%, #000 30%, transparent 90%);
+}
+.hero-grid-pattern::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(45deg, transparent 49.7%, rgba(57, 171, 226, 0.12) 49.85%, rgba(57, 171, 226, 0.12) 50.15%, transparent 50.3%);
+  background-size: 220px 220px;
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 20%, transparent 65%);
+          mask-image: radial-gradient(circle at 50% 50%, #000 20%, transparent 65%);
 }
 .hero-glow {
   position: absolute;
@@ -211,15 +226,34 @@ p { color: var(--c-main); }
   filter: blur(90px);
 }
 .hero-glow-1 {
-  width: 720px; height: 720px;
-  background: radial-gradient(circle, rgba(57, 171, 226, 0.40), transparent 65%);
-  top: -20%; inset-inline-end: -10%;
+  width: 820px; height: 820px;
+  background: radial-gradient(circle, rgba(57, 171, 226, 0.60), transparent 65%);
+  top: -25%; inset-inline-end: -12%;
   animation: heroOrb1 14s ease-in-out infinite;
-  mix-blend-mode: multiply;
+}
+.hero-glow-2 {
+  width: 660px; height: 660px;
+  background: radial-gradient(circle, rgba(228, 131, 117, 0.45), transparent 65%);
+  bottom: -22%; inset-inline-start: -8%;
+  animation: heroOrb2 16s ease-in-out infinite;
+}
+.hero-glow-3 {
+  width: 540px; height: 540px;
+  background: radial-gradient(circle, rgba(105, 178, 255, 0.40), transparent 65%);
+  top: 28%; inset-inline-start: 28%;
+  animation: heroOrb3 18s ease-in-out infinite;
 }
 @keyframes heroOrb1 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.7; }
+  50%      { transform: translate(-40px, 40px) scale(1.08); opacity: 0.9; }
+}
+@keyframes heroOrb2 {
   0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
-  50%      { transform: translate(-30px, 30px) scale(1.06); opacity: 0.8; }
+  50%      { transform: translate(40px, -30px) scale(1.10); opacity: 0.8; }
+}
+@keyframes heroOrb3 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+  50%      { transform: translate(20px, -25px) scale(1.06); opacity: 0.6; }
 }
 .hero .container { position: relative; z-index: 1; }
 .hero-centered .hero-copy {
