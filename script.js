@@ -1,101 +1,116 @@
-/* HK Money Partners — interactions: modal + form submit + scroll reveal */
+/* HK ליועצים — interactions: scroll reveal, day clock, modal + form */
 (function () {
   'use strict';
 
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   /* ---------- Scroll reveal ---------- */
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!reduceMotion && 'IntersectionObserver' in window) {
-    const revealSelectors = [
-      '.section-head > *',
-      '.pain-card',
-      '.pillar',
-      '.feature-card',
-      '.ops-step',
-      '.ops-tasks-col',
-      '.ops-outcome',
-      '.exp-card',
-      '.founder-card',
-      '.bridge-eyebrow',
-      '.bridge-title',
-      '.bridge-sub',
+    var revealSelectors = [
+      '.hero-eyebrow', '.hero-title', '.hero-lead', '.hero-cta', '.hero-stage',
+      '.day-head > *',
+      '.day-step',
+      '.memory-inner > *',
+      '.mem-card',
+      '.more-head > *',
+      '.more-card',
+      '.client-head > *',
+      '.client-card',
       '.client-foot',
-      '.dashboard-hero',
-      '.callout',
-      '.hero-copy h1',
-      '.hero-copy .lead',
-      '.hero-cta',
-      '.cta-final h2',
-      '.cta-final .section-sub',
-      '.cta-final-actions',
+      '.ops-txt > *',
+      '.ops-stat',
       '.founders-intro > *',
+      '.founder-card',
+      '.cta-title', '.cta-sub', '.cta-final .btn'
     ];
 
-    const elements = Array.from(document.querySelectorAll(revealSelectors.join(',')));
+    var elements = Array.prototype.slice.call(
+      document.querySelectorAll(revealSelectors.join(','))
+    );
 
-    // Group by parent for sibling-based stagger
-    const groups = new Map();
-    elements.forEach(el => {
-      const key = el.parentElement;
+    var groups = new Map();
+    elements.forEach(function (el) {
+      var key = el.parentElement;
       if (!groups.has(key)) groups.set(key, []);
       groups.get(key).push(el);
     });
 
-    elements.forEach(el => el.classList.add('reveal'));
+    elements.forEach(function (el) { el.classList.add('reveal'); });
 
-    groups.forEach(siblings => {
-      siblings.forEach((el, i) => {
-        const delay = Math.min(i * 90, 540);
-        el.style.transitionDelay = delay + 'ms';
+    groups.forEach(function (siblings) {
+      siblings.forEach(function (el, i) {
+        el.style.transitionDelay = Math.min(i * 80, 480) + 'ms';
       });
     });
 
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-revealed');
           io.unobserve(entry.target);
         }
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
 
-    elements.forEach(el => io.observe(el));
+    elements.forEach(function (el) { io.observe(el); });
 
-    // Safety net: reveal anything already in viewport once layout settles.
-    // Covers cases where IntersectionObserver is paused (tab opened in background)
-    // or where the initial firing misses fully-visible elements.
+    // Safety net: reveal what's already visible (background-tab load etc.)
     function revealInViewport() {
-      const vh = window.innerHeight;
-      elements.forEach(el => {
+      var vh = window.innerHeight;
+      elements.forEach(function (el) {
         if (el.classList.contains('is-revealed')) return;
-        const rect = el.getBoundingClientRect();
+        var rect = el.getBoundingClientRect();
         if (rect.top < vh * 0.95 && rect.bottom > 0) {
           el.classList.add('is-revealed');
           io.unobserve(el);
         }
       });
     }
-    requestAnimationFrame(() => requestAnimationFrame(revealInViewport));
+    requestAnimationFrame(function () { requestAnimationFrame(revealInViewport); });
     if (document.readyState !== 'complete') {
-      window.addEventListener('load', () => requestAnimationFrame(revealInViewport));
+      window.addEventListener('load', function () { requestAnimationFrame(revealInViewport); });
     }
-    document.addEventListener('visibilitychange', () => {
+    document.addEventListener('visibilitychange', function () {
       if (!document.hidden) revealInViewport();
     });
   }
 
+  /* ---------- Day clock (sticky, updates per step) ---------- */
+  var clock = document.getElementById('dayClock');
+  var steps = document.querySelectorAll('.day-step[data-time]');
+  if (clock && steps.length && 'IntersectionObserver' in window) {
+    var clockIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var t = entry.target.getAttribute('data-time');
+          if (t && clock.textContent !== t) {
+            clock.textContent = t;
+            if (!reduceMotion) {
+              clock.animate(
+                [{ transform: 'scale(1.12)' }, { transform: 'scale(1)' }],
+                { duration: 260, easing: 'ease-out' }
+              );
+            }
+          }
+        }
+      });
+    }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
+    steps.forEach(function (s) { clockIO.observe(s); });
+  }
 
-  const modal = document.getElementById('contactModal');
-  const openers = document.querySelectorAll('[data-open-modal]');
-  const closers = document.querySelectorAll('[data-close-modal]');
-  const form = modal && modal.querySelector('form');
-  const successPanel = modal && modal.querySelector('.form-success');
+  /* ---------- Modal ---------- */
+  var modal = document.getElementById('contactModal');
+  var openers = document.querySelectorAll('[data-open-modal]');
+  var closers = document.querySelectorAll('[data-close-modal]');
+  var form = modal && modal.querySelector('form');
+  var successPanel = modal && modal.querySelector('.form-success');
 
   function openModal() {
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
-    const firstField = modal.querySelector('input, select');
-    if (firstField) setTimeout(() => firstField.focus(), 50);
+    var firstField = modal.querySelector('input:not([name="_honey"]), select');
+    if (firstField) setTimeout(function () { firstField.focus(); }, 50);
   }
   function closeModal() {
     modal.classList.remove('is-open');
@@ -103,30 +118,26 @@
     document.body.style.overflow = '';
   }
 
-  openers.forEach(b => b.addEventListener('click', openModal));
-  closers.forEach(b => b.addEventListener('click', closeModal));
-  document.addEventListener('keydown', e => {
+  openers.forEach(function (b) { b.addEventListener('click', openModal); });
+  closers.forEach(function (b) { b.addEventListener('click', closeModal); });
+  document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
   });
 
   if (form) {
-    form.addEventListener('submit', async function (e) {
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
-      const action = form.getAttribute('action') || '/';
-      const data = new FormData(form);
-      try {
-        await fetch(action, {
-          method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: data
-        });
-      } catch (_) {
-        // Network error — still show success so the user isn't blocked locally.
-      }
+      var action = form.getAttribute('action') || '/';
+      var data = new FormData(form);
+      fetch(action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: data
+      }).catch(function () { /* show success anyway; production posts via FormSubmit */ });
       form.hidden = true;
       successPanel.hidden = false;
       setTimeout(closeModal, 2200);
-      setTimeout(() => {
+      setTimeout(function () {
         form.reset();
         form.hidden = false;
         successPanel.hidden = true;

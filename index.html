@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="HK Studio Partners — הפלטפורמה הראשונה ליועצים פיננסיים בעידן ה-AI. פלטפורמה ממותגת, תובנות AI וצוות תזרים שמנהל את הלקוחות שלך — כדי שאתה תתמקד בייעוץ ובהובלת הלקוח קדימה." />
-  <title>HK Studio Partners — הפלטפורמה הראשונה ליועצים פיננסיים בעידן ה-AI.</title>
+  <meta name="description" content="HK ליועצים — פגישות שמקליטות את עצמן והופכות לזיכרון, הכנה שנכתבת לבד, ותפעול תזרים שמישהו אחר עושה בשבילך. אתה — רק מייעץ." />
+  <title>HK ליועצים — תיכנס לכל פגישה כאילו יש לך זיכרון מושלם.</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Karantina:wght@400;700&family=Rubik:wght@400;500;600;700&display=swap" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -17,503 +17,384 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="#hero" class="logo">
-        <img src="assets/logo.png" alt="HK Studio" />
+        <img src="assets/logo.png" alt="HK" />
       </a>
       <nav class="header-nav" aria-label="ניווט ראשי">
-        <a href="#system">המערכת</a>
-        <a href="#operations">התפעול</a>
-        <a href="#client">הלקוח</a>
+        <a href="#day">היום שלך</a>
+        <a href="#memory">הזיכרון</a>
+        <a href="#more">המערכת</a>
+        <a href="#client">ללקוח שלך</a>
         <a href="#founders">המייסדים</a>
       </nav>
       <button class="btn btn-primary btn-sm" data-open-modal>בואו נבדוק התאמה</button>
     </div>
   </header>
 
-  <!-- ============== 1. HERO ============== -->
-  <section id="hero" class="hero hero-centered">
-    <div class="hero-bg" aria-hidden="true">
-      <div class="hero-grid-pattern"></div>
-      <div class="hero-glow hero-glow-1"></div>
-      <div class="hero-glow hero-glow-2"></div>
-      <div class="hero-glow hero-glow-3"></div>
+  <!-- ============== HERO ============== -->
+  <section id="hero" class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <p class="hero-eyebrow">HK ליועצים עסקיים ופיננסיים</p>
+      <h1 class="hero-title">
+        <span class="ht-line">תיכנס לכל פגישה</span>
+        <span class="ht-line">כאילו יש לך <em>זיכרון מושלם.</em></span>
+      </h1>
+      <p class="hero-lead">
+        פגישות שמקליטות את עצמן והופכות לזיכרון. הכנה שנכתבת לבד.
+        <strong>וניהול הכספים של הלקוחות? צוות HK עושה אותו בשבילך.</strong>
+        אתה — רק מייעץ.
+      </p>
+      <div class="hero-cta">
+        <button class="btn btn-primary btn-lg" data-open-modal>בואו נבדוק התאמה</button>
+        <a class="btn-ghost" href="#day">← איך נראה יום איתה</a>
+      </div>
+
+      <div class="hero-stage" aria-hidden="true">
+        <div class="hero-frame">
+          <div class="hf-bar">
+            <span class="hf-dots"><i></i><i></i><i></i></span>
+            <span class="hf-url">app.hak.co.il</span>
+          </div>
+          <img src="docs/screenshots/advisor-dashboard.png" alt="דשבורד היועץ — כל העסק במסך אחד" />
+        </div>
+
+        <div class="hero-chip chip-a">
+          <span class="hc-ico rec"></span>
+          הוקלטה ← תומללה ← <b>3 עדכוני זיכרון</b>
+        </div>
+        <div class="hero-chip chip-b">
+          <span class="hc-ico radar"></span>
+          רדאר: <b>2 אותות</b> · לקוח בשל לשדרוג
+        </div>
+        <div class="hero-chip chip-c">
+          <span class="hc-ico prep"></span>
+          ההכנה לפגישת 09:00 — <b>מוכנה</b>
+        </div>
+      </div>
     </div>
+  </section>
+
+
+  <!-- ============== A DAY WITH HK ============== -->
+  <section id="day" class="day">
+    <div class="container day-head">
+      <span class="sec-label">יום אחד. יועץ אחד. מערכת אחת.</span>
+      <h2 class="section-title">ככה נראה היום שלך <em>איתה.</em></h2>
+      <p class="day-sub">גלול — השעון זז, והמערכת עובדת.</p>
+    </div>
+
+    <div class="day-clock" aria-hidden="true">
+      <span class="dc-time" id="dayClock">07:30</span>
+    </div>
+
+    <div class="container day-steps">
+
+      <!-- 07:30 -->
+      <article class="day-step" data-time="07:30">
+        <div class="ds-copy">
+          <span class="ds-time">07:30</span>
+          <h3>אתה פותח את המחשב.<br/><em>היא כבר עבדה.</em></h3>
+          <p>כל העסק שלך במסך אחד: מי בסיכון תזרימי אמיתי, אילו משימות פתוחות אצל מנהל התזרים של HK, ומי מהלקוחות צריך אותך היום. בלי אקסלים. בלי טלפונים.</p>
+          <ul class="ds-points">
+            <li>פיד אחד — מהמספרים ומהזיכרון, ממוין לפי דחיפות</li>
+            <li>חברות בסיכון עם פתרון מוצע בין-חשבונות</li>
+            <li>היומן שלך עם ההכנות כבר בפנים</li>
+          </ul>
+        </div>
+        <div class="ds-shot">
+          <div class="shot-frame">
+            <img src="docs/screenshots/advisor-dashboard.png" alt="דשבורד הבוקר של היועץ" loading="lazy" />
+          </div>
+        </div>
+      </article>
+
+      <!-- 09:00 -->
+      <article class="day-step" data-time="09:00">
+        <div class="ds-copy">
+          <span class="ds-time">09:00</span>
+          <h3>פגישה. <em>מההכנה ועד הסיכום —</em><br/>הכל קורה לבד.</h3>
+          <p>ההכנה כבר כתובה — מהזיכרון ומהמספרים ("פתח במספרים — צחי מאבד סבלנות מהקדמות"). ההקלטה היא בר צף שלא עוצר אותך. ובסוף — סיכום ומשימות מחכים לאישור שלך, ונשלחים ללקוח בוואטסאפ.</p>
+          <ul class="ds-points">
+            <li>נקודות פתיחה, מטרה מוצעת והנחיות אישיות — מוכנות מראש</li>
+            <li>אתה עובד חופשי במסכים, ההקלטה והתמלול רצים ברקע</li>
+            <li>הלקוח מקבל רק מה שאישרת</li>
+          </ul>
+        </div>
+        <div class="ds-shot">
+          <div class="shot-frame">
+            <img src="docs/screenshots/recording-bar.png" alt="בר הקלטה צף עם תמלול חי" loading="lazy" />
+          </div>
+        </div>
+      </article>
+
+      <!-- 13:40 -->
+      <article class="day-step" data-time="13:40">
+        <div class="ds-copy">
+          <span class="ds-time">13:40</span>
+          <h3>הרדאר תופס<br/><em>את מה שהיית מפספס.</em></h3>
+          <p>שביעות רצון בירידה אצל לקוח אחד. הזדמנות שדרוג אצל אחר. המערכת מזהה לבד — מהזיכרון, מהשימוש ומהתפעול — וכל אות מגיע עם "למה" והמלצת פעולה.</p>
+          <p class="ds-strong">אתה מגלה את הבעיה כשעוד אפשר לתקן אותה. לא בשיחת העזיבה.</p>
+        </div>
+        <div class="ds-shot">
+          <div class="shot-frame">
+            <img src="docs/screenshots/advisor-radar-popup.png" alt="רדאר שימור והרחבה" loading="lazy" />
+          </div>
+        </div>
+      </article>
+
+      <!-- 16:30 -->
+      <article class="day-step" data-time="16:30">
+        <div class="ds-copy">
+          <span class="ds-time">16:30</span>
+          <h3>ובכל הזמן הזה —<br/><em>הכספים מנוהלים.</em></h3>
+          <p>בזמן שאתה ייעצת, מנהל התזרים של HK קלט מסמכים, סגר התאמות ועדכן תחזיות — על כל הלקוחות שלך. חריגה צפויה? מסומנת, עם פתרון מוצע. אתה רק מחליט.</p>
+          <ul class="ds-points">
+            <li>תזרים עתידי, תזרים עבר, תקציב ומדדים — מעודכנים תמיד</li>
+            <li>חריגה צפויה מסומנת, עם פתרון מוצע</li>
+            <li>"לא הביא חומר X ימים" — מסומן לפני שזה בעיה</li>
+          </ul>
+        </div>
+        <div class="ds-shot">
+          <div class="shot-frame">
+            <img src="docs/screenshots/cashflow-forecast.png" alt="דוח תזרים עתידי — תחזית מול יעד" loading="lazy" />
+          </div>
+        </div>
+      </article>
+
+      <!-- 22:30 -->
+      <article class="day-step" data-time="22:30">
+        <div class="ds-copy">
+          <span class="ds-time">22:30</span>
+          <h3>אתה סוגר את היום.<br/><em>היא לא.</em></h3>
+          <p>כל פגישה, שיחה וצ'אט של היום כבר בתוך זיכרון הלקוח — מסווג לקטגוריות, עם שקיפות מלאה על מה עודכן ולמה. מחר בבוקר תיכנס חד יותר משהיית היום.</p>
+        </div>
+        <div class="ds-shot">
+          <div class="shot-frame">
+            <img src="docs/screenshots/advisor-memory-review.png" alt="עדכוני הזיכרון של היום" loading="lazy" />
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============== MONEY — the dirty work ============== -->
+  <section id="money" class="money">
     <div class="container">
-      <div class="hero-copy">
-        <h1>
-          <span class="h1-line">הפלטפורמה הראשונה ליועצים פיננסיים</span>
-          <span class="h1-line accent">בעידן ה-<span class="accent-ai">AI</span>.</span>
-        </h1>
-        <p class="lead">
-          פלטפורמה ממותגת ליועצים פיננסיים, עם תובנות AI וצוות תזרים שמנהל ומעדכן את תזרים הלקוחות —
-          <strong>כדי שאתה תוכל להתמקד בייעוץ ובהובלת הלקוח קדימה.</strong>
+      <div class="money-head">
+        <span class="sec-label">הבסיס של הכל</span>
+        <h2 class="section-title">ומי עושה את <em>העבודה השחורה?</em><br/>אנחנו.</h2>
+        <p class="money-lead">
+          כל הסיפור של הפגישות והזיכרון עובד — כי מתחתיו צוות מנהלי התזרים של HK
+          מנהל את הכספים של הלקוחות שלך, כל יום.
         </p>
+      </div>
 
-        <div class="hero-pillars">
-          <a href="#system" class="pillar">
-            <span class="pillar-num-badge">01</span>
-            <span class="pillar-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.39 5.42L20 8.24l-4 3.93.94 5.5L12 15.1l-4.94 2.57L8 12.17l-4-3.93 5.61-.82L12 2z"/></svg>
-            </span>
-            <span class="pillar-content">
-              <span class="pillar-title">הפלטפורמה שמנהלת את העבודה</span>
-              <span class="pillar-sub">כל הלקוחות, הפגישות, המשימות והתובנות — במקום אחד</span>
-            </span>
-            <svg class="pillar-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-          </a>
-          <a href="#operations" class="pillar">
-            <span class="pillar-num-badge">02</span>
-            <span class="pillar-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </span>
-            <span class="pillar-content">
-              <span class="pillar-title">צוות התזרים שמאחוריך</span>
-              <span class="pillar-sub">ניהול ועדכון יומי של תזרים הלקוחות שלך</span>
-            </span>
-            <svg class="pillar-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-          </a>
-          <a href="#client" class="pillar">
-            <span class="pillar-num-badge">03</span>
-            <span class="pillar-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
-            </span>
-            <span class="pillar-content">
-              <span class="pillar-title">חוויית לקוח תחת המותג שלך</span>
-              <span class="pillar-sub">אפליקציה ממותגת שמציגה ללקוח תמונה פיננסית ברורה</span>
-            </span>
-            <svg class="pillar-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-          </a>
-        </div>
+      <div class="money-grid">
+        <article class="money-card">
+          <span class="money-num">01</span>
+          <h3>הנתונים נכנסים</h3>
+          <p>בנקים, אשראי ומסמכים — וגם מה שהלקוח שולח בוואטסאפ — נקלטים ומוזנים לתזרים באופן שוטף.</p>
+        </article>
+        <article class="money-card">
+          <span class="money-num">02</span>
+          <h3>התחזית מתעדכנת</h3>
+          <p>כל יום: תחזית קדימה לפי הביצוע בפועל, פערים, חריגות, גבייה שמתעכבת וסיכונים שדורשים תשומת לב.</p>
+        </article>
+        <article class="money-card">
+          <span class="money-num">03</span>
+          <h3>אתה מקבל תמונה מוכנה</h3>
+          <p>נכנסת ללקוח — תזרים עדכני, משימות פתוחות, תובנות ונקודות שיחה. מוכן לפגישה ולהחלטות.</p>
+        </article>
+      </div>
 
-        <div class="hero-cta">
-          <button class="btn btn-primary btn-lg" data-open-modal>בואו נבדוק התאמה</button>
+      <div class="money-shot">
+        <div class="shot-frame">
+          <img src="docs/screenshots/company-dashboard.png" alt="דשבורד החברה — KPI, תחזית תזרים ורווחיות" loading="lazy" />
         </div>
+        <p class="money-caption">דשבורד החברה: KPI, תחזית תזרים יומית ורווחיות — מתעדכן אוטומטית מהבנקים ומ-Bizibox.</p>
+      </div>
+
+      <div class="ops-stats money-stats">
+        <div class="ops-stat"><b>0</b><span>עובדים שגייסת</span></div>
+        <div class="ops-stat"><b>100%</b><span>תחת המותג שלך</span></div>
+        <div class="ops-stat"><b>24/7</b><span>המערכת ערה</span></div>
       </div>
     </div>
   </section>
 
-  <!-- ============== 2. PROBLEM ============== -->
-  <section class="problem">
+  <!-- ============== MEMORY (NIGHT) ============== -->
+  <section id="memory" class="memory on-navy">
+    <div class="memory-stars" aria-hidden="true"></div>
+    <div class="container memory-inner">
+      <span class="mem-kicker">הנשק הסודי</span>
+      <h2 class="mem-title">מערכת אפשר להחליף.<br/><em>זיכרון של שנה — אי אפשר.</em></h2>
+      <p class="mem-lead">
+        המערכת זוכרת הכל על כל לקוח: מצב תזרימי, פרופיל עסקי, כאבים, יעדים והסכמות,
+        אירועים מהותיים — ומעדכנת את עצמה מכל נקודת מגע.
+      </p>
+
+      <div class="mem-sources" aria-label="מאיפה הזיכרון נבנה">
+        <span class="ms-chip">🎙 פגישות מוקלטות</span>
+        <span class="ms-chip">📞 שיחות מהסים</span>
+        <span class="ms-chip">💬 קבוצות הוואטסאפ</span>
+        <span class="ms-chip">📊 הנתונים הפיננסיים</span>
+        <span class="ms-chip">👤 מנהל התזרים</span>
+      </div>
+      <div class="mem-arrow" aria-hidden="true">↓</div>
+
+      <div class="mem-shot">
+        <div class="shot-frame shot-frame-glow">
+          <img src="docs/screenshots/advisor-memory-card.png" alt="כרטיס זיכרון הלקוח" loading="lazy" />
+        </div>
+      </div>
+
+      <div class="mem-grid">
+        <div class="mem-card">
+          <h4>זיכרון פר אדם</h4>
+          <p>סגנון תקשורת, מצב אישי, רגישויות — לכל משתמש בחברה. הצ'אט מכוונן בהתאם, בלי לחשוף מידע רגיש.</p>
+        </div>
+        <div class="mem-card">
+          <h4>שקיפות מלאה</h4>
+          <p>אחרי כל פגישה — טאב שמראה בדיוק מה עודכן, באיזו קטגוריה ומתי. אתה תמיד יודע מה המערכת יודעת.</p>
+        </div>
+        <div class="mem-card">
+          <h4>מתעדכן לבד</h4>
+          <p>פגישה, שיחת סים, הודעה בקבוצת הוואטסאפ — כל אינטראקציה נכנסת לזיכרון אוטומטית. בלי הקלדה, בלי CRM ריק.</p>
+        </div>
+      </div>
+
+      <p class="mem-moat">אחרי שנה עם HK — <strong>לזיכרון הזה אין תחליף בשום מקום.</strong></p>
+    </div>
+  </section>
+
+  <!-- ============== MORE FEATURES ============== -->
+  <section id="more" class="more">
     <div class="container">
-      <h2 class="section-title">רוב היועצים לא נתקעים בגלל הידע — הם נתקעים בגלל התשתית.</h2>
-      <p class="section-sub">ככל שיש יותר לקוחות, היועץ נדרש לנהל יותר פגישות, משימות, תזרים ועדכונים שוטפים — בלי תשתית שממרכזת את העבודה ומאפשרת לו להישאר במקום שבו הוא באמת נותן ערך: הייעוץ.</p>
+      <div class="more-head">
+        <span class="sec-label">ויש עוד</span>
+        <h2 class="section-title">כל פינה ביום שלך — <em>מכוסה.</em></h2>
+      </div>
 
-      <div class="pain-grid">
-        <article class="pain-card">
-          <div class="pain-num">01</div>
-          <h3>העבודה מפוזרת מדי</h3>
-          <p>לקוחות, פגישות, משימות ותובנות מפוזרים בין אקסלים, וואטסאפ ומיילים — ואין מקום אחד שמחזיק את כל התמונה.</p>
+      <div class="more-grid">
+        <article class="more-card mc-wide">
+          <div class="mc-txt">
+            <h3>זירת הפגישות</h3>
+            <p>אף פגישה לא מתפספסת: קרובות עם הכנה מוכנה, "דורש פעולה" עם סיכומים לאישור, ודגל אדום על פגישה שלא הוקלטה — כי פגישה בלי הקלטה היא חור בזיכרון.</p>
+          </div>
+          <div class="mc-shot"><img src="docs/screenshots/meetings-arena.png" alt="זירת הפגישות" loading="lazy" /></div>
         </article>
-        <article class="pain-card">
-          <div class="pain-num">02</div>
-          <h3>התזרים דורש טיפול יומי</h3>
-          <p>ניהול תזרים דורש עדכון, קטלוג, בקרה וזיהוי חריגות — עבודה תפעולית שגוזלת זמן מהייעוץ עצמו.</p>
+
+        <article class="more-card">
+          <div class="mc-txt">
+            <h3>יומן עם הכנה בפנים</h3>
+            <p>רק מה שחשוב: פגישות ושיחות. לחיצה אחת פותחת את נקודות הפתיחה מהזיכרון.</p>
+          </div>
+          <div class="mc-shot"><img src="docs/screenshots/advisor-calendar-prep.png" alt="היומן החכם" loading="lazy" /></div>
         </article>
-        <article class="pain-card">
-          <div class="pain-num">03</div>
-          <h3>הלקוח לא תמיד מרגיש את הערך</h3>
-          <p>היועץ יכול לעבוד שעות על ניתוחים, תזרים והמלצות — אבל אם הלקוח לא רואה את זה בזמן אמת, מבחינתו הערך לא קיים.</p>
+
+        <article class="more-card">
+          <div class="mc-txt">
+            <h3>זירת הלקוחות</h3>
+            <p>פס דופק צבעוני לכל לקוח, מגמה, וההתראה החשובה: "לא הביא חומר X ימים".</p>
+          </div>
+          <div class="mc-shot"><img src="docs/screenshots/advisor-clients.png" alt="זירת הלקוחות" loading="lazy" /></div>
+        </article>
+
+        <article class="more-card">
+          <div class="mc-txt">
+            <h3>שיחות מהסים של HK</h3>
+            <p>סים ייעודי — כל שיחה מוקלטת, מתומללת ומעדכנת זיכרון. כמו פגישה.</p>
+          </div>
+          <div class="mc-shot"><img src="docs/screenshots/meetings-arena-sim.png" alt="שיחות מהסים" loading="lazy" /></div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- ============== BRIDGE: Meet HK Studio ============== -->
-  <section class="bridge">
-    <div class="container">
-      <span class="bridge-eyebrow">פוגשים את HK Studio</span>
-      <h2 class="bridge-title">
-        הדור הבא של חברת ייעוץ פיננסי.
-        <span class="bridge-accent">כבר כאן.</span>
-      </h2>
-      <p class="bridge-sub">תשתית של חברת ייעוץ פרימיום — מחלקת בק-אופיס פיננסית, AI מתקדם ואפליקציה ממותגת ללקוחות. בלי לגייס אדם אחד. תחת המותג שלך.</p>
-    </div>
-  </section>
-
-  <!-- ============== 1. SYSTEM (Consultant Dashboard) ============== -->
-  <section id="system" class="system">
-    <div class="container">
-      <div class="section-head">
-        <span class="section-eyebrow"><span class="section-eyebrow-num">01</span>המערכת והדשבורד</span>
-        <h2 class="section-title">דשבורד אחד. כל הלקוחות שלך. כל המידע במסך אחד.</h2>
-        <p class="section-sub">תיק לקוחות חי, ווידג'טים פיננסיים, צ'אט AI שמכיר את כל הלקוחות שלך וסיכום אוטומטי לכל פגישה — דשבורד אחד, נגיש מהדפדפן או מהמובייל.</p>
-      </div>
-
-      <!-- Main consultant dashboard hero -->
-      <div class="dashboard-hero">
-        <div class="browser-frame">
-          <div class="browser-bar">
-            <div class="browser-dots">
-              <span></span><span></span><span></span>
-            </div>
-            <div class="browser-url">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              <span>app.partners.hak.co.il</span>
-            </div>
-          </div>
-          <div class="browser-screen">
-            <img src="assets/screens/desktop-01-dashboard.png" alt="דשבורד יועץ — רשימת לקוחות, יעדים, מסמכים, תהליך ליווי, צ'אט AI" />
-          </div>
-        </div>
-        <div class="dashboard-callouts">
-          <div class="callout callout-1">
-            <span class="callout-num">01</span>
-            <span class="callout-text">תיק לקוחות מלא בעמודה אחת</span>
-          </div>
-          <div class="callout callout-2">
-            <span class="callout-num">02</span>
-            <span class="callout-text">דשבורד פיננסי לכל לקוח</span>
-          </div>
-          <div class="callout callout-3">
-            <span class="callout-num">03</span>
-            <span class="callout-text">צ'אט AI מקצועי בעמודה צדדית</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Feature deep-dives -->
-      <div class="system-grid">
-        <article class="feature-card">
-          <div class="feature-text">
-            <span class="feature-eyebrow">תמונה מלאה לכל לקוח</span>
-            <h3>ווידגטים פיננסיים בזמן אמת</h3>
-            <p>תזרים מזומנים, רווחיות, מכירות, יעדים מול ביצוע — כל הנתונים החיוניים על כל לקוח בלוח אחד. הווידגטים מתעדכנים אוטומטית מהבנקים, ומציגים את התמונה בשפה של יועץ פיננסי.</p>
-            <ul class="feature-bullets">
-              <li>תזרים מזומנים, רווח גולמי, הוצאות קבועות</li>
-              <li>יעדים חודשיים מול ביצוע בפועל</li>
-              <li>התראות חכמות על חריגות וסיכונים</li>
-            </ul>
-          </div>
-          <div class="feature-visual">
-            <div class="panel-frame">
-              <img src="assets/screens/widget.png" alt="הוספת ווידג'ט לדשבורד — תחזית תזרים, מדד מחובר, ימי עבודה, מדד מגמות" />
-            </div>
-          </div>
-        </article>
-
-        <article class="feature-card feature-card-rev">
-          <div class="feature-text">
-            <span class="feature-eyebrow">שותף בכיר זמין 24/7</span>
-            <h3>צ'אט AI ליועץ — מבוסס על כל תיק הלקוחות שלך</h3>
-            <p>AI שמכיר כל אחד מהלקוחות שלך — את הנתונים הפיננסיים, את היעדים, את ההיסטוריה. שואלים אותו שאלה אסטרטגית ומקבלים תשובה מנומקת תוך שניות, ברמה של שותף ייעוץ בכיר.</p>
-            <ul class="feature-bullets">
-              <li>זוכר כל לקוח — תיק אחר תיק, פגישה אחר פגישה</li>
-              <li>מנתח תזרים, רווחיות, סיכונים והזדמנויות</li>
-              <li>הכנה מלאה לפגישה תוך שניות</li>
-              <li>שותף לכל החלטה — גם בשעה 23:00</li>
-            </ul>
-          </div>
-          <div class="feature-visual">
-            <div class="panel-frame mockup-ai-chat">
-              <div class="ai-thread">
-                <div class="ai-msg ai-msg-user">
-                  <div class="ai-bubble">מסעדת תמר — הרווח ירד 15% החודש. למה? ומה אגיד להם בפגישה מחר?</div>
-                </div>
-                <div class="ai-msg ai-msg-bot">
-                  <div class="ai-bubble">
-                    <p><strong>3 גורמים שזיהיתי בתזרים:</strong></p>
-                    <ul class="ai-list">
-                      <li>שכר דירה עלה <strong>+3,200&nbsp;₪</strong> מחודש מאי</li>
-                      <li>תשלום ספק חד-פעמי של <strong>22,000&nbsp;₪</strong> ב-15.5</li>
-                      <li>הכנסות ירדו <strong>12%</strong> מול אפריל</li>
-                    </ul>
-                    <div class="ai-rec">
-                      <span class="ai-rec-label">המלצה לפגישה</span>
-                      <span class="ai-rec-text">הצע פיזור התשלום לספק ל-3 תשלומים, ובחן עם הלקוח קמפיין שיווקי לחודש הבא לפיצוי על ירידת ההכנסות.</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="feature-card">
-          <div class="feature-text">
-            <span class="feature-eyebrow">סוף לעבודה שאחרי הפגישה</span>
-            <h3>תמלול וסיכום AI אוטומטי — לכל פגישה</h3>
-            <p>הפגישה מתועדת. ה-AI מתמלל, מסכם, מחלץ נקודות פעולה, מייצר משימות פולואפ — וגם נותן לך <strong>משוב מקצועי על הפגישה עצמה</strong>: איפה הובלת טוב, מה לחדד בפעם הבאה. כמו שותף בכיר שצופה בך עובד.</p>
-            <ul class="feature-bullets">
-              <li>תמלול מלא של הפגישה</li>
-              <li>סיכום AI עם נקודות פעולה ברורות</li>
-              <li>משוב ליועץ — מה עבד, מה לחדד</li>
-              <li>משימות פולואפ אוטומטיות בתיק הלקוח</li>
-              <li>נשלח ללקוח באפליקציה ובמייל</li>
-            </ul>
-          </div>
-          <div class="feature-visual">
-            <div class="panel-frame">
-              <img src="assets/screens/desktop-04-meeting-summary.png" alt="סיכום פגישה אוטומטי — תמלול, נקודות מרכזיות ומשימות פולואפ" />
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============== 2. OPERATIONS (Behind the Scenes) ============== -->
-  <section id="operations" class="operations">
-    <div class="container">
-      <div class="section-head">
-        <span class="section-eyebrow"><span class="section-eyebrow-num">02</span>תפעול התזרים</span>
-        <h2 class="section-title section-title-xl">
-          מחלקת ניהול תזרים שעובדת בשבילך.
-          <span class="section-accent">ואתה רואה הכל.</span>
-        </h2>
-        <p class="section-sub">כל העבודה השחורה של ניהול תזרים — שאיבת נתונים, קטלוג תנועות, התאמות בנק, מעקבי גבייה והתראות בזמן אמת. הצוות שלנו עושה את הכל על כל לקוח שלך. אתה מקבל את ההחלטות, אנחנו מטפלים בכל השאר.</p>
-      </div>
-
-      <div class="ops-flow">
-        <article class="ops-step">
-          <span class="ops-num">01</span>
-          <span class="ops-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          </span>
-          <h3>קליטת מסמכים</h3>
-          <p>חיבור ישיר לבנקים, וקליטת מסמכים מהלקוח דרך כל ערוץ — וואטסאפ, אימייל או צילום.</p>
-        </article>
-        <article class="ops-step">
-          <span class="ops-num">02</span>
-          <span class="ops-icon ops-icon-ai" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.39 5.42L20 8.24l-4 3.93.94 5.5L12 15.1l-4.94 2.57L8 12.17l-4-3.93 5.61-.82L12 2z"/></svg>
-          </span>
-          <h3>AI שמסדר את התמונה</h3>
-          <p>המערכת מזהה, מסווגת ומארגנת הכנסות והוצאות לפי קטגוריות — כדי להפוך נתונים גולמיים לתובנות עבודה.</p>
-        </article>
-        <article class="ops-step">
-          <span class="ops-num">03</span>
-          <span class="ops-icon ops-icon-human" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2"/></svg>
-          </span>
-          <h3>בקרה של מנהל תזרים</h3>
-          <p>כל תנועה עוברת בדיקה אנושית, התאמות ושיוך נכון — כדי שהנתונים שתקבל יהיו מדויקים ולא רק "אוטומטיים".</p>
-        </article>
-        <article class="ops-step">
-          <span class="ops-num">04</span>
-          <span class="ops-icon ops-icon-done" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          </span>
-          <h3>תמונה מוכנה לייעוץ</h3>
-          <p>אתה מקבל לקוח מסודר: תזרים מעודכן, חריגות, משימות ותובנות — מוכן לפגישה, להחלטות ולהמשך ליווי.</p>
-        </article>
-      </div>
-
-      <div class="ops-tasks">
-        <h3 class="ops-tasks-title">כל לקוח שלך מנוהל בשלוש שכבות — כל יום.</h3>
-        <p class="ops-tasks-sub">לא דוח חודשי ולא מערכת שמחכה שתיכנס אליה. בכל יום הצוות שלנו קולט נתונים, מעדכן תחזית, מזהה סיכונים ומכין עבורך תמונת לקוח מסודרת.</p>
-
-        <div class="ops-tasks-grid">
-          <div class="ops-tasks-col">
-            <span class="ops-tasks-label">01 — שכבת הנתונים</span>
-            <p class="ops-tasks-text">כל יום נאספים נתוני הבנק, האשראי והמסמכים, וגם חומרים שהלקוח שולח בוואטסאפ או במייל מוזנים לתזרים באופן שוטף — כדי לבנות תמונה עדכנית של מה שבאמת קורה בעסק.</p>
-          </div>
-
-          <div class="ops-tasks-col">
-            <span class="ops-tasks-label">02 — שכבת התחזית והבקרה</span>
-            <p class="ops-tasks-text">כל יום מתעדכנת התחזית קדימה לפי הביצוע בפועל, נבדקים פערים, חריגות, עומסי תשלומים, גבייה שמתעכבת וסיכונים תזרימיים שדורשים תשומת לב.</p>
-          </div>
-
-          <div class="ops-tasks-col">
-            <span class="ops-tasks-label">03 — שכבת היועץ</span>
-            <p class="ops-tasks-text">כל יום היועץ מקבל לקוח מסודר: תזרים עדכני, משימות פתוחות, תובנות, מגמות ונקודות שיחה להמשך הליווי.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="ops-outcome">
-        <div class="ops-outcome-stat">
-          <span class="ops-outcome-num">0</span>
-          <span class="ops-outcome-label">עובדים שצריך לגייס</span>
-        </div>
-        <div class="ops-outcome-divider" aria-hidden="true"></div>
-        <div class="ops-outcome-stat">
-          <span class="ops-outcome-num">24/7</span>
-          <span class="ops-outcome-label">זמינות מבצעית</span>
-        </div>
-        <div class="ops-outcome-divider" aria-hidden="true"></div>
-        <div class="ops-outcome-stat">
-          <span class="ops-outcome-num">100%</span>
-          <span class="ops-outcome-label">תחת המותג שלך</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============== 3. CLIENT EXPERIENCE ============== -->
+  <!-- ============== CLIENT EXPERIENCE ============== -->
   <section id="client" class="client">
     <div class="container">
-      <div class="section-head">
-        <span class="section-eyebrow"><span class="section-eyebrow-num">03</span>חוויית הלקוח הסופי</span>
-        <h2 class="section-title">ללקוח שלך — חוויה פרימיום תחת המותג שלך.</h2>
-        <p class="section-sub">אפליקציה ממותגת, צ'אט AI בוואטסאפ ודוח חודשי מקצועי. הלקוח רואה רק אותך — בכל מסך, בכל הודעה ובכל מסמך.</p>
+      <div class="client-head">
+        <span class="sec-label">ומה הלקוח שלך מקבל?</span>
+        <h2 class="section-title">לקוח שמרגיש <em>מלווה.</em> לא מנוהל.</h2>
       </div>
 
       <div class="client-grid">
-        <!-- ----- App ----- -->
-        <article class="exp-card exp-app">
-          <div class="exp-card-head">
-            <span class="exp-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-            </span>
-            <div class="exp-card-titles">
-              <span class="exp-channel">ערוץ 01</span>
-              <h4>אפליקציה ממותגת</h4>
-            </div>
-          </div>
-          <p class="exp-desc">הלקוח רואה את הלוגו והשם של העסק שלך — לא של HK. גם ב-iOS, גם באנדרואיד, גם בדפדפן.</p>
-          <ul class="exp-bullets">
-            <li>יעדים חודשיים ומדדי ביצוע</li>
-            <li>סיכומי פגישות (טקסט + הקלטה)</li>
-            <li>מסמכים, חוזים ודוחות פיננסיים</li>
-            <li>משימות ופולואפים בזמן אמת</li>
+        <article class="client-card">
+          <span class="cc-chip app">דשבורד ללקוח</span>
+          <h3>רואה את כל המספרים שלו</h3>
+          <p>הלקוח נכנס לדשבורד משלו ורואה את התמונה הפיננסית המלאה של העסק — חיה ומעודכנת.</p>
+          <ul>
+            <li>תזרים, יתרות ותחזית — בזמן אמת</li>
+            <li>הדוחות של העסק שלו</li>
+            <li>סיכומי פגישות ומשימות — אחרי שאישרת</li>
           </ul>
-          <div class="exp-visual">
-            <div class="phone-frame phone-frame-mini">
-              <img src="assets/screens/06-goals-dashboard.png" alt="יעדים באפליקציית הלקוח" />
-            </div>
-            <div class="phone-frame phone-frame-mini">
-              <img src="assets/screens/05-meeting-summary.png" alt="סיכום פגישה באפליקציה" />
-            </div>
-          </div>
         </article>
 
-        <!-- ----- WhatsApp ----- -->
-        <article class="exp-card exp-wa">
-          <div class="exp-card-head">
-            <span class="exp-icon exp-icon-wa" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-            </span>
-            <div class="exp-card-titles">
-              <span class="exp-channel">ערוץ 02</span>
-              <h4>צ'אט AI בוואטסאפ</h4>
-            </div>
-          </div>
-          <p class="exp-desc">הלקוח שואל בוואטסאפ — בצ'אט אישי עם ה-AI, או בקבוצה משותפת איתך, ה-AI והלקוח. אתה רואה את הכל ומתערב מתי שצריך.</p>
-          <ul class="exp-bullets">
-            <li>זמינות 24/7 — בלי הורדת אפליקציה</li>
-            <li>קבוצה משותפת איתך, AI והלקוח</li>
-            <li>תשובות מבוססות על המידע הפיננסי של הלקוח</li>
-            <li>שליחת מסמכים, מספרים והנחיות</li>
-            <li>תיעוד מלא של כל שיחה במערכת שלך</li>
+        <article class="client-card">
+          <span class="cc-chip wa">קבוצת וואטסאפ מנוטרת</span>
+          <h3>הקבוצה עובדת בשבילך</h3>
+          <p>לכל לקוח קבוצת וואטסאפ משותפת — אתה, הלקוח וה-AI. אנחנו מנטרים אותה: כל הודעה נקלטת, כל שאלה נענית, והזיכרון מתעדכן.</p>
+          <ul>
+            <li>ה-AI עונה מהנתונים של הלקוח, 24/7</li>
+            <li>מסמך שנשלח בקבוצה — נכנס לתזרים</li>
+            <li>מה שנאמר בקבוצה — נכנס לזיכרון</li>
           </ul>
-          <div class="exp-visual exp-visual-chat">
-            <img src="assets/screens/whats1.png" alt="צ'אט וואטסאפ — הלקוח שואל את ה-AI על תזרים, מקבל תשובה ודוח" class="exp-chat-img" />
-          </div>
         </article>
 
-        <!-- ----- Monthly Report ----- -->
-        <article class="exp-card exp-report">
-          <div class="exp-card-head">
-            <span class="exp-icon exp-icon-report" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="14" x2="15" y2="14"/><line x1="9" y1="18" x2="13" y2="18"/></svg>
-            </span>
-            <div class="exp-card-titles">
-              <span class="exp-channel">ערוץ 03</span>
-              <h4>תמונה פיננסית חודשית</h4>
-            </div>
-          </div>
-          <p class="exp-desc">בסוף כל חודש הלקוח מקבל תמונה מקצועית וברורה תחת המותג שלך — לא רק סיכום מספרים, אלא הסבר ניהולי שמראה מה באמת קרה לכסף בעסק.</p>
-          <ul class="exp-bullets">
-            <li>יתרת פתיחה מול יתרת סגירה בבנק</li>
-            <li>רווח תזרימי מפעילות שוטפת</li>
-            <li>הפרדה בין פעילות שוטפת למימון, השקעות ובעלים</li>
-            <li>תקציב מול ביצוע, מגמות ותובנות להמשך</li>
+        <article class="client-card">
+          <span class="cc-chip rep">תמונה פיננסית חודשית</span>
+          <h3>דוח שמספר סיפור</h3>
+          <p>בסוף כל חודש — תמונה מקצועית וברורה תחת המותג שלך: מה באמת קרה לכסף בעסק.</p>
+          <ul>
+            <li>יתרת פתיחה מול סגירה ורווח תזרימי</li>
+            <li>הפרדה בין שוטף, מימון, השקעות ובעלים</li>
+            <li>תקציב מול ביצוע, מגמות ותובנות</li>
           </ul>
-          <div class="exp-visual exp-visual-report">
-            <div class="panel-frame mockup-report">
-              <div class="rep-head">
-                <div>
-                  <div class="rep-eyebrow">דוח חודשי — מאי 2025</div>
-                  <h4>איפה הכסף שלך?</h4>
-                </div>
-                <span class="rep-pill">+12% מאפריל</span>
-              </div>
-              <div class="rep-totals">
-                <div class="rep-total">
-                  <span class="rep-total-label">הכנסות</span>
-                  <span class="rep-total-num">128,450 ₪</span>
-                </div>
-                <div class="rep-total">
-                  <span class="rep-total-label">הוצאות</span>
-                  <span class="rep-total-num">90,050 ₪</span>
-                </div>
-                <div class="rep-total rep-total-positive">
-                  <span class="rep-total-label">רווח</span>
-                  <span class="rep-total-num">38,400 ₪</span>
-                </div>
-              </div>
-              <div class="rep-cats">
-                <div class="rep-cat">
-                  <span class="rep-cat-name">שכר עובדים</span>
-                  <div class="rep-cat-bar"><span style="width: 64%"></span></div>
-                  <span class="rep-cat-amt">42,000</span>
-                </div>
-                <div class="rep-cat">
-                  <span class="rep-cat-name">ספקים</span>
-                  <div class="rep-cat-bar"><span style="width: 38%"></span></div>
-                  <span class="rep-cat-amt">25,200</span>
-                </div>
-                <div class="rep-cat">
-                  <span class="rep-cat-name">תפעול</span>
-                  <div class="rep-cat-bar rep-cat-bar-warn"><span style="width: 22%"></span></div>
-                  <span class="rep-cat-amt">14,850</span>
-                </div>
-              </div>
-              <div class="rep-insight">
-                <span class="rep-insight-icon" aria-hidden="true">💡</span>
-                <span>שכר דירה עלה ב-3,200 ₪ — בדוק חידוש חוזה.</span>
-              </div>
-            </div>
-          </div>
         </article>
       </div>
 
       <div class="client-foot">
-        <span class="exp-foot-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </span>
-        <p><strong>הלוגו שלך, השם שלך, התשובות שלך.</strong> הלקוח רואה רק אותך — אנחנו מאחורי הקלעים.</p>
+        <p><strong>הלקוח רואה רק אותך.</strong> בכל מסך, בכל הודעה ובכל מסמך — אנחנו מאחורי הקלעים.</p>
       </div>
     </div>
   </section>
 
   <!-- ============== FOUNDERS ============== -->
-  <section id="founders" class="founders">
+  <section id="founders" class="founders on-navy">
     <div class="container founders-grid">
       <div class="founders-intro">
-        <h2>הכירו את הפנים<br/>מאחורי <span class="brand">HK&nbsp;Studio</span></h2>
+        <h2>הכירו את הפנים<br/>מאחורי <span class="brand">HK</span></h2>
         <p class="founders-lead">
           את המערכת תכננו אנשים שחיים ונושמים עסקים בישראל,
-          במיוחד מהכיוון הפיננסי. החזון, הלב וההבנה הטוטאלית
-          מה בעלי עסקים בישראל צריכים, מגיעה משני אנשים —
-          <strong>אייל חזות ואופיר קריספין</strong>.
+          במיוחד מהכיוון הפיננסי — <strong>אייל חזות ואופיר קריספין</strong>.
         </p>
-        <p class="founders-tagline">HK Studio מסתכל איתך קדימה!</p>
         <button class="btn btn-primary btn-lg" data-open-modal>בוא נדבר</button>
       </div>
 
       <div class="founders-cards">
         <article class="founder-card">
           <div class="founder-photo-wrap founder-photo-wrap-lower">
-            <img class="founder-photo founder-photo-eyal" src="assets/founders/eyal.png" alt="אייל חזות, מייסד HK Studio" />
+            <img class="founder-photo founder-photo-eyal" src="assets/founders/eyal.png" alt="אייל חזות, מייסד HK" />
             <span class="founder-bar" aria-hidden="true"></span>
           </div>
           <div class="founder-card-body">
             <h3>אייל חזות</h3>
             <span class="founder-role">מייסד Bizibox | יזם פיננסי-טכנולוגי</span>
-            <p>האיש שהוביל את <strong>Bizibox</strong> ושינה את הדרך שבה רואי חשבון ובעלי עסקים עובדים עם מידע פיננסי בישראל — מביא את אותה מהפכה לעולם היועצים הפיננסיים: ניהול תזרים, AI ושירות ממותג שמורידים תפעול מהיועץ ומייצרים ללקוח חוויה פיננסית ברמה אחרת.</p>
-            <p class="founder-quote">"אחרי Bizibox בעולם רואי החשבון — HK&nbsp;Studio מביאה את קפיצת המדרגה לעולם היועצים הפיננסיים."</p>
+            <p>האיש שהוביל את <strong>Bizibox</strong> ושינה את הדרך שבה רואי חשבון ובעלי עסקים עובדים עם מידע פיננסי בישראל — מביא את אותה קפיצה לעולם היועצים.</p>
           </div>
         </article>
 
         <article class="founder-card">
           <div class="founder-photo-wrap">
-            <img class="founder-photo" src="assets/founders/ofir.png" alt="אופיר קריספין, שותף ב-HK Studio" />
+            <img class="founder-photo" src="assets/founders/ofir.png" alt="אופיר קריספין, שותף ב-HK" />
             <span class="founder-bar" aria-hidden="true"></span>
           </div>
           <div class="founder-card-body">
             <h3>אופיר קריספין</h3>
             <span class="founder-role">רו"ח, M.A. — לשעבר CFO</span>
-            <p>אחרי שנים בניהול כספים, תקציבים ותזרים בחברות מובילות, אופיר מביא ל-HK&nbsp;Studio ראייה פיננסית פרקטית: להבין איפה הכסף, לזהות מה מסכן את העסק, ולתרגם מספרים להחלטות שאפשר לבצע כבר מחר בבוקר.</p>
+            <p>שנים בניהול כספים, תקציבים ותזרים בחברות מובילות. ראייה פיננסית פרקטית: להבין איפה הכסף ולתרגם מספרים להחלטות.</p>
             <p class="founder-quote">"מספרים לא נועדו למלא דוחות. הם נועדו לנהל עסק."</p>
           </div>
         </article>
@@ -521,14 +402,12 @@
     </div>
   </section>
 
-  <!-- ============== 8. FINAL CTA ============== -->
+  <!-- ============== FINAL CTA ============== -->
   <section id="contact" class="cta-final">
     <div class="container">
-      <h2 class="section-title">בואו נכיר.</h2>
-      <p class="section-sub">שיחה אישית עם אופיר ואייל. נכיר את העסק שלך, תכיר את הפלטפורמה — ונבדוק יחד אם זה מתאים.</p>
-      <div class="cta-final-actions">
-        <button class="btn btn-primary btn-lg" data-open-modal>בואו נבדוק התאמה</button>
-      </div>
+      <h2 class="cta-title">מחר בבוקר אתה יכול<br/><em>לפתוח את המחשב אחרת.</em></h2>
+      <p class="cta-sub">שיחה אישית עם אופיר. נכיר את הפרקטיקה שלך, תראה את המערכת חיה — ונבדוק יחד אם זה מתאים.</p>
+      <button class="btn btn-primary btn-xl" data-open-modal>בואו נבדוק התאמה</button>
     </div>
   </section>
 
@@ -536,9 +415,9 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <img src="assets/logo.png" alt="HK Studio" />
+        <img src="assets/logo.png" alt="HK" />
       </div>
-      <p class="footer-meta">© HK Studio. partners.hak.co.il</p>
+      <p class="footer-meta">© HK. partners.hak.co.il</p>
     </div>
   </footer>
 
@@ -547,7 +426,7 @@
     <div class="modal-backdrop" data-close-modal></div>
     <div class="modal-dialog" role="document">
       <button class="modal-close" data-close-modal aria-label="סגור">×</button>
-      <h3 id="modalTitle">בקש שיחת היכרות</h3>
+      <h3 id="modalTitle">בואו נבדוק התאמה</h3>
       <p class="modal-sub">שיחה אישית עם אופיר. נחזור אליך תוך יום עסקים.</p>
 
       <form
@@ -556,7 +435,7 @@
         method="POST"
       >
         <input type="hidden" name="_cc" value="info@hak.co.il" />
-        <input type="hidden" name="_subject" value="שיחת היכרות — HK Studio Partners" />
+        <input type="hidden" name="_subject" value="שיחת היכרות — HK ליועצים" />
         <input type="hidden" name="_template" value="table" />
         <input type="hidden" name="_captcha" value="false" />
         <p class="hp"><label>אל תמלא: <input name="_honey" /></label></p>
@@ -584,7 +463,7 @@
             <option value="30+">30+</option>
           </select>
         </label>
-        <button type="submit" class="btn btn-primary btn-lg btn-block">בקש שיחת היכרות</button>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">בואו נבדוק התאמה</button>
       </form>
 
       <div class="form-success" hidden>
@@ -594,6 +473,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=5"></script>
+  <script src="script.js?v=10"></script>
 </body>
 </html>
