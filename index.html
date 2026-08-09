@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="HK ליועצים — פגישות שמקליטות את עצמן והופכות לזיכרון, הכנה שנכתבת לבד, ותפעול תזרים שמישהו אחר עושה בשבילך. אתה — רק מייעץ." />
-  <title>HK ליועצים — תיכנס לכל פגישה כאילו יש לך זיכרון מושלם.</title>
+  <meta name="description" content="HK ליועצים עסקיים — צוות שמנהל את התזרים של הלקוחות שלך, מערכת שזוכרת ומכינה כל פגישה, ולקוח שמקבל שירות של חברה גדולה. תחת השם שלך." />
+  <title>HK ליועצים — אתה מייעץ. אנחנו עושים את כל השאר.</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Karantina:wght@400;700&family=Rubik:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&family=Karantina:wght@400;700&family=Rubik:wght@500;600;700&display=swap" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -20,369 +20,150 @@
         <img src="assets/logo.png" alt="HK" />
       </a>
       <nav class="header-nav" aria-label="ניווט ראשי">
-        <a href="#day">היום שלך</a>
-        <a href="#memory">הזיכרון</a>
-        <a href="#more">המערכת</a>
-        <a href="#client">ללקוח שלך</a>
-        <a href="#founders">המייסדים</a>
+        <a href="#value">מה אתה מקבל</a>
+        <a href="#founders">מי אנחנו</a>
       </nav>
-      <button class="btn btn-primary btn-sm" data-open-modal>בואו נבדוק התאמה</button>
+      <button class="btn btn-primary btn-sm" data-open-modal>בואו נדבר</button>
     </div>
   </header>
 
   <!-- ============== HERO ============== -->
   <section id="hero" class="hero">
-    <div class="hero-bg" aria-hidden="true"></div>
     <div class="container hero-inner">
-      <p class="hero-eyebrow">HK ליועצים עסקיים ופיננסיים</p>
+      <p class="hero-eyebrow">HK ליועצים עסקיים</p>
       <h1 class="hero-title">
-        <span class="ht-line">תיכנס לכל פגישה</span>
-        <span class="ht-line">כאילו יש לך <em>זיכרון מושלם.</em></span>
+        <span class="ht-line">אתה מייעץ.</span>
+        <span class="ht-line"><em>ה-AI ואנחנו עושים את כל השאר.</em></span>
       </h1>
       <p class="hero-lead">
-        פגישות שמקליטות את עצמן והופכות לזיכרון. הכנה שנכתבת לבד.
-        <strong>וניהול הכספים של הלקוחות? צוות HK עושה אותו בשבילך.</strong>
-        אתה — רק מייעץ.
+        צוות HK מנהל את התזרים של הלקוחות שלך.
+        ה-AI מקליט, מסכם וזוכר בשבילך כל פגישה — ומכין אותך לבאה.
+        <strong>והלקוח שלך מקבל שירות של חברה גדולה — תחת השם שלך.</strong>
       </p>
       <div class="hero-cta">
         <button class="btn btn-primary btn-lg" data-open-modal>בואו נבדוק התאמה</button>
-        <a class="btn-ghost" href="#day">← איך נראה יום איתה</a>
       </div>
 
-      <div class="hero-stage" aria-hidden="true">
+      <div class="hero-stage">
         <div class="hero-frame">
           <div class="hf-bar">
             <span class="hf-dots"><i></i><i></i><i></i></span>
             <span class="hf-url">app.hak.co.il</span>
           </div>
-          <img src="docs/screenshots/advisor-dashboard.png" alt="דשבורד היועץ — כל העסק במסך אחד" />
-        </div>
-
-        <div class="hero-chip chip-a">
-          <span class="hc-ico rec"></span>
-          הוקלטה ← תומללה ← <b>3 עדכוני זיכרון</b>
-        </div>
-        <div class="hero-chip chip-b">
-          <span class="hc-ico radar"></span>
-          רדאר: <b>2 אותות</b> · לקוח בשל לשדרוג
-        </div>
-        <div class="hero-chip chip-c">
-          <span class="hc-ico prep"></span>
-          ההכנה לפגישת 09:00 — <b>מוכנה</b>
+          <img src="docs/screenshots/advisor-dashboard-hero.png" alt="המערכת של HK — כל הלקוחות שלך במסך אחד" />
         </div>
       </div>
     </div>
   </section>
 
-
-  <!-- ============== A DAY WITH HK ============== -->
-  <section id="day" class="day">
-    <div class="container day-head">
-      <span class="sec-label">יום אחד. יועץ אחד. מערכת אחת.</span>
-      <h2 class="section-title">ככה נראה היום שלך <em>איתה.</em></h2>
-      <p class="day-sub">גלול — השעון זז, והמערכת עובדת.</p>
-    </div>
-
-    <div class="day-clock" aria-hidden="true">
-      <span class="dc-time" id="dayClock">07:30</span>
-    </div>
-
-    <div class="container day-steps">
-
-      <!-- 07:30 -->
-      <article class="day-step" data-time="07:30">
-        <div class="ds-copy">
-          <span class="ds-time">07:30</span>
-          <h3>אתה פותח את המחשב.<br/><em>היא כבר עבדה.</em></h3>
-          <p>כל העסק שלך במסך אחד: מי בסיכון תזרימי אמיתי, אילו משימות פתוחות אצל מנהל התזרים של HK, ומי מהלקוחות צריך אותך היום. בלי אקסלים. בלי טלפונים.</p>
-          <ul class="ds-points">
-            <li>פיד אחד — מהמספרים ומהזיכרון, ממוין לפי דחיפות</li>
-            <li>חברות בסיכון עם פתרון מוצע בין-חשבונות</li>
-            <li>היומן שלך עם ההכנות כבר בפנים</li>
-          </ul>
-        </div>
-        <div class="ds-shot">
-          <div class="shot-frame">
-            <img src="docs/screenshots/advisor-dashboard.png" alt="דשבורד הבוקר של היועץ" loading="lazy" />
-          </div>
-        </div>
-      </article>
-
-      <!-- 09:00 -->
-      <article class="day-step" data-time="09:00">
-        <div class="ds-copy">
-          <span class="ds-time">09:00</span>
-          <h3>פגישה. <em>מההכנה ועד הסיכום —</em><br/>הכל קורה לבד.</h3>
-          <p>ההכנה כבר כתובה — מהזיכרון ומהמספרים ("פתח במספרים — צחי מאבד סבלנות מהקדמות"). ההקלטה היא בר צף שלא עוצר אותך. ובסוף — סיכום ומשימות מחכים לאישור שלך, ונשלחים ללקוח בוואטסאפ.</p>
-          <ul class="ds-points">
-            <li>נקודות פתיחה, מטרה מוצעת והנחיות אישיות — מוכנות מראש</li>
-            <li>אתה עובד חופשי במסכים, ההקלטה והתמלול רצים ברקע</li>
-            <li>הלקוח מקבל רק מה שאישרת</li>
-          </ul>
-        </div>
-        <div class="ds-shot">
-          <div class="shot-frame">
-            <img src="docs/screenshots/recording-bar.png" alt="בר הקלטה צף עם תמלול חי" loading="lazy" />
-          </div>
-        </div>
-      </article>
-
-      <!-- 13:40 -->
-      <article class="day-step" data-time="13:40">
-        <div class="ds-copy">
-          <span class="ds-time">13:40</span>
-          <h3>הרדאר תופס<br/><em>את מה שהיית מפספס.</em></h3>
-          <p>שביעות רצון בירידה אצל לקוח אחד. הזדמנות שדרוג אצל אחר. המערכת מזהה לבד — מהזיכרון, מהשימוש ומהתפעול — וכל אות מגיע עם "למה" והמלצת פעולה.</p>
-          <p class="ds-strong">אתה מגלה את הבעיה כשעוד אפשר לתקן אותה. לא בשיחת העזיבה.</p>
-        </div>
-        <div class="ds-shot">
-          <div class="shot-frame">
-            <img src="docs/screenshots/advisor-radar-popup.png" alt="רדאר שימור והרחבה" loading="lazy" />
-          </div>
-        </div>
-      </article>
-
-      <!-- 16:30 -->
-      <article class="day-step" data-time="16:30">
-        <div class="ds-copy">
-          <span class="ds-time">16:30</span>
-          <h3>ובכל הזמן הזה —<br/><em>הכספים מנוהלים.</em></h3>
-          <p>בזמן שאתה ייעצת, מנהל התזרים של HK קלט מסמכים, סגר התאמות ועדכן תחזיות — על כל הלקוחות שלך. חריגה צפויה? מסומנת, עם פתרון מוצע. אתה רק מחליט.</p>
-          <ul class="ds-points">
-            <li>תזרים עתידי, תזרים עבר, תקציב ומדדים — מעודכנים תמיד</li>
-            <li>חריגה צפויה מסומנת, עם פתרון מוצע</li>
-            <li>"לא הביא חומר X ימים" — מסומן לפני שזה בעיה</li>
-          </ul>
-        </div>
-        <div class="ds-shot">
-          <div class="shot-frame">
-            <img src="docs/screenshots/cashflow-forecast.png" alt="דוח תזרים עתידי — תחזית מול יעד" loading="lazy" />
-          </div>
-        </div>
-      </article>
-
-      <!-- 22:30 -->
-      <article class="day-step" data-time="22:30">
-        <div class="ds-copy">
-          <span class="ds-time">22:30</span>
-          <h3>אתה סוגר את היום.<br/><em>היא לא.</em></h3>
-          <p>כל פגישה, שיחה וצ'אט של היום כבר בתוך זיכרון הלקוח — מסווג לקטגוריות, עם שקיפות מלאה על מה עודכן ולמה. מחר בבוקר תיכנס חד יותר משהיית היום.</p>
-        </div>
-        <div class="ds-shot">
-          <div class="shot-frame">
-            <img src="docs/screenshots/advisor-memory-review.png" alt="עדכוני הזיכרון של היום" loading="lazy" />
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- ============== MONEY — the dirty work ============== -->
-  <section id="money" class="money">
+  <!-- ============== VALUE — three things ============== -->
+  <section id="value" class="value">
     <div class="container">
-      <div class="money-head">
-        <span class="sec-label">הבסיס של הכל</span>
-        <h2 class="section-title">ומי עושה את <em>העבודה השחורה?</em><br/>אנחנו.</h2>
-        <p class="money-lead">
-          כל הסיפור של הפגישות והזיכרון עובד — כי מתחתיו צוות מנהלי התזרים של HK
-          מנהל את הכספים של הלקוחות שלך, כל יום.
-        </p>
+      <div class="value-head">
+        <span class="sec-label">מה אתה מקבל</span>
+        <h2 class="section-title">ככה זה מרגיש כשיש לך <em>גב.</em></h2>
       </div>
 
-      <div class="money-grid">
-        <article class="money-card">
-          <span class="money-num">01</span>
-          <h3>הנתונים נכנסים</h3>
-          <p>בנקים, אשראי ומסמכים — וגם מה שהלקוח שולח בוואטסאפ — נקלטים ומוזנים לתזרים באופן שוטף.</p>
-        </article>
-        <article class="money-card">
-          <span class="money-num">02</span>
-          <h3>התחזית מתעדכנת</h3>
-          <p>כל יום: תחזית קדימה לפי הביצוע בפועל, פערים, חריגות, גבייה שמתעכבת וסיכונים שדורשים תשומת לב.</p>
-        </article>
-        <article class="money-card">
-          <span class="money-num">03</span>
-          <h3>אתה מקבל תמונה מוכנה</h3>
-          <p>נכנסת ללקוח — תזרים עדכני, משימות פתוחות, תובנות ונקודות שיחה. מוכן לפגישה ולהחלטות.</p>
-        </article>
-      </div>
-
-      <div class="money-shot">
-        <div class="shot-frame">
-          <img src="docs/screenshots/company-dashboard.png" alt="דשבורד החברה — KPI, תחזית תזרים ורווחיות" loading="lazy" />
+      <!-- 1 -->
+      <article class="val-row">
+        <div class="val-copy">
+          <span class="val-num">1</span>
+          <h3>הכספים של הלקוחות שלך?<br/><em>מנוהלים. כל יום.</em></h3>
+          <p>
+            אתה יודע מה זה להיכנס לפגישה כשהתזרים כבר סגור, התחזית מעודכנת,
+            והחריגה של החודש הבא כבר מסומנת — עם פתרון? מנהלי התזרים שלנו
+            וה-AI עושים בדיוק את זה, על כל לקוח שלך. אתה לא נוגע באקסל.
+            אתה מגיע — ומוביל.
+          </p>
+          <ul class="val-points">
+            <li>דוחות ברמת CFO: תזרים עבר ועתידי, תקציב ומדדים</li>
+            <li>חריגה של עוד חודש? כבר מסומנת. כבר עם פתרון.</li>
+          </ul>
         </div>
-        <p class="money-caption">דשבורד החברה: KPI, תחזית תזרים יומית ורווחיות — מתעדכן אוטומטית מהבנקים ומ-Bizibox.</p>
-      </div>
+        <div class="val-shot">
+          <div class="shot-frame">
+            <img src="docs/screenshots/cashflow-forecast.png" alt="דוח תזרים עתידי — תחזית מול יעד, ברמת CFO" loading="lazy" />
+          </div>
+        </div>
+      </article>
 
-      <div class="ops-stats money-stats">
-        <div class="ops-stat"><b>0</b><span>עובדים שגייסת</span></div>
-        <div class="ops-stat"><b>100%</b><span>תחת המותג שלך</span></div>
-        <div class="ops-stat"><b>24/7</b><span>המערכת ערה</span></div>
-      </div>
+      <!-- 2 -->
+      <article class="val-row val-row-flip">
+        <div class="val-copy">
+          <span class="val-num">2</span>
+          <h3>AI שזוכר את מה<br/><em>שאתה כבר שכחת.</em></h3>
+          <p>
+            כל פגישה, כל שיחת טלפון, כל הודעה בקבוצה, כל תנועה בתזרים —
+            הכל נאסף לזיכרון אחד חי של הלקוח. ולפני כל פגישה ה-AI כותב לך
+            הכנה: מה קרה מאז, מה באמת כואב לו, ובמה לפתוח.
+            הלקוח בטוח שאתה זוכר הכל. אתה פשוט מגיע מוכן.
+          </p>
+          <blockquote class="val-quote">"פתח במספרים — צחי מאבד סבלנות מהקדמות."</blockquote>
+          <ul class="val-points" style="margin-top: 14px;">
+            <li>רוצה להתייעץ? שאל את ה-AI כל שאלה על הלקוח — הוא עונה מתוך הזיכרון והמספרים</li>
+          </ul>
+        </div>
+        <div class="val-shot">
+          <div class="shot-frame">
+            <img src="docs/screenshots/advisor-memory-card.png" alt="כרטיס זיכרון הלקוח — מה שה-AI זוכר" loading="lazy" />
+          </div>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="val-row">
+        <div class="val-copy">
+          <span class="val-num">3</span>
+          <h3>והלקוח שלך מקבל יחס<br/><em>של חברה גדולה.</em></h3>
+          <p>
+            דשבורד עם כל המספרים של העסק שלו. קבוצת וואטסאפ שעונה לו תוך
+            שניות — גם בעשר בלילה — מתוך המספרים האמיתיים שלו. ודוח חודשי
+            שגורם לו להרגיש שיש מישהו על הכסף. הכל עם השם שלך.
+          </p>
+          <ul class="val-points">
+            <li>אנחנו מנטרים את הקבוצה — כל מסמך נקלט, כל שאלה נענית</li>
+            <li>אתה מאשר מה שיוצא — תמיד תיראה מקצועי</li>
+          </ul>
+        </div>
+        <div class="val-shot val-duo">
+          <div class="shot-frame">
+            <img src="docs/screenshots/company-dashboard.png" alt="הדשבורד שהלקוח שלך רואה — כל המספרים של העסק" loading="lazy" />
+          </div>
+          <div class="val-wa">
+            <img src="assets/screens/whats1.png" alt="הוואטסאפ של הלקוח — ה-AI עונה מתוך המספרים" loading="lazy" />
+          </div>
+        </div>
+      </article>
     </div>
   </section>
 
-  <!-- ============== MEMORY (NIGHT) ============== -->
-  <section id="memory" class="memory on-navy">
-    <div class="memory-stars" aria-hidden="true"></div>
-    <div class="container memory-inner">
-      <span class="mem-kicker">הנשק הסודי</span>
-      <h2 class="mem-title">מערכת אפשר להחליף.<br/><em>זיכרון של שנה — אי אפשר.</em></h2>
-      <p class="mem-lead">
-        המערכת זוכרת הכל על כל לקוח: מצב תזרימי, פרופיל עסקי, כאבים, יעדים והסכמות,
-        אירועים מהותיים — ומעדכנת את עצמה מכל נקודת מגע.
-      </p>
-
-      <div class="mem-sources" aria-label="מאיפה הזיכרון נבנה">
-        <span class="ms-chip">🎙 פגישות מוקלטות</span>
-        <span class="ms-chip">📞 שיחות מהסים</span>
-        <span class="ms-chip">💬 קבוצות הוואטסאפ</span>
-        <span class="ms-chip">📊 הנתונים הפיננסיים</span>
-        <span class="ms-chip">👤 מנהל התזרים</span>
-      </div>
-      <div class="mem-arrow" aria-hidden="true">↓</div>
-
-      <div class="mem-shot">
-        <div class="shot-frame shot-frame-glow">
-          <img src="docs/screenshots/advisor-memory-card.png" alt="כרטיס זיכרון הלקוח" loading="lazy" />
-        </div>
-      </div>
-
-      <div class="mem-grid">
-        <div class="mem-card">
-          <h4>זיכרון פר אדם</h4>
-          <p>סגנון תקשורת, מצב אישי, רגישויות — לכל משתמש בחברה. הצ'אט מכוונן בהתאם, בלי לחשוף מידע רגיש.</p>
-        </div>
-        <div class="mem-card">
-          <h4>שקיפות מלאה</h4>
-          <p>אחרי כל פגישה — טאב שמראה בדיוק מה עודכן, באיזו קטגוריה ומתי. אתה תמיד יודע מה המערכת יודעת.</p>
-        </div>
-        <div class="mem-card">
-          <h4>מתעדכן לבד</h4>
-          <p>פגישה, שיחת סים, הודעה בקבוצת הוואטסאפ — כל אינטראקציה נכנסת לזיכרון אוטומטית. בלי הקלדה, בלי CRM ריק.</p>
-        </div>
-      </div>
-
-      <p class="mem-moat">אחרי שנה עם HK — <strong>לזיכרון הזה אין תחליף בשום מקום.</strong></p>
-    </div>
-  </section>
-
-  <!-- ============== MORE FEATURES ============== -->
-  <section id="more" class="more">
+  <!-- ============== STRIP ============== -->
+  <section class="strip">
     <div class="container">
-      <div class="more-head">
-        <span class="sec-label">ויש עוד</span>
-        <h2 class="section-title">כל פינה ביום שלך — <em>מכוסה.</em></h2>
-      </div>
-
-      <div class="more-grid">
-        <article class="more-card mc-wide">
-          <div class="mc-txt">
-            <h3>זירת הפגישות</h3>
-            <p>אף פגישה לא מתפספסת: קרובות עם הכנה מוכנה, "דורש פעולה" עם סיכומים לאישור, ודגל אדום על פגישה שלא הוקלטה — כי פגישה בלי הקלטה היא חור בזיכרון.</p>
-          </div>
-          <div class="mc-shot"><img src="docs/screenshots/meetings-arena.png" alt="זירת הפגישות" loading="lazy" /></div>
-        </article>
-
-        <article class="more-card">
-          <div class="mc-txt">
-            <h3>יומן עם הכנה בפנים</h3>
-            <p>רק מה שחשוב: פגישות ושיחות. לחיצה אחת פותחת את נקודות הפתיחה מהזיכרון.</p>
-          </div>
-          <div class="mc-shot"><img src="docs/screenshots/advisor-calendar-prep.png" alt="היומן החכם" loading="lazy" /></div>
-        </article>
-
-        <article class="more-card">
-          <div class="mc-txt">
-            <h3>זירת הלקוחות</h3>
-            <p>פס דופק צבעוני לכל לקוח, מגמה, וההתראה החשובה: "לא הביא חומר X ימים".</p>
-          </div>
-          <div class="mc-shot"><img src="docs/screenshots/advisor-clients.png" alt="זירת הלקוחות" loading="lazy" /></div>
-        </article>
-
-        <article class="more-card">
-          <div class="mc-txt">
-            <h3>שיחות מהסים של HK</h3>
-            <p>סים ייעודי — כל שיחה מוקלטת, מתומללת ומעדכנת זיכרון. כמו פגישה.</p>
-          </div>
-          <div class="mc-shot"><img src="docs/screenshots/meetings-arena-sim.png" alt="שיחות מהסים" loading="lazy" /></div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============== CLIENT EXPERIENCE ============== -->
-  <section id="client" class="client">
-    <div class="container">
-      <div class="client-head">
-        <span class="sec-label">ומה הלקוח שלך מקבל?</span>
-        <h2 class="section-title">לקוח שמרגיש <em>מלווה.</em> לא מנוהל.</h2>
-      </div>
-
-      <div class="client-grid">
-        <article class="client-card">
-          <span class="cc-chip app">דשבורד ללקוח</span>
-          <h3>רואה את כל המספרים שלו</h3>
-          <p>הלקוח נכנס לדשבורד משלו ורואה את התמונה הפיננסית המלאה של העסק — חיה ומעודכנת.</p>
-          <ul>
-            <li>תזרים, יתרות ותחזית — בזמן אמת</li>
-            <li>הדוחות של העסק שלו</li>
-            <li>סיכומי פגישות ומשימות — אחרי שאישרת</li>
-          </ul>
-        </article>
-
-        <article class="client-card">
-          <span class="cc-chip wa">קבוצת וואטסאפ מנוטרת</span>
-          <h3>הקבוצה עובדת בשבילך</h3>
-          <p>לכל לקוח קבוצת וואטסאפ משותפת — אתה, הלקוח וה-AI. אנחנו מנטרים אותה: כל הודעה נקלטת, כל שאלה נענית, והזיכרון מתעדכן.</p>
-          <ul>
-            <li>ה-AI עונה מהנתונים של הלקוח, 24/7</li>
-            <li>מסמך שנשלח בקבוצה — נכנס לתזרים</li>
-            <li>מה שנאמר בקבוצה — נכנס לזיכרון</li>
-          </ul>
-        </article>
-
-        <article class="client-card">
-          <span class="cc-chip rep">תמונה פיננסית חודשית</span>
-          <h3>דוח שמספר סיפור</h3>
-          <p>בסוף כל חודש — תמונה מקצועית וברורה תחת המותג שלך: מה באמת קרה לכסף בעסק.</p>
-          <ul>
-            <li>יתרת פתיחה מול סגירה ורווח תזרימי</li>
-            <li>הפרדה בין שוטף, מימון, השקעות ובעלים</li>
-            <li>תקציב מול ביצוע, מגמות ותובנות</li>
-          </ul>
-        </article>
-      </div>
-
-      <div class="client-foot">
-        <p><strong>הלקוח רואה רק אותך.</strong> בכל מסך, בכל הודעה ובכל מסמך — אנחנו מאחורי הקלעים.</p>
-      </div>
+      <p class="strip-line">אתה כבר לא לבד.</p>
+      <p class="strip-sub">צוות, AI וזיכרון — מאחורי כל פגישה שלך. בלי לגייס אף אחד.</p>
+      <button class="btn btn-primary btn-lg" data-open-modal>בואו נבדוק התאמה</button>
     </div>
   </section>
 
   <!-- ============== FOUNDERS ============== -->
-  <section id="founders" class="founders on-navy">
-    <div class="container founders-grid">
-      <div class="founders-intro">
-        <h2>הכירו את הפנים<br/>מאחורי <span class="brand">HK</span></h2>
-        <p class="founders-lead">
-          את המערכת תכננו אנשים שחיים ונושמים עסקים בישראל,
-          במיוחד מהכיוון הפיננסי — <strong>אייל חזות ואופיר קריספין</strong>.
-        </p>
-        <button class="btn btn-primary btn-lg" data-open-modal>בוא נדבר</button>
+  <section id="founders" class="founders">
+    <div class="container">
+      <div class="value-head">
+        <span class="sec-label">מי אנחנו</span>
+        <h2 class="section-title">האנשים מאחורי <em>HK.</em></h2>
       </div>
 
       <div class="founders-cards">
         <article class="founder-card">
-          <div class="founder-photo-wrap founder-photo-wrap-lower">
+          <div class="founder-photo-wrap">
             <img class="founder-photo founder-photo-eyal" src="assets/founders/eyal.png" alt="אייל חזות, מייסד HK" />
             <span class="founder-bar" aria-hidden="true"></span>
           </div>
           <div class="founder-card-body">
             <h3>אייל חזות</h3>
             <span class="founder-role">מייסד Bizibox | יזם פיננסי-טכנולוגי</span>
-            <p>האיש שהוביל את <strong>Bizibox</strong> ושינה את הדרך שבה רואי חשבון ובעלי עסקים עובדים עם מידע פיננסי בישראל — מביא את אותה קפיצה לעולם היועצים.</p>
+            <p>האיש שהוביל את <strong>Bizibox</strong> ושינה את הדרך שבה רואי חשבון ובעלי עסקים עובדים עם מידע פיננסי בישראל.</p>
           </div>
         </article>
 
@@ -394,8 +175,7 @@
           <div class="founder-card-body">
             <h3>אופיר קריספין</h3>
             <span class="founder-role">רו"ח, M.A. — לשעבר CFO</span>
-            <p>שנים בניהול כספים, תקציבים ותזרים בחברות מובילות. ראייה פיננסית פרקטית: להבין איפה הכסף ולתרגם מספרים להחלטות.</p>
-            <p class="founder-quote">"מספרים לא נועדו למלא דוחות. הם נועדו לנהל עסק."</p>
+            <p>שנים בניהול כספים, תקציבים ותזרים בחברות מובילות. "מספרים לא נועדו למלא דוחות. הם נועדו לנהל עסק."</p>
           </div>
         </article>
       </div>
@@ -405,8 +185,8 @@
   <!-- ============== FINAL CTA ============== -->
   <section id="contact" class="cta-final">
     <div class="container">
-      <h2 class="cta-title">מחר בבוקר אתה יכול<br/><em>לפתוח את המחשב אחרת.</em></h2>
-      <p class="cta-sub">שיחה אישית עם אופיר. נכיר את הפרקטיקה שלך, תראה את המערכת חיה — ונבדוק יחד אם זה מתאים.</p>
+      <h2 class="section-title">רוצה לראות את זה על לקוח אמיתי שלך?</h2>
+      <p class="cta-sub">שיחה אישית עם אופיר. בלי התחייבות — נראה לך את המערכת חיה ונבדוק יחד אם זה מתאים.</p>
       <button class="btn btn-primary btn-xl" data-open-modal>בואו נבדוק התאמה</button>
     </div>
   </section>
@@ -473,6 +253,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=10"></script>
+  <script src="script.js?v=12"></script>
 </body>
 </html>
