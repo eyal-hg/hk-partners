@@ -21,6 +21,7 @@
   if (!reduceMotionQ && 'IntersectionObserver' in window) {
     var selectors = [
       '.value-head > *',
+      '.world-card',
       '.val-row',
       '.strip-line', '.strip-sub', '.strip .btn',
       '.founders .value-head > *',
