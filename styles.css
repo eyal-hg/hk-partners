@@ -44,6 +44,36 @@ ul, ol { list-style: none; }
   padding: 0 32px;
 }
 
+/* ---------- SCROLL REVEAL ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity .8s cubic-bezier(0.16,1,0.3,1), transform .8s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal.is-revealed { opacity: 1; transform: translateY(0); }
+
+/* staggered pop for the memory orbit */
+.val-row.reveal .orb {
+  opacity: 0;
+  transform: scale(.55);
+  transition: opacity .5s cubic-bezier(0.34,1.56,0.64,1), transform .5s cubic-bezier(0.34,1.56,0.64,1);
+}
+.val-row.is-revealed .orb { opacity: 1; transform: scale(1); }
+.val-row.is-revealed .orb-tl { transition-delay: .15s; }
+.val-row.is-revealed .orb-tr { transition-delay: .3s; }
+.val-row.is-revealed .orb-mr { transition-delay: .45s; }
+.val-row.is-revealed .orb-br { transition-delay: .6s; }
+.val-row.is-revealed .orb-bl { transition-delay: .75s; }
+.val-row.is-revealed .orb-ml { transition-delay: .9s; }
+.val-row.reveal .orbit-lines { opacity: 0; transition: opacity .7s ease 1.05s; }
+.val-row.is-revealed .orbit-lines { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .val-row.reveal .orb, .val-row.reveal .orbit-lines {
+    opacity: 1; transform: none; transition: none;
+  }
+}
+
 /* ---------- BUTTONS ---------- */
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
@@ -138,27 +168,35 @@ ul, ol { list-style: none; }
   text-align: center;
 }
 .hero-eyebrow {
-  font-size: 0.88rem;
+  font-size: 1.05rem;
   font-weight: 500;
-  color: rgba(255,255,255,.75);
-  margin-bottom: 16px;
+  color: rgba(255,255,255,.78);
+  margin-bottom: 18px;
 }
 .hero-title {
   font-family: 'Karantina', 'Heebo', sans-serif;
   font-weight: 400;
-  font-size: clamp(2.8rem, 6.8vw, 5rem);
+  font-size: clamp(3.2rem, 7.8vw, 6.1rem);
   line-height: 1.02;
   color: #fff;
   margin-bottom: 18px;
 }
 .hero-title .ht-line { display: block; }
 .hero-title em { font-style: normal; color: var(--salmon); }
+.rot-word {
+  display: inline-block;
+  transition: opacity .28s ease, transform .28s ease;
+}
+.rot-word.rot-out {
+  opacity: 0;
+  transform: translateY(14px);
+}
 .hero-lead {
-  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
-  color: rgba(255,255,255,.88);
-  max-width: 640px;
+  font-size: clamp(1.15rem, 1.9vw, 1.45rem);
+  color: rgba(255,255,255,.9);
+  max-width: 720px;
   line-height: 1.7;
-  margin-bottom: 30px;
+  margin-bottom: 34px;
 }
 .hero-lead strong { color: #fff; font-weight: 700; }
 .hero-cta { margin-bottom: 0; }
@@ -199,14 +237,49 @@ ul, ol { list-style: none; }
 
 .val-row {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 72px;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: 0;
   align-items: center;
-  padding-block: 72px;
+  padding-block: 56px;
 }
-.val-row + .val-row { border-top: 1px solid var(--border); }
 .val-row-flip .val-copy { order: 2; }
 .val-row-flip .val-shot { order: 1; }
+
+/* copy floats as a card OVER the oversized screenshot */
+.val-copy {
+  position: relative;
+  z-index: 2;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+  padding: 40px 44px;
+  box-shadow: 0 24px 60px rgba(12,64,104,.13);
+  margin-inline-end: -90px;
+}
+.val-row-flip .val-copy {
+  margin-inline-end: 0;
+  margin-inline-start: -90px;
+}
+.val-shot { position: relative; z-index: 1; }
+/* screenshot bleeds outward, larger than its column */
+.val-row:not(.val-row-orbit) .val-shot .shot-frame {
+  width: calc(100% + 150px);
+  margin-inline-end: -150px;
+}
+.val-row-flip:not(.val-row-orbit) .val-shot .shot-frame {
+  margin-inline-end: 0;
+  margin-inline-start: -150px;
+}
+
+/* orbit row keeps its own composition — plain copy, no bleed */
+.val-row-orbit { gap: 40px; }
+.val-row-orbit .val-copy {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+}
 
 .val-num {
   display: block;
@@ -333,6 +406,10 @@ ul, ol { list-style: none; }
   .val-row { grid-template-columns: 1fr; gap: 24px; padding-block: 32px; }
   .val-row-flip .val-copy { order: 1; }
   .val-row-flip .val-shot { order: 2; }
+  .val-copy,
+  .val-row-flip .val-copy { margin: 0; padding: 28px 24px; }
+  .val-row:not(.val-row-orbit) .val-shot .shot-frame,
+  .val-row-flip:not(.val-row-orbit) .val-shot .shot-frame { width: 100%; margin: 0; }
   .value { padding: 56px 0 24px; }
 }
 
