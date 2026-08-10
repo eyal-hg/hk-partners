@@ -237,49 +237,16 @@ ul, ol { list-style: none; }
 
 .val-row {
   display: grid;
-  grid-template-columns: 0.92fr 1.08fr;
-  gap: 0;
+  grid-template-columns: 0.82fr 1.18fr;
+  gap: 56px;
   align-items: center;
-  padding-block: 56px;
+  padding-block: 64px;
 }
+.val-row + .val-row { border-top: 1px solid var(--border); }
 .val-row-flip .val-copy { order: 2; }
 .val-row-flip .val-shot { order: 1; }
-
-/* copy floats as a card OVER the oversized screenshot */
-.val-copy {
-  position: relative;
-  z-index: 2;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--r-card);
-  padding: 40px 44px;
-  box-shadow: 0 24px 60px rgba(12,64,104,.13);
-  margin-inline-end: -90px;
-}
-.val-row-flip .val-copy {
-  margin-inline-end: 0;
-  margin-inline-start: -90px;
-}
-.val-shot { position: relative; z-index: 1; }
-/* screenshot bleeds outward, larger than its column */
-.val-row:not(.val-row-orbit) .val-shot .shot-frame {
-  width: calc(100% + 150px);
-  margin-inline-end: -150px;
-}
-.val-row-flip:not(.val-row-orbit) .val-shot .shot-frame {
-  margin-inline-end: 0;
-  margin-inline-start: -150px;
-}
-
-/* orbit row keeps its own composition — plain copy, no bleed */
-.val-row-orbit { gap: 40px; }
-.val-row-orbit .val-copy {
-  background: transparent;
-  border: 0;
-  box-shadow: none;
-  padding: 0;
-  margin: 0;
-}
+.val-copy { min-width: 0; }
+.val-shot { position: relative; min-width: 0; }
 
 .val-num {
   display: block;
@@ -325,7 +292,104 @@ ul, ol { list-style: none; }
   font-size: 1rem;
 }
 
-.val-shot { min-width: 0; }
+/* AI copilot highlight — the advisor's senior partner */
+.val-copilot {
+  margin-top: 22px;
+  padding: 20px 24px;
+  border-radius: 12px;
+  background: var(--off);
+  border-inline-start: 4px solid var(--salmon);
+}
+.vc-title {
+  display: block;
+  font-family: 'Rubik', 'Heebo', sans-serif;
+  font-weight: 700;
+  font-size: 1.08rem;
+  color: var(--navy);
+  margin-bottom: 5px;
+}
+.val-copilot p {
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* shot frame gets browser chrome + a gentle tilt for life */
+.val-row:not(.val-row-orbit) .val-shot .shot-frame {
+  position: relative;
+  padding-top: 30px;
+  transform: perspective(1800px) rotateY(-4deg);
+  transform-origin: center right;
+  transition: transform .5s cubic-bezier(0.16,1,0.3,1);
+}
+.val-row-flip:not(.val-row-orbit) .val-shot .shot-frame {
+  transform: perspective(1800px) rotateY(4deg);
+  transform-origin: center left;
+}
+.val-row:not(.val-row-orbit) .val-shot:hover .shot-frame {
+  transform: perspective(1800px) rotateY(0deg);
+}
+.val-row:not(.val-row-orbit) .shot-frame::before {
+  content: '';
+  position: absolute; top: 0; inset-inline: 0;
+  height: 30px;
+  background: #f4f7fa;
+  border-bottom: 1px solid var(--border);
+  z-index: 2;
+}
+.val-row:not(.val-row-orbit) .shot-frame::after {
+  content: '';
+  position: absolute; top: 11px; inset-inline-end: 14px;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #ff5f57;
+  box-shadow: -13px 0 0 #febc2e, -26px 0 0 #28c840;
+  z-index: 3;
+}
+
+/* floating status chips — carry the readable message, add motion */
+.shot-chip {
+  position: absolute;
+  z-index: 4;
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 11px 16px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--navy);
+  box-shadow: 0 14px 34px rgba(12,64,104,.18);
+  white-space: nowrap;
+  animation: chipFloat 5.5s ease-in-out infinite;
+}
+.shot-chip b { font-weight: 800; color: var(--navy); }
+.shot-chip b.up { color: #2e7d32; }
+.shot-chip b.warn { color: var(--red); }
+.chip-1 { top: 14%; inset-inline-start: -34px; }
+.chip-2 { bottom: 16%; inset-inline-end: -28px; animation-delay: -2.6s; }
+@keyframes chipFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-11px); }
+}
+@media (prefers-reduced-motion: reduce) { .shot-chip { animation: none; } }
+
+@media (max-width: 980px) {
+  .val-row:not(.val-row-orbit) .val-shot .shot-frame,
+  .val-row-flip:not(.val-row-orbit) .val-shot .shot-frame { transform: none; }
+  .shot-chip { position: static; display: none; }
+}
+
+/* scroll progress bar under the header */
+.scroll-bar {
+  position: fixed;
+  top: 0; inset-inline-start: 0;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, var(--blue), var(--salmon));
+  z-index: 70;
+  transition: width .08s linear;
+}
 
 /* memory orbit — sources connected to the screen with dashed lines */
 .mem-orbit {

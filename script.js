@@ -1,6 +1,20 @@
-/* HK ליועצים — hero rotator, scroll reveal, modal + form */
+/* HK ליועצים — scroll progress, hero rotator, scroll reveal, modal + form */
 (function () {
   'use strict';
+
+  /* ---------- Scroll progress bar ---------- */
+  var bar = document.getElementById('scrollBar');
+  if (bar) {
+    var updateBar = function () {
+      var h = document.documentElement;
+      var max = h.scrollHeight - h.clientHeight;
+      var pct = max > 0 ? (h.scrollTop || document.body.scrollTop) / max : 0;
+      bar.style.width = (pct * 100).toFixed(2) + '%';
+    };
+    window.addEventListener('scroll', updateBar, { passive: true });
+    window.addEventListener('resize', updateBar);
+    updateBar();
+  }
 
   /* ---------- Scroll reveal ---------- */
   var reduceMotionQ = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
