@@ -149,8 +149,9 @@
       document.getElementById('rTotHk').textContent  = TOT_HK;
       document.getElementById('rCapNow').textContent = capNow;
       document.getElementById('rCapHk').textContent  = capHk;
-      document.getElementById('rRevNow').innerHTML = money(revNow);
-      document.getElementById('rRevHk').innerHTML  = money(revHk);
+      // כל תא אומר על מה הוא מבוסס — אין ערבוב בין מספר שהוזן לבין תקרה מחושבת
+      document.getElementById('rRevNow').innerHTML = money(revNow) + '<span class="cell-note">לפי ' + n + ' הלקוחות שהזנת</span>';
+      document.getElementById('rRevHk').innerHTML  = money(revHk) + '<span class="cell-note">לפי תקרה של ' + capHk + '</span>';
 
       var state = document.getElementById('calcState');
       var lbl = document.getElementById('deltaLbl'), num = document.getElementById('deltaNum');

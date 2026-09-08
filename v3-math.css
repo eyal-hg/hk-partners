@@ -103,3 +103,9 @@ body { background: #F7FAFC; }
 }
 .ctl output .cur { font-size: .5em; }
 .calc-tbl .cur { font-size: .62em; }
+
+/* כל תא הכנסה אומר על מה הוא מבוסס */
+.cell-note { display: block; margin-top: 4px; font-size: .8rem; font-weight: 400; color: var(--muted); }
+/* המספר הגדול לא נשבר לעולם */
+.delta-num, .calc-tbl td, .ctl output { white-space: nowrap; }
+.cur { font-size: .32em; }
