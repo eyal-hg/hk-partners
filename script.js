@@ -1,8 +1,10 @@
-/* HK ליועצים — scroll progress, hero rotator, scroll reveal, modal + form */
+/* HK ליועצים — סרגל גלילה, הופעה בגלילה, לייטבוקס, מודל וטופס */
 (function () {
   'use strict';
 
-  /* ---------- Scroll progress bar ---------- */
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- סרגל התקדמות ---------- */
   var bar = document.getElementById('scrollBar');
   if (bar) {
     var updateBar = function () {
@@ -16,110 +18,92 @@
     updateBar();
   }
 
-  /* ---------- Scroll reveal ---------- */
-  var reduceMotionQ = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!reduceMotionQ && 'IntersectionObserver' in window) {
-    var selectors = [
-      '.value-head > *',
-      '.world-card',
-      '.val-row',
-      '.strip-line', '.strip-sub', '.strip .btn',
-      '.founders .value-head > *',
-      '.founder-card',
-      '.cta-final .section-title', '.cta-sub', '.cta-final .btn'
-    ];
-    var elements = Array.prototype.slice.call(
-      document.querySelectorAll(selectors.join(','))
-    );
-
-    var groups = new Map();
-    elements.forEach(function (el) {
-      var key = el.parentElement;
-      if (!groups.has(key)) groups.set(key, []);
-      groups.get(key).push(el);
-    });
-    elements.forEach(function (el) { el.classList.add('reveal'); });
-    groups.forEach(function (siblings) {
-      if (siblings.length > 1) {
-        siblings.forEach(function (el, i) {
-          el.style.transitionDelay = Math.min(i * 90, 450) + 'ms';
-        });
-      }
-    });
+  /* ---------- הופעה עדינה בגלילה ---------- */
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    var els = Array.prototype.slice.call(document.querySelectorAll(
+      '.sec-label, .sec-title, .sub-title, .prose, .lead-in, .pain-card, .pull, ' +
+      '.table-wrap, .assumption, .money-col, .money-note, .caveat, ' +
+      '.pillar-num, .pillar-title, .points, .shot, .uni-title, .quote, ' +
+      '.obj, .founder-card, .faq details, .cta-note, .hero-cta'
+    ));
+    els.forEach(function (el) { el.classList.add('reveal'); });
 
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-revealed');
-          io.unobserve(entry.target);
-        }
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('is-revealed'); io.unobserve(e.target); }
       });
-    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.06 });
-    elements.forEach(function (el) { io.observe(el); });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+    els.forEach(function (el) { io.observe(el); });
 
-    // Reveal anything already in view (handles load position + anchors)
-    function revealInViewport() {
+    // כל מה שכבר בתוך המסך — לחשוף מיד
+    var revealVisible = function () {
       var vh = window.innerHeight;
-      elements.forEach(function (el) {
+      els.forEach(function (el) {
         if (el.classList.contains('is-revealed')) return;
         var r = el.getBoundingClientRect();
-        if (r.top < vh * 0.95 && r.bottom > 0) {
-          el.classList.add('is-revealed');
-          io.unobserve(el);
-        }
+        if (r.top < vh * 0.95 && r.bottom > 0) { el.classList.add('is-revealed'); io.unobserve(el); }
       });
-    }
-    requestAnimationFrame(function () { requestAnimationFrame(revealInViewport); });
-    window.addEventListener('load', function () { requestAnimationFrame(revealInViewport); });
-    document.addEventListener('visibilitychange', function () {
-      if (!document.hidden) revealInViewport();
+    };
+    requestAnimationFrame(function () { requestAnimationFrame(revealVisible); });
+    window.addEventListener('load', revealVisible);
+  }
+
+  /* ---------- לייטבוקס לצילומי המסך ---------- */
+  var lb = document.getElementById('lightbox');
+  if (lb) {
+    var lbImg = lb.querySelector('img');
+    var closeLb = function () {
+      lb.classList.remove('is-open');
+      lb.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      lbImg.src = '';
+    };
+    document.querySelectorAll('.shot img').forEach(function (img) {
+      img.addEventListener('click', function () {
+        lbImg.src = img.currentSrc || img.src;
+        lbImg.alt = img.alt;
+        lb.classList.add('is-open');
+        lb.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    lb.addEventListener('click', closeLb);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && lb.classList.contains('is-open')) closeLb();
     });
   }
 
-  /* ---------- Hero rotating line ---------- */
-  var rot = document.getElementById('rotWord');
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (rot && !reduceMotion) {
-    var phrases = [
-      'מנהלים את התזרים.',
-      'כותבים את ההכנה.',
-      'מסכמים את הפגישה.',
-      'עונים ללקוח ב-23:00.',
-      'זוכרים כל מילה.',
-      'עושים את כל השאר.'
-    ];
-    var i = phrases.length - 1;
-    setInterval(function () {
-      rot.classList.add('rot-out');
-      setTimeout(function () {
-        i = (i + 1) % phrases.length;
-        rot.textContent = phrases[i];
-        rot.classList.remove('rot-out');
-      }, 290);
-    }, 2400);
-  }
-
+  /* ---------- מודל יצירת קשר ---------- */
   var modal = document.getElementById('contactModal');
-  var openers = document.querySelectorAll('[data-open-modal]');
-  var closers = document.querySelectorAll('[data-close-modal]');
-  var form = modal && modal.querySelector('form');
-  var successPanel = modal && modal.querySelector('.form-success');
+  if (!modal) return;
 
-  function openModal() {
+  var form = modal.querySelector('form');
+  var successPanel = modal.querySelector('.form-success');
+  var ctaSource = document.getElementById('ctaSource');
+  var lastFocused = null;
+
+  function openModal(trigger) {
+    lastFocused = trigger || null;
+    if (ctaSource && trigger) ctaSource.value = trigger.getAttribute('data-cta') || '';
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
-    var firstField = modal.querySelector('input:not([name="_honey"]), select');
-    if (firstField) setTimeout(function () { firstField.focus(); }, 50);
+    var first = modal.querySelector('input:not([name="_honey"]):not([type="hidden"])');
+    if (first) setTimeout(function () { first.focus(); }, 60);
   }
   function closeModal() {
     modal.classList.remove('is-open');
     modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    if (lastFocused) lastFocused.focus();
   }
 
-  openers.forEach(function (b) { b.addEventListener('click', openModal); });
-  closers.forEach(function (b) { b.addEventListener('click', closeModal); });
+  document.querySelectorAll('[data-open-modal]').forEach(function (b) {
+    b.addEventListener('click', function () { openModal(b); });
+  });
+  document.querySelectorAll('[data-close-modal]').forEach(function (b) {
+    b.addEventListener('click', closeModal);
+  });
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
   });
@@ -127,21 +111,20 @@
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var action = form.getAttribute('action') || '/';
-      var data = new FormData(form);
-      fetch(action, {
+      fetch(form.getAttribute('action'), {
         method: 'POST',
         headers: { 'Accept': 'application/json' },
-        body: data
-      }).catch(function () { /* show success anyway */ });
+        body: new FormData(form)
+      }).catch(function () { /* מציגים אישור בכל מקרה */ });
+
       form.hidden = true;
       successPanel.hidden = false;
-      setTimeout(closeModal, 2200);
+      setTimeout(closeModal, 2400);
       setTimeout(function () {
         form.reset();
         form.hidden = false;
         successPanel.hidden = true;
-      }, 2600);
+      }, 2800);
     });
   }
 })();
