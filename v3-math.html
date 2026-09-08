@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&family=Frank+Ruhl+Libre:wght@500;700;800&display=swap" />
   <link rel="stylesheet" href="styles.css?v=100" />
-  <link rel="stylesheet" href="v3-math.css?v=120" />
+  <link rel="stylesheet" href="v3-math.css?v=140" />
 </head>
 <body class="ver-3">
   <div class="scroll-bar" id="scrollBar" aria-hidden="true"></div>
@@ -50,9 +50,10 @@
               <tr><th scope="row">שעות תפעול פר לקוח <span class="row-note">— בלי הפגישה עצמה</span></th><td id="rOpsNow">8.5</td><td id="rOpsHk" class="good">1.25</td></tr>
               <tr><th scope="row">סה״כ זמן פר לקוח <span class="row-note">— כולל הפגישה החודשית וההכנה</span></th><td id="rTotNow">10</td><td id="rTotHk" class="good">3</td></tr>
               <tr><th scope="row">כמה לקוחות 80 שעות מכסות <span class="row-note">— 80 חלקי השורה שמעל</span></th><td id="rCapNow">8</td><td id="rCapHk" class="good">26</td></tr>
-              <tr><th scope="row">הכנסה שנתית <span class="row-note">— לקוחות × ריטיינר × 12</span></th><td id="rRevNow">300,000<i class="cur">₪</i><span class="cell-note" id="rBasisNow">לפי 10 הלקוחות שהזנת</span></td><td id="rRevHk" class="good">780,000<i class="cur">₪</i><span class="cell-note" id="rBasisHk">לפי תקרה של 26</span></td></tr>
+              <tr><th scope="row">הכנסה שנתית</th><td id="rRevNow">300,000<i class="cur">₪</i><span class="cell-note">10 לקוחות × 2,500 × 12</span></td><td id="rRevHk" class="good">780,000<i class="cur">₪</i><span class="cell-note">26 לקוחות × 2,500 × 12</span></td></tr>
             </tbody>
           </table>
+          <p class="over-cap" id="overCap" hidden></p>
 
           <div class="calc-delta" id="deltaBox">
             <span class="delta-lbl" id="deltaLbl">ההפרש השנתי</span>
@@ -163,6 +164,6 @@
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <button class="lightbox-x" aria-label="סגירה">×</button><img src="" alt="" />
   </div>
-  <script src="script.js?v=120"></script>
+  <script src="script.js?v=140"></script>
 </body>
 </html>

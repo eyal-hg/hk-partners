@@ -109,3 +109,16 @@ body { background: #F7FAFC; }
 /* המספר הגדול לא נשבר לעולם */
 .delta-num, .calc-tbl td, .ctl output { white-space: nowrap; }
 .cur { font-size: .32em; }
+
+/* רווח בין המספר לסימן — במספר בגובה 140px הוא נראה */
+.cur { margin-inline-start: .16em; }
+/* כשהוא כבר מעל התקרה — האמת המעניינת יותר */
+.over-cap {
+  margin: 0; padding: 14px 20px;
+  background: #F7FAFC; border-top: 1px solid var(--line);
+  color: var(--muted); font-size: .95rem; line-height: 1.6;
+}
+.over-cap b { color: var(--navy); font-variant-numeric: tabular-nums; }
+
+/* מי שכבר מעל התקרה — ההכנסה לא משתנה, השעות כן */
+.same-rev { font-size: 1.05rem; font-weight: 600; color: var(--muted); }

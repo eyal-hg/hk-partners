@@ -150,13 +150,33 @@
       document.getElementById('rCapNow').textContent = capNow;
       document.getElementById('rCapHk').textContent  = capHk;
       // כל תא אומר על מה הוא מבוסס — אין ערבוב בין מספר שהוזן לבין תקרה מחושבת
-      document.getElementById('rRevNow').innerHTML = money(revNow) + '<span class="cell-note">לפי ' + n + ' הלקוחות שהזנת</span>';
-      document.getElementById('rRevHk').innerHTML  = money(revHk) + '<span class="cell-note">לפי תקרה של ' + capHk + '</span>';
+      // כל תא מציג את החישוב המלא שלו — אין מה לפרש לא נכון
+      document.getElementById('rRevNow').innerHTML =
+        money(revNow) + '<span class="cell-note">' + n + ' לקוחות × ' + f(fee) + ' × 12</span>';
+      // מי שכבר מעל התקרה לא מרוויח עוד לקוחות — הוא מרוויח שעות.
+      // הצגת 780,000 מול ההכנסה האמיתית שלו הייתה אומרת לו שעם HK ירוויח פחות.
+      if (n >= capHk) {
+        document.getElementById('rRevHk').innerHTML =
+          '<span class="same-rev">אותה הכנסה</span><span class="cell-note">הרווח כאן הוא שעות, לא לקוחות</span>';
+      } else {
+        document.getElementById('rRevHk').innerHTML =
+          money(revHk) + '<span class="cell-note">' + capHk + ' לקוחות × ' + f(fee) + ' × 12</span>';
+      }
+
+      // אם הוא כבר מעל התקרה — זו האמת המעניינת יותר, ושווה לומר אותה
+      var over = document.getElementById('overCap');
+      if (over) {
+        if (n > capNow) {
+          over.innerHTML = 'שים לב — יש לך <b>' + n + '</b> לקוחות ו-80 שעות מכסות <b>' +
+            capNow + '</b>. את ההפרש אתה כבר משלים מהזמן הפרטי שלך.';
+          over.hidden = false;
+        } else { over.hidden = true; }
+      }
 
       var state = document.getElementById('calcState');
       var lbl = document.getElementById('deltaLbl'), num = document.getElementById('deltaNum');
 
-      if (n >= 30) {
+      if (n >= capHk) {
         lbl.textContent = 'שעות שחוזרות אליך בחודש';
         num.innerHTML = f(n * (OPS_NOW - OPS_HK));
         state.textContent = 'בנפח הזה השאלה כבר לא כמה לקוחות אלא כמה זמן. בוא נדבר.';
