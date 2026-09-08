@@ -89,3 +89,6 @@ body { background: #F7FAFC; }
   .calc-controls { position: static; }
   .after-two { grid-template-columns: 1fr; }
 }
+
+/* התווית שמסבירה מה כל שורה מודדת — כדי שיועץ עם מחשבון יגיע לאותו מספר */
+.row-note { display: block; font-size: .82rem; color: var(--muted); font-weight: 400; margin-top: 2px; }

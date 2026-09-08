@@ -144,6 +144,8 @@
       document.getElementById('oFee').textContent = f(fee) + ' ₪';
       document.getElementById('rHoursNow').textContent = f(n * HOURS_NOW);
       document.getElementById('rHoursHk').textContent  = f(n * HOURS_HK);
+      var tn = document.getElementById('rTotNow'), th = document.getElementById('rTotHk');
+      if (tn) { tn.textContent = HOURS_NOW + ' שעות'; th.textContent = TOTAL_HK + ' שעות'; }
       document.getElementById('rCapNow').textContent = capNow;
       document.getElementById('rCapHk').textContent  = capHk;
       document.getElementById('rRevNow').textContent = f(revNow) + ' ₪';
