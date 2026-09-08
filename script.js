@@ -23,7 +23,8 @@
   if (!reduceMotion && 'IntersectionObserver' in window) {
     var els = Array.prototype.slice.call(document.querySelectorAll(
       '.sec-title, .prose, .three p, .three-note, .ba-col, .chips, .mem-card, ' +
-      '.table-wrap, .caveat-line, .shot, .ofir-photo, .ofir-copy'
+      '.table-wrap, .caveat-line, .shot, .gal-item, .gal-head > *, ' +
+      '.ofir-photo, .ofir-copy'
     ));
     els.forEach(function (el) { el.classList.add('reveal'); });
 
@@ -107,7 +108,7 @@
       document.body.style.overflow = '';
       lbImg.src = '';
     };
-    document.querySelectorAll('.shot img, .hero-shot img').forEach(function (img) {
+    document.querySelectorAll('.shot img, .hero-shot img, .gal-item img').forEach(function (img) {
       img.addEventListener('click', function () {
         lbImg.src = img.currentSrc || img.src;
         lbImg.alt = img.alt;
