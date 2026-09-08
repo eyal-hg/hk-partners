@@ -123,55 +123,56 @@
     }
   }
 
-  /* ---------- המחשבון (גרסה D) ---------- */
+  /* ---------- המחשבון (גרסה 3) ---------- */
   var cClients = document.getElementById('cClients');
   if (cClients) {
     var cFee = document.getElementById('cFee');
-    var HOURS_NOW = 8.5;   // שעות עבודה פר לקוח היום
-    var HOURS_HK  = 1.25;  // שעות תפעול שנשארות עם HK
-    var TOTAL_HK  = 3;     // סה"כ זמן פר לקוח עם HK — תפעול + הייעוץ עצמו
-    var BUDGET    = 80;    // שעות בחודש שיועץ מקדיש לעבודת לקוחות
+    // שתי השורות נמדדות על אותו בסיס — פר לקוח — כדי שהחשבון ייצא זהה גם למי שבודק
+    var OPS_NOW = 8.5,  OPS_HK = 1.25;   // תפעול בלבד, בלי הפגישה
+    var TOT_NOW = 10,   TOT_HK = 3;      // סה״כ, כולל הפגישה החודשית וההכנה
+    var BUDGET  = 80;                    // שעות בחודש שיועץ מקדיש לעבודת לקוחות
     var f = function (n) { return Math.round(n).toLocaleString('he-IL'); };
+    var money = function (n) { return f(n) + '<i class="cur">₪</i>'; };
 
     var run = function () {
       var n = +cClients.value, fee = +cFee.value;
-      var capNow = Math.floor(BUDGET / HOURS_NOW);       // ≈ 9
-      var capHk  = Math.floor(BUDGET / TOTAL_HK);        // ≈ 26
+      var capNow = Math.floor(BUDGET / TOT_NOW);   // 8
+      var capHk  = Math.floor(BUDGET / TOT_HK);    // 26
       var revNow = n * fee * 12;
       var revHk  = capHk * fee * 12;
 
       document.getElementById('oClients').textContent = n;
-      document.getElementById('oFee').textContent = f(fee) + ' ₪';
-      document.getElementById('rHoursNow').textContent = f(n * HOURS_NOW);
-      document.getElementById('rHoursHk').textContent  = f(n * HOURS_HK);
-      var tn = document.getElementById('rTotNow'), th = document.getElementById('rTotHk');
-      if (tn) { tn.textContent = HOURS_NOW + ' שעות'; th.textContent = TOTAL_HK + ' שעות'; }
+      document.getElementById('oFee').innerHTML = money(fee);
+      document.getElementById('rOpsNow').textContent = OPS_NOW;
+      document.getElementById('rOpsHk').textContent  = OPS_HK;
+      document.getElementById('rTotNow').textContent = TOT_NOW;
+      document.getElementById('rTotHk').textContent  = TOT_HK;
       document.getElementById('rCapNow').textContent = capNow;
       document.getElementById('rCapHk').textContent  = capHk;
-      document.getElementById('rRevNow').textContent = f(revNow) + ' ₪';
-      document.getElementById('rRevHk').textContent  = f(revHk) + ' ₪';
+      document.getElementById('rRevNow').innerHTML = money(revNow);
+      document.getElementById('rRevHk').innerHTML  = money(revHk);
 
       var state = document.getElementById('calcState');
       var lbl = document.getElementById('deltaLbl'), num = document.getElementById('deltaNum');
 
       if (n >= 30) {
         lbl.textContent = 'שעות שחוזרות אליך בחודש';
-        num.textContent = f(n * (HOURS_NOW - HOURS_HK));
+        num.innerHTML = f(n * (OPS_NOW - OPS_HK));
         state.textContent = 'בנפח הזה השאלה כבר לא כמה לקוחות אלא כמה זמן. בוא נדבר.';
         state.hidden = false;
       } else if (n >= 20) {
         lbl.textContent = 'שעות שחוזרות אליך בחודש';
-        num.textContent = f(n * (HOURS_NOW - HOURS_HK));
+        num.innerHTML = f(n * (OPS_NOW - OPS_HK));
         state.textContent = 'אתה כבר מעל התקרה שרוב היועצים מגיעים אליה — כנראה על חשבון שעות, לא במקומן. מה ש-HK מחזירה לך זה את השעות.';
         state.hidden = false;
       } else {
         lbl.textContent = 'ההפרש השנתי';
-        num.textContent = f(Math.max(0, revHk - revNow)) + ' ₪';
+        num.innerHTML = money(Math.max(0, revHk - revNow));
         state.hidden = true;
       }
     };
     [cClients, cFee].forEach(function (el) { el.addEventListener('input', run); });
-    run();   // מחושב כבר בטעינה — דף שנפתח על אפס נראה שבור
+    run();   // מחושב כבר בטעינה
   }
 
   /* ---------- לייטבוקס לצילומי המסך ---------- */

@@ -92,3 +92,14 @@ body { background: #F7FAFC; }
 
 /* התווית שמסבירה מה כל שורה מודדת — כדי שיועץ עם מחשבון יגיע לאותו מספר */
 .row-note { display: block; font-size: .82rem; color: var(--muted); font-weight: 400; margin-top: 2px; }
+
+/* סימן השקל — באותה שורה, כשליש מגובה הספרות, מיושר לבסיס */
+.cur {
+  font-style: normal;
+  font-size: .34em;
+  font-weight: 700;
+  margin-inline-start: .12em;
+  vertical-align: baseline;
+}
+.ctl output .cur { font-size: .5em; }
+.calc-tbl .cur { font-size: .62em; }
