@@ -31,7 +31,7 @@
       entries.forEach(function (e) {
         if (e.isIntersecting) { e.target.classList.add('is-revealed'); io.unobserve(e.target); }
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.01 });
     els.forEach(function (el) { io.observe(el); });
 
     // כל מה שכבר בתוך המסך — לחשוף מיד
@@ -40,7 +40,7 @@
       els.forEach(function (el) {
         if (el.classList.contains('is-revealed')) return;
         var r = el.getBoundingClientRect();
-        if (r.top < vh * 0.95 && r.bottom > 0) { el.classList.add('is-revealed'); io.unobserve(el); }
+        if (r.top < vh * 1.05 && r.bottom > -50) { el.classList.add('is-revealed'); io.unobserve(el); }
       });
     };
     requestAnimationFrame(function () { requestAnimationFrame(revealVisible); });

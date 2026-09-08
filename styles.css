@@ -461,6 +461,21 @@ p.prose { margin-top: 18px; }
 .cta-final .hero-cta { margin-top: 30px; }
 .cta-note { margin-top: 18px; color: rgba(255,255,255,.65); font-size: .97rem; }
 
+/* ---------- בלוק התזרים — פיצ׳ר, לא סקשן ---------- */
+.flow { background: #F7FAFC; padding: 46px 0; border-block: 1px solid var(--line); }
+.flow-grid { display: grid; grid-template-columns: 320px 1fr; gap: 40px; align-items: center; }
+.flow-shot { margin: 0; }
+.flow-shot figcaption { margin-top: 10px; font-size: .88rem; }
+.flow-copy h3 {
+  font-family: 'Frank Ruhl Libre', Georgia, serif;
+  font-weight: 700; font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+  color: var(--navy); margin-bottom: 12px;
+}
+.flow-copy p { color: var(--text); font-size: 1.02rem; }
+@media (max-width: 760px) {
+  .flow-grid { grid-template-columns: 1fr; gap: 24px; }
+}
+
 /* ---------- אופיר ---------- */
 .ofir { display: grid; grid-template-columns: 160px 1fr; gap: 44px; align-items: center; }
 .ofir-photo {
