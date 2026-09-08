@@ -72,6 +72,7 @@ b, strong { font-weight: 600; color: var(--navy); }
 }
 .btn-sm { padding: 9px 22px; font-size: .94rem; }
 .btn-lg { padding: 16px 36px; font-size: 1.05rem; }
+.btn-xl { padding: 19px 44px; font-size: 1.15rem; }
 .btn-block { width: 100%; }
 .btn-primary { background: var(--coral); color: #fff; font-weight: 600; }
 .btn-primary:hover { background: var(--coral-h); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(232,99,90,.3); }
@@ -95,7 +96,7 @@ b, strong { font-weight: 600; color: var(--navy); }
 @media (max-width: 900px) { .header-nav { display: none; } }
 
 /* ---------- SECTION PRIMITIVES ---------- */
-.sec { padding: 92px 0; }
+.sec { padding: 132px 0; }
 .sec-white { background: var(--white); }
 .sec-off { background: var(--off); }
 .sec-navy { background: linear-gradient(165deg, var(--navy) 0%, var(--navy-deep) 100%); color: #fff; }
@@ -114,12 +115,14 @@ b, strong { font-weight: 600; color: var(--navy); }
 .sec-title {
   font-family: 'Frank Ruhl Libre', Georgia, serif;
   font-weight: 700;
-  font-size: clamp(1.85rem, 3.5vw, 2.9rem);
-  line-height: 1.28;
+  font-size: clamp(2.1rem, 4.4vw, 3.6rem);
+  line-height: 1.2;
   color: var(--navy);
-  margin-bottom: 26px;
+  margin-bottom: 30px;
+  letter-spacing: -.01em;
 }
 .sec-title-inv { color: #fff; }
+.sec-title em { font-style: normal; color: var(--sky); }
 .sub-title {
   font-family: 'Frank Ruhl Libre', Georgia, serif;
   font-weight: 700;
@@ -129,6 +132,8 @@ b, strong { font-weight: 600; color: var(--navy); }
 }
 
 .prose { max-width: var(--read); }
+.prose.lg { font-size: clamp(1.1rem, 1.5vw, 1.28rem); line-height: 1.78; }
+.prose.lg + .prose.lg { margin-top: 22px; }
 .prose p + p { margin-top: 18px; }
 .prose, .prose p { color: var(--text); }
 .prose-inv, .prose-inv p, .prose-inv b { color: rgba(255,255,255,.9); }
@@ -152,29 +157,55 @@ p.prose { margin-top: 18px; }
 .hero {
   background: linear-gradient(165deg, var(--navy) 0%, var(--navy-deep) 100%);
   color: #fff;
-  padding: 84px 0 0;
+  padding: 110px 0 120px;
   overflow: hidden;
 }
-.hero-eyebrow { font-size: 1rem; color: rgba(255,255,255,.7); margin-bottom: 18px; }
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 48px;
+  align-items: center;
+}
 .hero-title {
   font-family: 'Frank Ruhl Libre', Georgia, serif;
-  font-weight: 800;
-  font-size: clamp(2.3rem, 5.4vw, 4.15rem);
-  line-height: 1.16;
-  margin-bottom: 24px;
-  max-width: 15ch;
+  font-weight: 700;
+  font-size: clamp(2.1rem, 3.6vw, 3.15rem);
+  line-height: 1.14;
+  letter-spacing: -.015em;
+  margin-bottom: 28px;
 }
 .hero-title em { font-style: normal; color: var(--sky); }
 .hero-lead {
-  font-size: clamp(1.1rem, 1.7vw, 1.3rem);
-  line-height: 1.72;
+  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+  line-height: 1.75;
   color: rgba(255,255,255,.86);
-  max-width: 62ch;
-  margin-bottom: 34px;
+  margin-bottom: 38px;
+  max-width: 46ch;
 }
-.hero-lead b { color: #fff; font-weight: 600; }
-.hero-cta { display: flex; flex-wrap: wrap; gap: 14px; }
-.shot-hero { margin-top: 62px; margin-bottom: -60px; }
+
+/* התמונה נשענת על שפת הדף וגולשת אל מחוץ לקצה — חלון אל מערכת גדולה יותר */
+.hero-shot { position: relative; }
+.hero-shot img {
+  width: calc(100% + 40vw);
+  max-width: none;
+  border-start-start-radius: var(--r);
+  border-end-start-radius: var(--r);
+  border-inline-start: 1px solid rgba(255,255,255,.14);
+  box-shadow: -30px 40px 90px rgba(0,0,0,.42);
+  cursor: zoom-in;
+}
+
+@media (max-width: 1000px) {
+  .hero { padding: 68px 0 76px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 44px; }
+  .hero-lead { max-width: none; }
+  .hero-shot img {
+    width: 100%;
+    border-radius: var(--r);
+    border: 1px solid rgba(255,255,255,.14);
+    box-shadow: 0 18px 50px rgba(0,0,0,.34);
+  }
+}
 
 /* ---------- SCREENSHOTS ---------- */
 /* מסגרת אחת בלבד. בלי כרום דפדפן, בלי הטיה. */
@@ -216,6 +247,36 @@ p.prose { margin-top: 18px; }
   .ready-list li { grid-template-columns: 1fr; gap: 4px; }
 }
 
+/* ---------- הקפיצה ---------- */
+.jump {
+  display: flex; align-items: center; justify-content: center;
+  gap: clamp(28px, 6vw, 76px);
+  margin: 8px 0 52px;
+  text-align: center;
+}
+.jump-big {
+  display: block;
+  font-family: 'Frank Ruhl Libre', Georgia, serif;
+  font-weight: 800;
+  font-size: clamp(3.4rem, 9vw, 6.6rem);
+  line-height: .95;
+  letter-spacing: -.02em;
+  color: var(--navy);
+  font-variant-numeric: tabular-nums;
+}
+.jump-col-hl .jump-big { color: var(--sky); }
+.jump-lbl { display: block; margin-top: 12px; font-size: 1rem; color: var(--muted); }
+.jump-arrow { font-size: clamp(1.6rem, 3vw, 2.4rem); color: var(--line); }
+@media (max-width: 560px) { .jump { gap: 18px; } }
+
+.caveat-line {
+  margin-top: 26px;
+  padding-inline-start: 20px;
+  border-inline-start: 3px solid var(--line);
+  color: var(--muted);
+  max-width: var(--read);
+}
+
 /* ---------- TABLES ---------- */
 .table-wrap { overflow-x: auto; margin-top: 8px; }
 .tbl {
@@ -233,6 +294,8 @@ p.prose { margin-top: 18px; }
 .tbl tbody tr:last-child th, .tbl tbody tr:last-child td { border-bottom: 0; }
 .tbl .good { color: var(--green); font-weight: 600; }
 .tbl-total th, .tbl-total td { background: var(--off); font-weight: 600; }
+.tbl-sm { font-size: .97rem; }
+.tbl-sm th, .tbl-sm td { padding: 12px 16px; }
 .tbl-proof tbody th { font-family: 'Frank Ruhl Libre', Georgia, serif; font-size: 1.22rem; font-weight: 700; white-space: nowrap; }
 .tbl-proof td { color: var(--muted); }
 
@@ -267,6 +330,22 @@ p.prose { margin-top: 18px; }
 /* ---------- CTA ---------- */
 .cta-final .hero-cta { margin-top: 30px; }
 .cta-note { margin-top: 18px; color: rgba(255,255,255,.65); font-size: .97rem; }
+
+/* ---------- אופיר ---------- */
+.ofir { display: grid; grid-template-columns: 240px 1fr; gap: 48px; align-items: center; }
+.ofir-photo {
+  width: 240px; height: 240px;
+  border-radius: 50%;
+  object-fit: cover; object-position: center top;
+  border: 3px solid rgba(255,255,255,.2);
+  box-shadow: 0 20px 50px rgba(0,0,0,.35);
+}
+.ofir-copy .sec-title { margin-bottom: 20px; }
+.ofir-name { margin-top: 22px; color: rgba(255,255,255,.6); font-size: .97rem; }
+@media (max-width: 760px) {
+  .ofir { grid-template-columns: 1fr; gap: 30px; justify-items: start; }
+  .ofir-photo { width: 168px; height: 168px; }
+}
 
 /* ---------- FAQ ---------- */
 .faq { max-width: var(--read); border-top: 1px solid var(--line); }

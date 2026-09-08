@@ -22,8 +22,8 @@
   /* ---------- הופעה עדינה בגלילה ---------- */
   if (!reduceMotion && 'IntersectionObserver' in window) {
     var els = Array.prototype.slice.call(document.querySelectorAll(
-      '.sec-title, .prose, .pull, .ready-list li, .table-wrap, ' +
-      '.shot, .founder-card, .faq details, .cta-note, .hero-cta'
+      '.sec-title, .prose, .jump-col, .table-wrap, .caveat-line, ' +
+      '.shot, .ofir-photo, .ofir-copy'
     ));
     els.forEach(function (el) { el.classList.add('reveal'); });
 
@@ -57,7 +57,7 @@
       document.body.style.overflow = '';
       lbImg.src = '';
     };
-    document.querySelectorAll('.shot img').forEach(function (img) {
+    document.querySelectorAll('.shot img, .hero-shot img').forEach(function (img) {
       img.addEventListener('click', function () {
         lbImg.src = img.currentSrc || img.src;
         lbImg.alt = img.alt;
