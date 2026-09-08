@@ -6,6 +6,7 @@
 
   /* ---------- סרגל התקדמות ---------- */
   var bar = document.getElementById('scrollBar');
+  if (bar && reduceMotion) { bar.remove(); bar = null; }
   if (bar) {
     var updateBar = function () {
       var h = document.documentElement;
