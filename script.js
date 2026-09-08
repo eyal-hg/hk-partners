@@ -22,10 +22,8 @@
   /* ---------- הופעה עדינה בגלילה ---------- */
   if (!reduceMotion && 'IntersectionObserver' in window) {
     var els = Array.prototype.slice.call(document.querySelectorAll(
-      '.sec-label, .sec-title, .sub-title, .prose, .lead-in, .pain-card, .pull, ' +
-      '.table-wrap, .assumption, .money-col, .money-note, .caveat, ' +
-      '.pillar-num, .pillar-title, .points, .shot, .uni-title, .quote, ' +
-      '.obj, .founder-card, .faq details, .cta-note, .hero-cta'
+      '.sec-title, .prose, .pull, .ready-list li, .table-wrap, ' +
+      '.shot, .founder-card, .faq details, .cta-note, .hero-cta'
     ));
     els.forEach(function (el) { el.classList.add('reveal'); });
 
