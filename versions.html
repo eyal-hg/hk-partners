@@ -55,16 +55,16 @@
       <span>כל אחת אסטרטגיית מכירה אחרת — לא אותו דף בחמישה צבעים</span>
     </div>
     <div class="tabs" role="tablist">
-      <button class="tab on" role="tab" data-v="a"><b><span class="k">A</span>הסחורה</b><i>הוכחה בנפח — שמונה תוצרים מוגמרים</i></button>
-      <button class="tab" role="tab" data-v="b"><b><span class="k">B</span>החודש</b><i>נרטיב — חודש אחד, חמש תחנות, "מה עשית: —"</i></button>
-      <button class="tab" role="tab" data-v="c"><b><span class="k">C</span>הפגישה</b><i>רגע אחד — 9:30, חצי שעה לפני</i></button>
-      <button class="tab" role="tab" data-v="d"><b><span class="k">D</span>החשבון</b><i>מחשבון — המספרים שלו, לא שלנו</i></button>
-      <button class="tab" role="tab" data-v="e"><b><span class="k">E</span>השם שלך</b><i>white-label כגאווה</i></button>
+      <button class="tab on" role="tab" data-v="v1-goods"><b><span class="k">1</span>הסחורה</b><i>ראיה — שמונה תוצרים מוגמרים, תספור בעצמך</i></button>
+      <button class="tab" role="tab" data-v="v2-meeting"><b><span class="k">2</span>הפגישה</b><i>הזדהות — 9:30, חצי שעה לפני</i></button>
+      <button class="tab" role="tab" data-v="v3-math"><b><span class="k">3</span>החשבון</b><i>היגיון — המספרים שלו, לא שלנו</i></button>
+      <button class="tab" role="tab" data-v="v4-brand"><b><span class="k">4</span>המותג שלך</b><i>גאווה — הלקוח חושב שיש לך מחלקה</i></button>
+      <button class="tab" role="tab" data-v="v5-letter"><b><span class="k">5</span>מכתב מאופיר</b><i>אמון — כולל מה שאנחנו לא עושים</i></button>
     </div>
   </div>
   <div class="stage">
-    <iframe id="stage" src="v-a.html" title="גרסה"></iframe>
-    <a class="open-new" id="openNew" href="v-a.html" target="_blank" rel="noopener">פתח בטאב נפרד ↗</a>
+    <iframe id="stage" src="v1-goods.html" title="גרסה"></iframe>
+    <a class="open-new" id="openNew" href="v1-goods.html" target="_blank" rel="noopener">פתח בטאב נפרד ↗</a>
   </div>
 
   <script>
@@ -77,15 +77,16 @@
         if (!t) return;
         tabs.forEach(function (x) { x.classList.toggle('on', x === t); });
         // טעינה מחדש של המסגרת — כל גרסה מתחילה נקייה, האנימציות רצות מההתחלה
-        frame.src = 'v-' + v + '.html';
-        link.href = 'v-' + v + '.html';
+        frame.src = v + '.html';
+        link.href = v + '.html';
         if (push) history.replaceState(null, '', '#' + v);
       }
       tabs.forEach(function (t) {
         t.addEventListener('click', function () { show(t.dataset.v, true); });
       });
-      var h = (location.hash || '#a').slice(1);
-      show(/^[a-e]$/.test(h) ? h : 'a', false);
+      var h = (location.hash || '').slice(1);
+      var valid = tabs.map(function (t) { return t.dataset.v; });
+      show(valid.indexOf(h) > -1 ? h : 'v1-goods', false);
     })();
   </script>
 </body>

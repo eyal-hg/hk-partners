@@ -1,0 +1,57 @@
+/* ══ 5 · מכתב מאופיר ══
+   שפה: מכתב מודפס. גוף הטקסט בסריף, שורה צרה, רקע נייר, כמעט בלי כרטיסים.
+   הכי רחוק מ״דף נחיתה״ — וזו בדיוק הנקודה. */
+:root { --read: 700px; --wrap: 940px; --r: 8px; }
+body { background: #FAFAF8; font-size: 1.09rem; }
+.sec { padding: 84px 0; background: #FAFAF8; }
+.site-header { background: rgba(250,250,248,.94); border-bottom-color: #E8E8E0; }
+
+/* גוף הטקסט בסריף — ההבדל הגדול ביותר מכל הגרסאות */
+.prose.letter p, .two-cols li, .shot figcaption {
+  font-family: 'Frank Ruhl Libre', Georgia, serif;
+}
+.prose.letter p { font-size: 1.26rem; line-height: 1.88; color: #2A3B49; }
+.prose.letter p + p { margin-top: 24px; }
+.prose.letter b { font-weight: 700; color: var(--navy); }
+
+.letter-hero { background: #FAFAF8; padding: 84px 0 0; }
+.letter-top { display: flex; align-items: center; gap: 34px; }
+.letter-photo {
+  width: 132px; height: 132px; flex-shrink: 0;
+  border-radius: 50%; object-fit: cover; object-position: center top;
+  border: 5px solid #fff; box-shadow: 0 12px 34px rgba(40,40,30,.18);
+}
+.letter-title {
+  font-family: 'Frank Ruhl Libre', Georgia, serif;
+  font-weight: 700; font-size: clamp(1.9rem, 3.6vw, 3rem);
+  line-height: 1.2; color: var(--navy); letter-spacing: -.01em;
+}
+.letter-title em { font-style: italic; color: var(--navy); }
+.letter-sub { margin-top: 12px; color: var(--muted); font-size: .98rem; letter-spacing: .04em; }
+.letter-body { padding-top: 52px; }
+
+.two-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin: 54px 0; max-width: var(--read); }
+.two-cols h3 { font-family: 'Frank Ruhl Libre', Georgia, serif; font-weight: 700; font-size: 1.2rem; margin-bottom: 16px; }
+.two-cols ul { display: flex; flex-direction: column; gap: 13px; }
+.two-cols li { position: relative; padding-inline-start: 26px; line-height: 1.6; font-size: 1.04rem; }
+.col-do, .col-dont { background: #fff; border: 1px solid #E8E8E0; border-radius: 8px; padding: 26px 28px; }
+.col-do h3 { color: var(--green); }
+.col-do li::before { content: '✓'; position: absolute; inset-inline-start: 0; color: var(--green); font-weight: 700; }
+.col-dont { background: #F4F4EE; }
+.col-dont h3 { color: var(--muted); }
+.col-dont li { color: #5C6B78; }
+.col-dont li::before { content: '—'; position: absolute; inset-inline-start: 0; color: var(--muted); }
+
+.letter-shots .sec-title { font-size: clamp(1.5rem, 2.6vw, 2rem); margin-bottom: 34px; }
+.letter-shots .shot { margin-bottom: 52px; }
+.letter-shots .shot:last-child { margin-bottom: 0; }
+.shot img { border-radius: 8px; border-color: #E8E8E0; box-shadow: 0 10px 30px rgba(40,40,30,.09); }
+.shot figcaption { font-style: italic; font-size: 1rem; }
+
+.site-footer { background: #2A2A24; }
+@media (max-width: 720px) {
+  .letter-top { flex-direction: column; align-items: flex-start; gap: 22px; }
+  .letter-photo { width: 106px; height: 106px; }
+  .two-cols { grid-template-columns: 1fr; }
+  .sec { padding: 60px 0; }
+}

@@ -63,3 +63,18 @@ body { background: var(--white); }
   .cli-grid, .flip-two { grid-template-columns: 1fr; gap: 44px; }
   .logo-ring { display: none; }
 }
+
+/* הרגע הכהה היחיד בגרסה — האפס */
+#zero { text-align: center; padding: 150px 0; }
+.zero-num {
+  font-family: 'Frank Ruhl Libre', Georgia, serif;
+  font-weight: 800;
+  font-size: clamp(7rem, 19vw, 16rem);
+  line-height: .82;
+  color: var(--sky);
+  margin-bottom: 12px;
+  font-variant-numeric: tabular-nums;
+}
+#zero .sec-title { margin-bottom: 24px; }
+#zero .prose { margin-inline: auto; }
+@media (max-width: 900px) { #zero { padding: 96px 0; } }
