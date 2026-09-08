@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="9:30, חצי שעה לפני פגישה. ההבדל בין לאלתר מהזיכרון לבין להיכנס ולדעת הכל." />
+  <title>HK — 9:30. הפגישה בעשר. מה אתה זוכר עליו?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&family=Frank+Ruhl+Libre:wght@500;700;800&display=swap" />
+  <link rel="stylesheet" href="styles.css?v=100" />
+  <link rel="stylesheet" href="v-c.css?v=100" />
+</head>
+<body class="ver-c">
+  <div class="scroll-bar" id="scrollBar" aria-hidden="true"></div>
+  <a class="ver-tag" href="versions.html">גרסאות</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#hero" class="logo"><img src="assets/logo.png" alt="HK" /></a>
+      <button class="btn btn-primary btn-sm" data-open-modal data-cta="כותרת">שלושים דקות עם אופיר</button>
+    </div>
+  </header>
+  <section id="hero" class="cine cine-dark">
+    <div class="container narrow cine-in">
+      <p class="clock">9:30</p>
+      <h1 class="cine-title">הפגישה בעשר.<br /><em>מה אתה זוכר עליו?</em></h1>
+      <p class="cine-lead">
+        אתה פותח את הקובץ מהפעם הקודמת ומנסה להיזכר: על מה סוכם, מה השתנה, ולמה הוא
+        היה קצר רוח. בעשר אתה נכנס, והחצי שעה הראשונה הולכת על להיזכר ביחד.
+      </p>
+      <button class="btn btn-primary btn-xl" data-open-modal data-cta="הירו">שלושים דקות עם אופיר</button>
+    </div>
+  </section>
+
+  <section class="cine cine-light">
+    <div class="container narrow cine-in">
+      <p class="clock clock-on">9:59</p>
+      <h2 class="cine-title">אתה יודע עליו הכל.</h2>
+    </div>
+    <div class="bleed">
+      <img src="assets/shots/meet-prep.png" width="1428" height="711"
+           alt="ההכנה לפגישה — נבנית מחדש בכל פתיחה" />
+    </div>
+    <div class="container narrow">
+      <ul class="cine-points">
+        <li><b>סיכום לפגישה</b> — מה קרה מאז שנפגשתם, ומה הנושא המרכזי היום.</li>
+        <li><b>שלוש נקודות פתיחה</b> — כל אחת עם התג מאיפה הגיעה: מדדים · תזרים · תפעול.</li>
+        <li><b>והנחיות אישיות.</b></li>
+      </ul>
+      <blockquote class="cine-quote">
+        ״פתח במספרים — צחי מאבד סבלנות מהקדמות.״
+        <span>אף אחד לא כתב את זה. זה מה שהמערכת למדה עליו לאורך הדרך.</span>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="cine cine-dark">
+    <div class="container narrow cine-in">
+      <h2 class="cine-title">כי הוא זוכר<br /><em>כל מה שנאמר.</em></h2>
+      <p class="cine-lead">
+        מהפגישות, משיחות הטלפון, מקבוצת הוואטסאפ ומהשיחות עם העוזר — הכל נכנס
+        לכרטיס אחד.
+      </p>
+      <div class="diagram" id="memDiagram">
+        <div class="chips">
+          <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2v2H5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2H7zm12 7v10H5V9h14z"/></svg>פגישה</span>
+          <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg>טלפון</span>
+          <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.7 13.7L3 21l4.4-1.2A9 9 0 1 0 12 3z"/></svg>וואטסאפ</span>
+          <span class="chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v12H8l-4 4V4z"/><circle cx="9" cy="10" r="1.1"/><circle cx="12" cy="10" r="1.1"/><circle cx="15" cy="10" r="1.1"/></svg>צ׳אט</span>
+        </div>
+        <svg class="lines" viewBox="0 0 1000 150" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M875 4 C 875 80, 500 70, 500 146" /><path d="M625 4 C 625 80, 500 70, 500 146" />
+          <path d="M375 4 C 375 80, 500 70, 500 146" /><path d="M125 4 C 125 80, 500 70, 500 146" />
+        </svg>
+        <div class="mem-card">
+          <span class="mem-card-head">כרטיס הזיכרון של הלקוח</span>
+          <p>מעדיף מספרים לפני הקדמות — מאבד סבלנות</p>
+          <p>ההעברה לאלקטרה מיזוג — עדיין לא בבנק</p>
+          <p>שביעות רצון ירדה אחרי הביטול ב-12.06</p>
+        </div>
+      </div>
+      <figure class="shot shot-inv">
+        <img src="assets/shots/co-mem.png" width="1680" height="980" loading="lazy"
+             alt="כרטיס הזיכרון של הלקוח — מארבעה ערוצים" />
+        <figcaption>כרטיס הזיכרון של הלקוח — מארבעה ערוצים, עם מקור ותאריך לכל שורה.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="cine cine-light">
+    <div class="container cine-in">
+      <p class="clock clock-on">11:05</p>
+      <h2 class="cine-title">הסיכום כתוב,<br /><em>והמשוב מחכה לך.</em></h2>
+      <div class="after-two">
+        <figure class="shot">
+          <img src="assets/shots/meet-tasks.png" width="1428" height="964" loading="lazy" alt="הסיכום והמשימות" />
+          <figcaption><b>הסיכום והמשימות</b> — חולצו מהשיחה, ממתינים לאישורך, ויוצאים בשם המשרד שלך.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/shots/meet-feedback.png" width="1428" height="964" loading="lazy" alt="המשוב על איך ניהלת את הפגישה" />
+          <figcaption><b>המשוב על איך ניהלת אותה</b> — מיקוד, הקשבה, הזדמנויות שחמקו. רק אתה רואה אותו.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="sec sec-navy">
+    <div class="container narrow">
+      <div class="ofir">
+        <img class="ofir-photo" src="assets/founders/ofir.png" alt="אופיר קריספין" loading="lazy" />
+        <div class="ofir-copy">
+          <h2 class="sec-title sec-title-inv">תביא לקוח אחד.<br />נראה לך את ההכנה שלו.</h2>
+          
+          <p class="prose prose-inv lg">שלושים דקות. בלי מצגת.</p>
+          <button class="btn btn-primary btn-xl" data-open-modal data-cta="סיום">שלושים דקות עם אופיר</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <img src="assets/logo.png" alt="HK" class="footer-logo" />
+      <p>HK — AI שמסכם, זוכר ומכין. בשם המשרד שלך.</p>
+    </div>
+  </footer>
+
+  <div class="modal" id="contactModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-card">
+      <button class="modal-x" data-close-modal aria-label="סגירה">×</button>
+      <h2 id="modalTitle">תביא לקוח אחד</h2>
+      <p class="modal-sub">נראה לך את ההכנה שלו. בלי מצגת.</p>
+      <form action="https://formsubmit.co/ajax/ofir@hak.co.il" method="POST">
+        <input type="hidden" name="_cc" value="info@hak.co.il" />
+        <input type="hidden" name="_subject" value="ליד חדש — גרסה C" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="מקור הפנייה" id="ctaSource" value="" />
+        <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <label>שם מלא<input type="text" name="שם מלא" required autocomplete="name" /></label>
+        <label>טלפון<input type="tel" name="טלפון" required autocomplete="tel" /></label>
+        <label>אימייל<input type="email" name="אימייל" required autocomplete="email" /></label>
+        <label>כמה לקוחות פעילים יש לך היום?
+          <select name="מספר לקוחות" required>
+            <option value="">בחר</option><option>עד 5</option><option>6–10</option>
+            <option>11–20</option><option>מעל 20</option>
+          </select>
+        </label>
+        <button type="submit" class="btn btn-primary btn-block btn-lg">שלח</button>
+      </form>
+      <div class="form-success" hidden><strong>קיבלנו.</strong><span>אופיר יחזור אליך היום או מחר בבוקר.</span></div>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-x" aria-label="סגירה">×</button><img src="" alt="" />
+  </div>
+  <script src="script.js?v=100"></script>
+</body>
+</html>

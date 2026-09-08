@@ -24,6 +24,7 @@
     var els = Array.prototype.slice.call(document.querySelectorAll(
       '.sec-title, .prose, .three p, .three-note, .ba-col, .chips, .mem-card, ' +
       '.table-wrap, .caveat-line, .shot, .gal-item, .gal-head > *, .three p, .three-note, ' +
+      '.st-copy, .st-shots, .calc, .calc-note, .cli-item, .flip-item, ' +
       '.ofir-photo, .ofir-copy'
     ));
     els.forEach(function (el) { el.classList.add('reveal'); });
@@ -96,6 +97,79 @@
       }, { threshold: 0.6 });
       cio.observe(counter);
     }
+  }
+
+  /* ---------- ציר הזמן (גרסה B) ---------- */
+  var month = document.getElementById('month');
+  if (month) {
+    var stations = Array.prototype.slice.call(month.querySelectorAll('.station'));
+    var updateRail = function () {
+      var r = month.getBoundingClientRect();
+      var mid = window.innerHeight * 0.5;
+      var pct = Math.max(0, Math.min(1, (mid - r.top) / r.height));
+      month.style.setProperty('--rail-progress', (pct * 100).toFixed(1) + '%');
+      stations.forEach(function (st) {
+        var b = st.getBoundingClientRect();
+        st.classList.toggle('is-on', b.top < mid && b.bottom > mid * 0.4);
+      });
+    };
+    if (reduceMotion) {
+      month.style.setProperty('--rail-progress', '100%');
+      stations.forEach(function (st) { st.classList.add('is-on'); });
+    } else {
+      window.addEventListener('scroll', updateRail, { passive: true });
+      window.addEventListener('resize', updateRail);
+      updateRail();
+    }
+  }
+
+  /* ---------- המחשבון (גרסה D) ---------- */
+  var cClients = document.getElementById('cClients');
+  if (cClients) {
+    var cFee = document.getElementById('cFee');
+    var HOURS_NOW = 8.5;   // שעות עבודה פר לקוח היום
+    var HOURS_HK  = 1.25;  // שעות תפעול שנשארות עם HK
+    var TOTAL_HK  = 3;     // סה"כ זמן פר לקוח עם HK — תפעול + הייעוץ עצמו
+    var BUDGET    = 80;    // שעות בחודש שיועץ מקדיש לעבודת לקוחות
+    var f = function (n) { return Math.round(n).toLocaleString('he-IL'); };
+
+    var run = function () {
+      var n = +cClients.value, fee = +cFee.value;
+      var capNow = Math.floor(BUDGET / HOURS_NOW);       // ≈ 9
+      var capHk  = Math.floor(BUDGET / TOTAL_HK);        // ≈ 26
+      var revNow = n * fee * 12;
+      var revHk  = capHk * fee * 12;
+
+      document.getElementById('oClients').textContent = n;
+      document.getElementById('oFee').textContent = f(fee) + ' ₪';
+      document.getElementById('rHoursNow').textContent = f(n * HOURS_NOW);
+      document.getElementById('rHoursHk').textContent  = f(n * HOURS_HK);
+      document.getElementById('rCapNow').textContent = capNow;
+      document.getElementById('rCapHk').textContent  = capHk;
+      document.getElementById('rRevNow').textContent = f(revNow) + ' ₪';
+      document.getElementById('rRevHk').textContent  = f(revHk) + ' ₪';
+
+      var state = document.getElementById('calcState');
+      var lbl = document.getElementById('deltaLbl'), num = document.getElementById('deltaNum');
+
+      if (n >= 30) {
+        lbl.textContent = 'שעות שחוזרות אליך בחודש';
+        num.textContent = f(n * (HOURS_NOW - HOURS_HK));
+        state.textContent = 'בנפח הזה השאלה כבר לא כמה לקוחות אלא כמה זמן. בוא נדבר.';
+        state.hidden = false;
+      } else if (n >= 20) {
+        lbl.textContent = 'שעות שחוזרות אליך בחודש';
+        num.textContent = f(n * (HOURS_NOW - HOURS_HK));
+        state.textContent = 'אתה כבר מעל התקרה שרוב היועצים מגיעים אליה — כנראה על חשבון שעות, לא במקומן. מה ש-HK מחזירה לך זה את השעות.';
+        state.hidden = false;
+      } else {
+        lbl.textContent = 'ההפרש השנתי';
+        num.textContent = f(Math.max(0, revHk - revNow)) + ' ₪';
+        state.hidden = true;
+      }
+    };
+    [cClients, cFee].forEach(function (el) { el.addEventListener('input', run); });
+    run();   // מחושב כבר בטעינה — דף שנפתח על אפס נראה שבור
   }
 
   /* ---------- לייטבוקס לצילומי המסך ---------- */

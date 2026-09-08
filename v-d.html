@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="כמה לקוחות אתה יכול לקחת? הזן את המספרים שלך וראה את התקרה." />
+  <title>HK — כמה לקוחות אתה יכול לקחת? בוא נחשב.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&family=Frank+Ruhl+Libre:wght@500;700;800&display=swap" />
+  <link rel="stylesheet" href="styles.css?v=100" />
+  <link rel="stylesheet" href="v-d.css?v=100" />
+</head>
+<body class="ver-d">
+  <div class="scroll-bar" id="scrollBar" aria-hidden="true"></div>
+  <a class="ver-tag" href="versions.html">גרסאות</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#hero" class="logo"><img src="assets/logo.png" alt="HK" /></a>
+      <button class="btn btn-primary btn-sm" data-open-modal data-cta="כותרת">שלושים דקות עם אופיר</button>
+    </div>
+  </header>
+  <section id="hero" class="calc-hero">
+    <div class="container">
+      <div class="calc-head">
+        <h1 class="calc-title">כמה לקוחות אתה יכול לקחת?<br /><em>בוא נחשב.</em></h1>
+        <p class="calc-sub">שני מספרים שלך, והחשבון נעשה מול העיניים.</p>
+      </div>
+
+      <div class="calc" id="calc">
+        <div class="calc-controls">
+          <label class="ctl">
+            <span class="ctl-lbl">כמה לקוחות יש לך היום</span>
+            <output id="oClients">10</output>
+            <input type="range" id="cClients" min="5" max="40" step="1" value="10" />
+            <span class="ctl-ends"><i>5</i><i>40</i></span>
+          </label>
+          <label class="ctl">
+            <span class="ctl-lbl">ריטיינר חודשי ממוצע</span>
+            <output id="oFee">2,500 ₪</output>
+            <input type="range" id="cFee" min="1000" max="6000" step="250" value="2500" />
+            <span class="ctl-ends"><i>1,000</i><i>6,000</i></span>
+          </label>
+        </div>
+
+        <div class="calc-panel">
+          <table class="calc-tbl">
+            <thead><tr><th></th><th>היום</th><th>עם HK</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">שעות עבודה בחודש על התיק</th><td id="rHoursNow">85</td><td id="rHoursHk" class="good">13</td></tr>
+              <tr><th scope="row">כמה לקוחות 80 שעות מכסות</th><td id="rCapNow">9</td><td id="rCapHk" class="good">26</td></tr>
+              <tr><th scope="row">הכנסה שנתית</th><td id="rRevNow">300,000 ₪</td><td id="rRevHk" class="good">780,000 ₪</td></tr>
+            </tbody>
+          </table>
+
+          <div class="calc-delta" id="deltaBox">
+            <span class="delta-lbl" id="deltaLbl">ההפרש השנתי</span>
+            <span class="delta-num" id="deltaNum">480,000 ₪</span>
+          </div>
+          <p class="calc-state" id="calcState" hidden></p>
+        </div>
+      </div>
+
+      <p class="calc-caveat">
+        החישוב מבוסס על המספרים שהזנת ועל 7–10 שעות תפעול פר לקוח בחודש.
+        <b>HK פותרת את בעיית הקיבולת — את הגיוס אתה עדיין פותר, ולא תעבור מ-10 ל-25
+        בחודש.</b> אבל מהיום זו בעיה של מכירות, לא של שעות.
+      </p>
+      <div class="calc-cta"><button class="btn btn-primary btn-xl" data-open-modal data-cta="הירו">שלושים דקות עם אופיר</button></div>
+    </div>
+  </section>
+
+  <section class="sec sec-white">
+    <div class="container">
+      <div class="gal-head">
+        <h2 class="sec-title">ארבעה דברים שכבר לא תעשה.</h2>
+      </div>
+      <div class="gal-grid saves">
+        <figure class="gal-item">
+          <img src="assets/shots/meet-prep.png" width="1428" height="711" loading="lazy" alt="ההכנה לפגישה" />
+          <figcaption><b>ההכנה לפגישה</b><span class="saves-h">~שעה ללקוח לחודש</span><button class="zoom-link" type="button">להגדלה</button></figcaption>
+        </figure>
+        <figure class="gal-item">
+          <img src="assets/shots/meet-tasks.png" width="1428" height="964" loading="lazy" alt="הסיכום והמשימות" />
+          <figcaption><b>הסיכום והמשימות</b><span class="saves-h">~חצי שעה לפגישה</span><button class="zoom-link" type="button">להגדלה</button></figcaption>
+        </figure>
+        <figure class="gal-item">
+          <img src="assets/shots/co-past.png" width="1428" height="980" loading="lazy" alt="הדוחות" />
+          <figcaption><b>הדוחות</b><span class="saves-h">4–8 שעות לחודש, למי שמנהל תזרים</span><button class="zoom-link" type="button">להגדלה</button></figcaption>
+        </figure>
+        <figure class="gal-item">
+          <img src="assets/shots/cli/cli-msgs.png" width="1680" height="1050" loading="lazy" alt="המענה השוטף והרדיפה" />
+          <figcaption><b>המענה השוטף והרדיפה</b><span class="saves-h">1–2 שעות לחודש</span><button class="zoom-link" type="button">להגדלה</button></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-tint">
+    <div class="container narrow">
+      <h2 class="sec-title">ויש דברים שאי אפשר לחשב.</h2>
+      <p class="prose lg">
+        הזיכרון שיודע למה הלקוח היה קצר רוח, המערכת שהוא רואה בשם המשרד שלך, והמשוב
+        על איך ניהלת את הפגישה. אלה לא מורידים שעות — <b>הם הסיבה שלקוחות נשארים.</b>
+      </p>
+      <div class="after-two">
+        <figure class="shot"><img src="assets/shots/co-mem.png" width="1680" height="980" loading="lazy" alt="כרטיס הזיכרון" /><figcaption>כרטיס הזיכרון — מארבעה ערוצים.</figcaption></figure>
+        <figure class="shot"><img src="assets/shots/cli-dash.png" width="1680" height="1050" loading="lazy" alt="המסך שהלקוח רואה" /><figcaption>המסך שהלקוח רואה — בשם המשרד שלך.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="sec sec-navy">
+    <div class="container narrow">
+      <div class="ofir">
+        <img class="ofir-photo" src="assets/founders/ofir.png" alt="אופיר קריספין" loading="lazy" />
+        <div class="ofir-copy">
+          <h2 class="sec-title sec-title-inv">נחשב את זה על התיק האמיתי שלך.</h2>
+          
+          <p class="prose prose-inv lg">שלושים דקות, עם המספרים שלך ולא עם ממוצעים.</p>
+          <button class="btn btn-primary btn-xl" data-open-modal data-cta="סיום">שלושים דקות עם אופיר</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <img src="assets/logo.png" alt="HK" class="footer-logo" />
+      <p>HK — AI שמסכם, זוכר ומכין. בשם המשרד שלך.</p>
+    </div>
+  </footer>
+
+  <div class="modal" id="contactModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-card">
+      <button class="modal-x" data-close-modal aria-label="סגירה">×</button>
+      <h2 id="modalTitle">נחשב על התיק שלך</h2>
+      <p class="modal-sub">שלושים דקות, עם המספרים שלך.</p>
+      <form action="https://formsubmit.co/ajax/ofir@hak.co.il" method="POST">
+        <input type="hidden" name="_cc" value="info@hak.co.il" />
+        <input type="hidden" name="_subject" value="ליד חדש — גרסה D" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="מקור הפנייה" id="ctaSource" value="" />
+        <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <label>שם מלא<input type="text" name="שם מלא" required autocomplete="name" /></label>
+        <label>טלפון<input type="tel" name="טלפון" required autocomplete="tel" /></label>
+        <label>אימייל<input type="email" name="אימייל" required autocomplete="email" /></label>
+        <label>כמה לקוחות פעילים יש לך היום?
+          <select name="מספר לקוחות" required>
+            <option value="">בחר</option><option>עד 5</option><option>6–10</option>
+            <option>11–20</option><option>מעל 20</option>
+          </select>
+        </label>
+        <button type="submit" class="btn btn-primary btn-block btn-lg">שלח</button>
+      </form>
+      <div class="form-success" hidden><strong>קיבלנו.</strong><span>אופיר יחזור אליך היום או מחר בבוקר.</span></div>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-x" aria-label="סגירה">×</button><img src="" alt="" />
+  </div>
+  <script src="script.js?v=100"></script>
+</body>
+</html>

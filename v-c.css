@@ -1,0 +1,105 @@
+/* ══ C · הפגישה ══
+   שפה: קולנועית. סקשן לכל מסך, החלפה כהה/בהיר היא הדרמה,
+   והכותרות הגדולות מכל הגרסאות. טקסט מועט מאוד. */
+
+.cine {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 96px 0;
+}
+.cine-dark {
+  background: linear-gradient(165deg, var(--navy) 0%, var(--navy-deep) 100%);
+  color: #fff;
+}
+.cine-light { background: var(--white); }
+.cine-in { width: 100%; }
+
+.clock {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  letter-spacing: .18em;
+  color: var(--sky);
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 20px;
+}
+.clock-on { color: var(--coral); }
+
+.cine-title {
+  font-family: 'Frank Ruhl Libre', Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 1.05;
+  letter-spacing: -.02em;
+  color: var(--navy);
+  margin-bottom: 28px;
+}
+.cine-dark .cine-title { color: #fff; }
+.cine-title em { font-style: normal; color: var(--sky); }
+
+.cine-lead {
+  font-size: clamp(1.12rem, 1.6vw, 1.35rem);
+  line-height: 1.75;
+  max-width: 54ch;
+  margin-bottom: 40px;
+  color: var(--text);
+}
+.cine-dark .cine-lead { color: rgba(255,255,255,.85); }
+
+/* meet-prep מקצה לקצה על רקע כהה */
+.bleed {
+  margin: 52px 0 56px;
+  padding: 46px 0;
+  background: linear-gradient(180deg, #0C4068, #082B47);
+}
+.bleed img {
+  width: 100%; max-width: 1560px; margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 30px 90px rgba(0,0,0,.5);
+  cursor: zoom-in;
+}
+
+.cine-points { display: flex; flex-direction: column; gap: 15px; max-width: var(--read); }
+.cine-points li { position: relative; padding-inline-start: 22px; font-size: 1.08rem; line-height: 1.7; }
+.cine-points li::before {
+  content: ''; position: absolute; inset-inline-start: 0; top: .8em;
+  width: 8px; height: 2px; background: var(--sky);
+}
+.cine-points b { color: var(--navy); }
+
+.cine-quote {
+  margin-top: 52px;
+  font-family: 'Frank Ruhl Libre', Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3.4vw, 2.7rem);
+  line-height: 1.32;
+  color: var(--navy);
+  border-inline-start: 4px solid var(--coral);
+  padding-inline-start: 26px;
+  max-width: 24ch;
+}
+.cine-quote span {
+  display: block; margin-top: 16px;
+  font-family: 'Rubik', sans-serif; font-weight: 400;
+  font-size: 1rem; line-height: 1.7; color: var(--muted);
+  max-width: 46ch;
+}
+
+.cine .diagram { margin-top: 44px; }
+.cine-dark .chip { background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.18); color: #fff; }
+.cine-dark .lines path { stroke: rgba(255,255,255,.28); }
+.cine-dark .mem-card { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.16); box-shadow: none; }
+.cine-dark .mem-card p { color: #fff; }
+.cine-dark .mem-card p + p { border-top-color: rgba(255,255,255,.14); }
+.cine-dark .mem-card-head { color: rgba(255,255,255,.6); }
+
+.after-two { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; margin-top: 18px; }
+.after-two .shot { margin: 0; }
+.after-two figcaption b { color: var(--navy); }
+
+@media (max-width: 900px) {
+  .cine { min-height: 0; padding: 68px 0; }
+  .after-two { grid-template-columns: 1fr; gap: 34px; }
+  .bleed { padding: 26px 0; margin: 34px 0 38px; }
+  .cine-quote { max-width: none; }
+}

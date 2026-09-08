@@ -597,3 +597,16 @@ p.prose { margin-top: 18px; }
   .caveat { padding: 24px 22px; }
   .tbl th, .tbl td { padding: 12px 14px; font-size: .95rem; }
 }
+
+/* תג מעבר בין הגרסאות — כלי פנימי להשוואה, לא חלק מהדף */
+.ver-tag {
+  position: fixed; inset-block-end: 18px; inset-inline-start: 18px;
+  z-index: 95;
+  background: rgba(12,64,104,.9); color: #fff;
+  font-size: .82rem; font-weight: 500;
+  padding: 7px 16px; border-radius: 50px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 18px rgba(12,64,104,.3);
+}
+.ver-tag:hover { background: var(--navy); }
+@media print { .ver-tag { display: none; } }

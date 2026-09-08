@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HK — חמש גרסאות לדף הנחיתה</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&family=Frank+Ruhl+Libre:wght@700&display=swap" />
+  <style>
+    :root { --navy:#0C4068; --coral:#E8635A; --sky:#39ABE2; --line:#E3EAF3; --muted:#6B7C8D; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html, body { height:100%; }
+    body {
+      font-family:'Rubik', system-ui, sans-serif;
+      background:#0C4068; color:#fff;
+      display:flex; flex-direction:column; overflow:hidden;
+    }
+    .bar { flex:0 0 auto; padding:14px 20px 0; }
+    .bar-top { display:flex; align-items:baseline; gap:14px; margin-bottom:14px; }
+    .bar-top h1 { font-family:'Frank Ruhl Libre',Georgia,serif; font-size:1.15rem; font-weight:700; }
+    .bar-top span { font-size:.86rem; color:rgba(255,255,255,.55); }
+    .tabs { display:flex; gap:8px; flex-wrap:wrap; }
+    .tab {
+      flex:1 1 0; min-width:150px;
+      display:block; text-align:start;
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.14);
+      border-bottom:0;
+      border-radius:10px 10px 0 0;
+      padding:11px 16px 13px;
+      color:#fff; font-family:inherit; font-size:.95rem; cursor:pointer;
+      transition:background .15s, border-color .15s;
+    }
+    .tab:hover { background:rgba(255,255,255,.13); }
+    .tab.on { background:#fff; color:var(--navy); border-color:#fff; }
+    .tab b { display:block; font-weight:600; margin-bottom:2px; }
+    .tab i { display:block; font-style:normal; font-size:.79rem; opacity:.65; line-height:1.35; }
+    .tab .k { color:var(--sky); font-weight:700; margin-inline-end:6px; }
+    .tab.on .k { color:var(--coral); }
+    .stage { flex:1 1 auto; background:#fff; position:relative; }
+    iframe { width:100%; height:100%; border:0; display:block; }
+    .open-new {
+      position:absolute; inset-block-end:16px; inset-inline-start:16px;
+      background:rgba(12,64,104,.9); color:#fff; text-decoration:none;
+      font-size:.8rem; padding:7px 15px; border-radius:50px;
+    }
+    @media (max-width:760px) { .tab { min-width:calc(50% - 4px); } .tab i { display:none; } }
+  </style>
+</head>
+<body>
+  <div class="bar">
+    <div class="bar-top">
+      <h1>חמש גרסאות לדף הנחיתה</h1>
+      <span>כל אחת אסטרטגיית מכירה אחרת — לא אותו דף בחמישה צבעים</span>
+    </div>
+    <div class="tabs" role="tablist">
+      <button class="tab on" role="tab" data-v="a"><b><span class="k">A</span>הסחורה</b><i>הוכחה בנפח — שמונה תוצרים מוגמרים</i></button>
+      <button class="tab" role="tab" data-v="b"><b><span class="k">B</span>החודש</b><i>נרטיב — חודש אחד, חמש תחנות, "מה עשית: —"</i></button>
+      <button class="tab" role="tab" data-v="c"><b><span class="k">C</span>הפגישה</b><i>רגע אחד — 9:30, חצי שעה לפני</i></button>
+      <button class="tab" role="tab" data-v="d"><b><span class="k">D</span>החשבון</b><i>מחשבון — המספרים שלו, לא שלנו</i></button>
+      <button class="tab" role="tab" data-v="e"><b><span class="k">E</span>השם שלך</b><i>white-label כגאווה</i></button>
+    </div>
+  </div>
+  <div class="stage">
+    <iframe id="stage" src="v-a.html" title="גרסה"></iframe>
+    <a class="open-new" id="openNew" href="v-a.html" target="_blank" rel="noopener">פתח בטאב נפרד ↗</a>
+  </div>
+
+  <script>
+    (function () {
+      var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+      var frame = document.getElementById('stage');
+      var link = document.getElementById('openNew');
+      function show(v, push) {
+        var t = tabs.filter(function (x) { return x.dataset.v === v; })[0];
+        if (!t) return;
+        tabs.forEach(function (x) { x.classList.toggle('on', x === t); });
+        // טעינה מחדש של המסגרת — כל גרסה מתחילה נקייה, האנימציות רצות מההתחלה
+        frame.src = 'v-' + v + '.html';
+        link.href = 'v-' + v + '.html';
+        if (push) history.replaceState(null, '', '#' + v);
+      }
+      tabs.forEach(function (t) {
+        t.addEventListener('click', function () { show(t.dataset.v, true); });
+      });
+      var h = (location.hash || '#a').slice(1);
+      show(/^[a-e]$/.test(h) ? h : 'a', false);
+    })();
+  </script>
+</body>
+</html>
