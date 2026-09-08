@@ -23,7 +23,7 @@
   if (!reduceMotion && 'IntersectionObserver' in window) {
     var els = Array.prototype.slice.call(document.querySelectorAll(
       '.sec-title, .prose, .three p, .three-note, .ba-col, .chips, .mem-card, ' +
-      '.table-wrap, .caveat-line, .shot, .gal-item, .gal-head > *, ' +
+      '.table-wrap, .caveat-line, .shot, .gal-item, .gal-head > *, .three p, .three-note, ' +
       '.ofir-photo, .ofir-copy'
     ));
     els.forEach(function (el) { el.classList.add('reveal'); });
@@ -108,13 +108,21 @@
       document.body.style.overflow = '';
       lbImg.src = '';
     };
+    var openLb = function (img) {
+      lbImg.src = img.currentSrc || img.src;
+      lbImg.alt = img.alt;
+      lb.classList.add('is-open');
+      lb.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    };
     document.querySelectorAll('.shot img, .hero-shot img, .gal-item img').forEach(function (img) {
-      img.addEventListener('click', function () {
-        lbImg.src = img.currentSrc || img.src;
-        lbImg.alt = img.alt;
-        lb.classList.add('is-open');
-        lb.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
+      img.addEventListener('click', function () { openLb(img); });
+    });
+    // הקישור "להגדלה" פותח את אותו לייטבוקס
+    document.querySelectorAll('.zoom-link').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var img = b.closest('figure') && b.closest('figure').querySelector('img');
+        if (img) openLb(img);
       });
     });
     lb.addEventListener('click', closeLb);
