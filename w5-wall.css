@@ -1,0 +1,32 @@
+:root {
+  --navy: #0c4068; --sky: #39abe2; --coral: #e48375; --coral-h: #d4705f;
+  --off: #eef4f9; --text: #333344; --muted: #6b7c8d; --line: #d8e8f2; --r: 16px;
+}
+body.w5-wall { font-family: 'Heebo', system-ui, sans-serif; background: #fff; }
+.k-hero { background: var(--off); padding: 100px 0 70px; text-align: center; }
+.k-kicker { color: var(--sky); font-weight: 500; letter-spacing: .06em; margin-bottom: 14px; }
+.k-title { font-family: 'Karantina', 'Heebo', sans-serif; font-weight: 700; font-size: clamp(4.4rem, 12vw, 10rem); line-height: .92; color: var(--navy); margin-bottom: 22px; }
+.k-title em { font-style: normal; color: var(--coral); }
+.k-lead { font-size: clamp(1.1rem, 1.7vw, 1.35rem); line-height: 1.7; color: var(--text); max-width: 56ch; margin: 0 auto 34px; }
+
+/* הקיר — שלוש שורות שזזות, כל אחת לכיוון אחר */
+.wall { background: var(--off); padding: 10px 0 60px; overflow: hidden; }
+.mq { overflow: hidden; padding: 10px 0; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.mq-track { display: flex; gap: 18px; width: max-content; animation: mq 70s linear infinite; }
+.mq-rev .mq-track { animation-direction: reverse; animation-duration: 84s; }
+.mq:hover .mq-track { animation-play-state: paused; }
+.mq-track img { height: 186px; width: 318px; object-fit: cover; object-position: right top; border-radius: 10px; border: 1px solid var(--line); background: #fff; box-shadow: 0 8px 22px rgba(12,64,104,.1); }
+@keyframes mq { to { transform: translateX(50%); } }
+@media (prefers-reduced-motion: reduce) { .mq-track { animation: none; flex-wrap: wrap; width: auto; } .mq-track img { height: 120px; width: 205px; } }
+
+.k-h2 { font-family: 'Heebo', sans-serif; font-weight: 800; font-size: clamp(1.8rem, 3.4vw, 2.7rem); color: var(--navy); margin-bottom: 36px; }
+.k-four { background: #fff; padding: 100px 0; }
+.four { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.four .shot { margin: 0; }
+.four .shot img { border-radius: 16px; box-shadow: 0 14px 40px rgba(12,64,104,.12); }
+.four figcaption b { color: var(--navy); font-weight: 700; }
+.k-three { background: var(--off); padding: 100px 0; text-align: center; }
+.k-three .three p { font-family: 'Heebo', sans-serif; font-weight: 800; color: var(--navy); }
+.w5-wall .ofir-copy .sec-title { font-family: 'Heebo', sans-serif; font-weight: 800; }
+.w5-wall .btn-primary { background: var(--coral); }
+@media (max-width: 860px) { .four { grid-template-columns: 1fr; } .mq-track img { height: 130px; width: 222px; } .k-hero { padding: 64px 0 40px; } }

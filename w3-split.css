@@ -1,0 +1,37 @@
+:root { --r: 12px; }
+.s-hero { background: linear-gradient(165deg, var(--navy), var(--navy-deep)); color: #fff; padding: 110px 0 100px; text-align: center; }
+.s-title { font-family: 'Frank Ruhl Libre', Georgia, serif; font-weight: 800; font-size: clamp(2.6rem, 6vw, 5rem); line-height: 1.08; letter-spacing: -.02em; margin-bottom: 22px; }
+.s-title em { font-style: normal; color: var(--sky); }
+.s-lead { font-size: 1.2rem; color: rgba(255,255,255,.8); margin-bottom: 34px; }
+
+.ba-wrap { position: relative; }
+.ba-heads { position: sticky; top: 61px; z-index: 5; display: grid; grid-template-columns: 1fr 1fr; }
+.ba-hl, .ba-hr { padding: 12px 28px; font-weight: 700; font-size: .95rem; letter-spacing: .08em; }
+.ba-hl { background: #16202B; color: rgba(255,255,255,.7); border-bottom: 1px solid rgba(255,255,255,.1); }
+.ba-hr { background: #fff; color: var(--navy); border-bottom: 1px solid var(--line); }
+
+.ba-row { display: grid; grid-template-columns: 1fr 1fr; }
+.ba-l, .ba-r { padding: 72px clamp(24px, 5vw, 80px); }
+.ba-l { background: #1F2A37; color: rgba(255,255,255,.7); }
+.ba-r { background: #fff; color: var(--text); }
+.ba-row:nth-child(even) .ba-l { background: #1A2430; }
+.ba-row:nth-child(even) .ba-r { background: #F7FAFC; }
+.ba-t { display: block; font-family: 'Rubik', sans-serif; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: .1em; font-size: .95rem; margin-bottom: 14px; }
+.ba-l .ba-t { color: rgba(255,255,255,.4); }
+.ba-r .ba-t { color: var(--sky); }
+.ba-row h3 { font-family: 'Frank Ruhl Libre', Georgia, serif; font-weight: 700; font-size: clamp(1.4rem, 2.4vw, 2rem); line-height: 1.25; margin-bottom: 10px; }
+.ba-l h3 { color: rgba(255,255,255,.55); text-decoration: line-through; text-decoration-color: rgba(255,255,255,.3); text-decoration-thickness: 2px; }
+.ba-r h3 { color: var(--navy); }
+.ba-row p { font-size: 1.05rem; line-height: 1.7; max-width: 40ch; }
+.ba-r .shot { margin-top: 26px; }
+.ba-r .shot img { box-shadow: 0 16px 40px rgba(12,64,104,.14); }
+
+.s-sum { background: #fff; padding: 120px 0; text-align: center; }
+.s-sum .prose { margin-inline: auto; }
+
+@media (max-width: 860px) {
+  .ba-heads { display: none; }
+  .ba-row { grid-template-columns: 1fr; }
+  .ba-l, .ba-r { padding: 40px 24px; }
+  .ba-l { border-top: 1px solid rgba(255,255,255,.08); }
+}

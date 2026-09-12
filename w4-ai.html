@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="נסה את העוזר של HK על לקוח דמו: תזרים, מה סוכם, על מה לפתוח בפגישה הבאה." />
+  <title>HK — שאל את ה-AI על הלקוח שלך.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&family=Heebo:wght@400;500;700;800;900&family=Karantina:wght@400;700&family=Frank+Ruhl+Libre:wght@700;800&display=swap" />
+  <link rel="stylesheet" href="styles.css?v=200" />
+  <link rel="stylesheet" href="w4-ai.css?v=200" />
+</head>
+<body class="w4-ai">
+  <div class="scroll-bar" id="scrollBar" aria-hidden="true"></div>
+  <a class="ver-tag" href="versions.html">גרסאות</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#hero" class="logo"><img src="assets/logo.png" alt="HK" /></a>
+      <a class="btn btn-primary btn-sm" href="#chat">נסה את העוזר</a>
+    </div>
+  </header>
+  <section id="hero" class="ai-hero">
+    <div class="container narrow">
+      <p class="ai-kicker">HK · העוזר של היועץ</p>
+      <h1 class="ai-title">שאל את ה-AI<br /><em>על הלקוח שלך.</em></h1>
+      <p class="ai-lead">זה העוזר שאתה מקבל. הוא זוכר כל מה שנאמר על הלקוח — ועונה מתוך המספרים שלו. נסה על לקוח הדמו, אנרגי אינטרנשיונל:</p>
+    </div>
+
+    <div class="container narrow">
+      <div class="chat" id="chat">
+        <div class="chat-top"><span class="chat-dot"></span>העוזר · אנרגי אינטרנשיונל</div>
+        <div class="chat-log" id="chatLog">
+          <div class="ans ans-hello"><span class="ans-who">העוזר</span><p>בוקר טוב. מה תרצה לדעת על אנרגי?</p></div>
+        <div class="ans" data-i="0" hidden><span class="ans-who">העוזר</span><p>יתרה נוכחית <b>1,029,208 ₪</b>. אבל בעוד 12 ימים, ב-13.7, צפויה חריגה של <b>289,161 ₪</b> — אם ההעברה מפועלים 112 ללאומי 604 לא תבוצע. ביקשתי מצחי לסגור את זה היום עד 17:00.</p></div>
+        <div class="ans" data-i="1" hidden><span class="ans-who">העוזר</span><p>ההכנסות עלו <b>12%</b> מהחודש הקודם — 307 אש״ח מול 274. התלות ברימון הגיעה ל-<b>70%</b> מהמחזור. ו-25,000 ₪ קניות מלאי עדיין לא נצבעו בתזרים. נפתחו 3 משימות, שתיים כבר בוצעו.</p></div>
+        <div class="ans" data-i="2" hidden><span class="ans-who">העוזר</span><p>במספרים. צחי מאבד סבלנות מהקדמות. את הנושא של רימון — בעדינות, בלי לחץ. הפגישה הבאה: <b>10 ביולי, 14:00</b>, סקירת רבעון Q3, עם אילון.</p></div>
+        <div class="ans" data-i="3" hidden><span class="ans-who">העוזר</span><p>מסגרת של <b>150,000 ₪</b> בניצול <b>107%</b> — חריגה בפועל 6 ימים בלאומי. זה מה שמייצר את החריגה הצפויה ב-11.07. שווה להעלות בפגישה.</p></div>
+        </div>
+        <div class="chat-chips" id="chatChips">
+        <button class="chip-q" data-i="0" type="button">מה מצב התזרים של אנרגי?</button>
+        <button class="chip-q" data-i="1" type="button">מה סוכם בפגישה האחרונה?</button>
+        <button class="chip-q" data-i="2" type="button">על מה לפתוח בפגישה הבאה?</button>
+        <button class="chip-q" data-i="3" type="button">מה עם מסגרת האשראי?</button>
+        </div>
+      </div>
+      <p class="ai-note">התשובות כאן מוכנות מראש — מהנתונים האמיתיים של חשבון הדמו. במערכת, העוזר עונה על כל שאלה, בזמן אמת.</p>
+    </div>
+  </section>
+
+  <section class="sec ai-from">
+    <div class="container narrow">
+      <h2 class="sec-title">מאיפה הוא יודע?</h2>
+      <p class="prose lg">כי כל מה שנאמר על הלקוח — <b>בפגישה, בטלפון, בקבוצת הוואטסאפ ובצ׳אט</b> — נכנס לכרטיס זיכרון אחד. וכל מספר מגיע מהבנק, לא מהערכה.</p>
+      <div class="ai-two">
+        <figure class="shot"><img src="assets/shots/co-mem.png" width="1680" height="980" loading="lazy" alt="כרטיס הזיכרון" /><figcaption>כרטיס הזיכרון של הלקוח — מארבעה ערוצים, עם מקור ותאריך לכל שורה.</figcaption></figure>
+        <figure class="shot"><img src="assets/shots/meet-prep.png" width="1428" height="711" loading="lazy" alt="ההכנה לפגישה" /><figcaption>ומההזיכרון הזה נבנית ההכנה לפגישה — מחדש, בכל פתיחה.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec ai-client">
+    <div class="container narrow">
+      <h2 class="sec-title">והלקוח שלך מקבל את אותו עוזר.</h2>
+      <p class="prose lg">בוואטסאפ, בשם המשרד שלך. הוא שואל ״מה היתרה?״ בעשר בלילה ומקבל תשובה מהמספרים שלו. אותנו הוא לא רואה.</p>
+      <figure class="shot"><img src="assets/shots/cli/cli-chat.png" width="1680" height="1050" loading="lazy" alt="העוזר של הלקוח" /><figcaption>העוזר של הלקוח — ״שחר ייעוץ עסקי״ בפס העליון, לא HK.</figcaption></figure>
+    </div>
+  </section>
+
+  <section id="contact" class="sec sec-navy ofir-sec ">
+    <div class="container narrow">
+      <div class="ofir">
+        <img class="ofir-photo" src="assets/founders/ofir.png" alt="אופיר קריספין" loading="lazy" />
+        <div class="ofir-copy">
+          <h2 class="sec-title sec-title-inv">שאל אותי מה שתרצה.</h2>
+          <p class="ofir-name"><b>אופיר קריספין</b>, מייסד HK</p>
+          <p class="prose prose-inv lg">שלושים דקות. נעבור על התיק שלך ותראה את העוזר עונה על לקוח אמיתי שלך.</p>
+          <button class="btn btn-primary btn-xl" data-open-modal data-cta="סיום">שלושים דקות עם אופיר</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <img src="assets/logo.png" alt="HK" class="footer-logo" />
+      <p>HK — AI שמסכם, זוכר ומכין. בשם המשרד שלך.</p>
+    </div>
+  </footer>
+
+  <div class="modal" id="contactModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-card">
+      <button class="modal-x" data-close-modal aria-label="סגירה">×</button>
+      <h2 id="modalTitle">שלושים דקות עם אופיר</h2>
+      <p class="modal-sub">הוא יחזור אליך. בלי מצגת.</p>
+      <form action="https://formsubmit.co/ajax/ofir@hak.co.il" method="POST">
+        <input type="hidden" name="_cc" value="info@hak.co.il" />
+        <input type="hidden" name="_subject" value="ליד חדש — w4-ai" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="מקור הפנייה" id="ctaSource" value="" />
+        <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <label>שם מלא<input type="text" name="שם מלא" required autocomplete="name" /></label>
+        <label>טלפון<input type="tel" name="טלפון" required autocomplete="tel" /></label>
+        <label>אימייל<input type="email" name="אימייל" required autocomplete="email" /></label>
+        <label>כמה לקוחות פעילים יש לך היום?
+          <select name="מספר לקוחות" required>
+            <option value="">בחר</option><option>עד 5</option><option>6–10</option>
+            <option>11–20</option><option>מעל 20</option>
+          </select>
+        </label>
+        <button type="submit" class="btn btn-primary btn-block btn-lg">שלח</button>
+      </form>
+      <div class="form-success" hidden><strong>קיבלנו.</strong><span>אופיר יחזור אליך היום או מחר בבוקר.</span></div>
+    </div>
+  </div>
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-x" aria-label="סגירה">×</button><img src="" alt="" />
+  </div>
+  <script src="script.js?v=200"></script>
+<script>
+(function(){
+  var log=document.getElementById('chatLog'); if(!log) return;
+  var chips=[].slice.call(document.querySelectorAll('.chip-q'));
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  chips.forEach(function(c){
+    c.addEventListener('click',function(){
+      var i=c.dataset.i;
+      var q=document.createElement('div'); q.className='ask'; q.innerHTML='<p>'+c.textContent+'</p>';
+      var ans=log.querySelector('.ans[data-i="'+i+'"]');
+      log.appendChild(q);
+      var a=ans.cloneNode(true); a.hidden=false; a.removeAttribute('data-i');
+      var p=a.querySelector('p'); var html=p.innerHTML; 
+      c.disabled=true;
+      if(reduce){ log.appendChild(a); log.scrollTop=log.scrollHeight; return; }
+      p.innerHTML='<span class="typing"><i></i><i></i><i></i></span>';
+      log.appendChild(a); log.scrollTop=log.scrollHeight;
+      setTimeout(function(){ p.innerHTML=html; log.scrollTop=log.scrollHeight; }, 650);
+    });
+  });
+})();
+</script>
+</body>
+</html>
