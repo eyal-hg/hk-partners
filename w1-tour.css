@@ -16,8 +16,8 @@ body.w1-tour { background: #0A1F33; color: #E6EEF6; }
 .t-scroll { margin-top: 56px; color: rgba(255,255,255,.4); font-size: .9rem; }
 
 /* הסיור: במה דביקה משמאל, צעדים מימין */
-.tour { padding: 40px 0 80px; }
-.tour-grid { display: grid; grid-template-columns: 0.72fr 1.28fr; gap: 56px; align-items: start; }
+.tour { padding: 20px 0 80px; }
+.tour-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 48px; align-items: start; }
 .tour-stage { order: 2; position: sticky; top: 92px; }
 .tour-steps { order: 1; }
 .tour-frame { position: relative; aspect-ratio: 1428 / 900; border-radius: 14px; overflow: hidden; background: #0F2A44; box-shadow: 0 40px 100px rgba(0,0,0,.5); border: 1px solid rgba(255,255,255,.1); }
@@ -27,7 +27,7 @@ body.w1-tour { background: #0A1F33; color: #E6EEF6; }
 .tour-dots li { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.22); cursor: pointer; transition: all .25s; }
 .tour-dots li.is-on { background: var(--sky); width: 28px; border-radius: 4px; }
 
-.tour-step { min-height: 62vh; display: flex; flex-direction: column; justify-content: center; padding: 20px 0; opacity: .32; transition: opacity .4s; }
+.tour-step { min-height: 58vh; display: flex; flex-direction: column; justify-content: flex-start; padding: 16vh 0 6vh; scroll-margin-top: 110px; opacity: .32; transition: opacity .4s; }
 .tour-step.is-on { opacity: 1; }
 .tour-n { font-family: 'Rubik', sans-serif; font-weight: 700; color: var(--sky); font-size: .95rem; letter-spacing: .12em; margin-bottom: 12px; font-variant-numeric: tabular-nums; }
 .tour-step h2 { font-family: 'Frank Ruhl Libre', Georgia, serif; font-weight: 700; font-size: clamp(1.7rem, 3vw, 2.6rem); color: #fff; margin-bottom: 14px; line-height: 1.2; }
