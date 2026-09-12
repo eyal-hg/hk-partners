@@ -30,3 +30,6 @@ body.w6-cinema { background: #07172A; color: #E6EEF6; }
 .ticks li.is-on { color: #fff; background: var(--sky); border-color: var(--sky); }
 .w6-cinema .ofir-sec { background: linear-gradient(165deg, #0C4068, #082B47); }
 @media (max-width: 900px) { .ticks { display: none; } .slide { min-height: 0; padding: 40px 0; } .slide-stage img { max-height: none; opacity: 1; transform: none; } .slide-cap { opacity: 1; grid-template-columns: 1fr; } .slide-cap p { grid-column: 1; } .c-hero { padding: 72px 0 48px; } }
+
+.ticks li.tick-client { border-color: rgba(57,171,226,.45); color: var(--sky); }
+.ticks li.tick-client.is-on { background: var(--sky); color: #fff; }
