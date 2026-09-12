@@ -56,7 +56,8 @@
       <span>חמש שפות ויזואליות שונות, לא אותו דף בחמישה צבעים</span>
     </div>
     <div class="tabs" role="tablist">
-      <button class="tab on" role="tab" data-v="w1-tour"><b><span class="k">1</span>סיור במוצר</b><i>כהה — הצילום מתחלף בגלילה, מסך אחרי מסך</i></button>
+      <button class="tab on" role="tab" data-v="w8-work"><b><span class="k">8</span>העבודה</b><i>המכניקה של 1 — אבל מה שאנחנו עושים, לא אילו מסכים יש</i></button>
+      <button class="tab" role="tab" data-v="w1-tour"><b><span class="k">1</span>סיור במוצר</b><i>כהה — הצילום מתחלף בגלילה, מסך אחרי מסך</i></button>
       <button class="tab" role="tab" data-v="w2-bold"><b><span class="k">2</span>ההצהרה</b><i>קורל, ענק, מהיר — "מהיום יש לך מחלקה"</i></button>
       <button class="tab" role="tab" data-v="w3-split"><b><span class="k">3</span>לפני / אחרי</b><i>מסך מפוצל — היום מימין, עם HK משמאל</i></button>
       <button class="tab" role="tab" data-v="w4-ai"><b><span class="k">4</span>דבר עם ה-AI</b><i>דמו חי — שואלים את העוזר על לקוח</i></button>
@@ -67,8 +68,8 @@
     <p class="round1">הסבב הקודם: <a href="v1-goods.html">1</a> · <a href="v2-meeting.html">2</a> · <a href="v3-math.html">3</a> · <a href="v4-brand.html">4</a> · <a href="v5-letter.html">5</a></p>
   </div>
   <div class="stage">
-    <iframe id="stage" src="w1-tour.html" title="גרסה"></iframe>
-    <a class="open-new" id="openNew" href="w1-tour.html" target="_blank" rel="noopener">פתח בטאב נפרד ↗</a>
+    <iframe id="stage" src="w8-work.html" title="גרסה"></iframe>
+    <a class="open-new" id="openNew" href="w8-work.html" target="_blank" rel="noopener">פתח בטאב נפרד ↗</a>
   </div>
 
   <script>
@@ -90,7 +91,7 @@
       });
       var h = (location.hash || '').slice(1);
       var valid = tabs.map(function (t) { return t.dataset.v; });
-      show(valid.indexOf(h) > -1 ? h : 'w1-tour', false);
+      show(valid.indexOf(h) > -1 ? h : 'w8-work', false);
     })();
   </script>
 </body>
