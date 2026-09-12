@@ -1,0 +1,32 @@
+:root { --r: 14px; }
+body.w6-cinema { background: #07172A; color: #E6EEF6; }
+.w6-cinema .site-header { background: rgba(7,23,42,.88); border-bottom-color: rgba(255,255,255,.08); }
+.w6-cinema .logo img, .w6-cinema .footer-logo { filter: brightness(0) invert(1); }
+.w6-cinema .site-footer { background: #040F1D; }
+
+.c-hero { padding: 120px 0 80px; text-align: center; background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(57,171,226,.2), transparent 60%), #07172A; }
+.c-kicker { color: var(--sky); letter-spacing: .1em; font-size: .95rem; margin-bottom: 20px; }
+.c-title { font-family: 'Frank Ruhl Libre', Georgia, serif; font-weight: 800; font-size: clamp(2.6rem, 6.2vw, 5.6rem); line-height: 1.05; letter-spacing: -.02em; color: #fff; margin: 0 auto 24px; max-width: 18ch; }
+.c-title em { font-style: normal; color: var(--sky); }
+.c-lead { font-size: clamp(1.1rem, 1.6vw, 1.32rem); line-height: 1.7; color: rgba(255,255,255,.76); max-width: 54ch; margin: 0 auto 36px; }
+
+/* הסרט: כל סלייד = מסך */
+.film { position: relative; scroll-snap-type: y proximity; }
+.slide { min-height: 100vh; display: grid; grid-template-rows: 1fr auto; align-items: center; padding: 72px 0 40px; scroll-snap-align: start; position: relative; }
+.slide-stage { width: min(1600px, 94vw); margin: 0 auto; }
+.slide-stage img { width: 100%; max-height: 74vh; object-fit: contain; object-position: top; border-radius: 14px; border: 1px solid rgba(255,255,255,.1); box-shadow: 0 50px 120px rgba(0,0,0,.55); background: #0F2A44; opacity: .35; transform: translateY(18px) scale(.985); transition: opacity .6s ease, transform .7s ease; }
+.slide.is-on .slide-stage img { opacity: 1; transform: none; }
+.slide-cap { width: min(1600px, 94vw); margin: 22px auto 0; display: grid; grid-template-columns: auto 1fr; gap: 20px 26px; align-items: baseline; opacity: .4; transition: opacity .5s; }
+.slide.is-on .slide-cap { opacity: 1; }
+.slide-n { font-family: 'Rubik', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: .12em; color: var(--sky); font-variant-numeric: tabular-nums; }
+.slide-cap h2 { font-family: 'Frank Ruhl Libre', Georgia, serif; font-weight: 700; font-size: clamp(1.6rem, 3vw, 2.5rem); color: #fff; line-height: 1.15; }
+.slide-cap p { grid-column: 2; font-size: 1.08rem; line-height: 1.7; color: rgba(255,255,255,.72); max-width: 70ch; }
+.slide-client { background: linear-gradient(180deg, #07172A, #0C4068); }
+.slide-client .slide-stage img { border-color: rgba(57,171,226,.4); }
+
+/* סרגל מיקום בצד */
+.ticks { position: fixed; top: 50%; inset-inline-start: 22px; transform: translateY(-50%); z-index: 20; list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.ticks li { width: 34px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 8px; color: rgba(255,255,255,.35); font-family: 'Rubik', sans-serif; font-size: .72rem; font-variant-numeric: tabular-nums; cursor: pointer; border: 1px solid rgba(255,255,255,.08); transition: all .25s; }
+.ticks li.is-on { color: #fff; background: var(--sky); border-color: var(--sky); }
+.w6-cinema .ofir-sec { background: linear-gradient(165deg, #0C4068, #082B47); }
+@media (max-width: 900px) { .ticks { display: none; } .slide { min-height: 0; padding: 40px 0; } .slide-stage img { max-height: none; opacity: 1; transform: none; } .slide-cap { opacity: 1; grid-template-columns: 1fr; } .slide-cap p { grid-column: 1; } .c-hero { padding: 72px 0 48px; } }

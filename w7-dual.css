@@ -1,0 +1,37 @@
+:root { --r: 14px; }
+body.w7-dual { background: #0A1F33; color: #E6EEF6; }
+.w7-dual .site-header { background: rgba(10,31,51,.88); border-bottom-color: rgba(255,255,255,.08); }
+.w7-dual .logo img, .w7-dual .footer-logo { filter: brightness(0) invert(1); }
+.w7-dual .site-footer { background: #061524; }
+
+.d-hero { padding: 116px 0 70px; text-align: center; background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(57,171,226,.18), transparent 60%), #0A1F33; }
+.d-kicker { color: var(--sky); letter-spacing: .1em; font-size: .95rem; margin-bottom: 20px; }
+.d-title { font-family: 'Frank Ruhl Libre', Georgia, serif; font-weight: 800; font-size: clamp(2.6rem, 6vw, 5.4rem); line-height: 1.06; letter-spacing: -.02em; color: #fff; margin: 0 auto 24px; max-width: 16ch; }
+.d-title em { font-style: normal; color: var(--sky); }
+.d-lead { font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.7; color: rgba(255,255,255,.76); max-width: 56ch; margin: 0 auto 36px; }
+
+/* הבמה הכפולה — דביקה למעלה, הצעדים גוללים מתחתיה */
+.d-stage { position: sticky; top: 61px; z-index: 10; background: linear-gradient(180deg, #0A1F33 78%, rgba(10,31,51,0)); padding: 22px 0 34px; }
+.d-frames { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.d-frame { position: relative; aspect-ratio: 1428 / 900; border-radius: 14px; overflow: hidden; background: #0F2A44; border: 1px solid rgba(255,255,255,.12); box-shadow: 0 30px 80px rgba(0,0,0,.5); }
+.d-frame-client { border-color: rgba(57,171,226,.45); box-shadow: 0 30px 80px rgba(0,0,0,.5), 0 0 0 1px rgba(57,171,226,.25); }
+.d-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: right top; opacity: 0; transition: opacity .45s ease; }
+.d-img.is-on { opacity: 1; }
+.d-label { position: absolute; top: 12px; inset-inline-start: 12px; z-index: 2; background: rgba(10,31,51,.85); color: #fff; font-weight: 600; font-size: .85rem; padding: 6px 12px; border-radius: 50px; border: 1px solid rgba(255,255,255,.18); backdrop-filter: blur(6px); }
+.d-label-client { background: var(--sky); border-color: var(--sky); color: #06213A; }
+
+.d-steps { padding: 40px 0 60px; }
+.d-step { min-height: 52vh; display: flex; flex-direction: column; justify-content: center; padding: 22px 0; opacity: .3; transition: opacity .4s; text-align: center; }
+.d-step.is-on { opacity: 1; }
+.d-n { font-family: 'Rubik', sans-serif; font-weight: 700; color: var(--sky); letter-spacing: .12em; font-size: .9rem; margin-bottom: 8px; font-variant-numeric: tabular-nums; }
+.d-step h2 { font-family: 'Frank Ruhl Libre', Georgia, serif; font-weight: 700; font-size: clamp(1.8rem, 3.4vw, 2.8rem); color: #fff; margin-bottom: 18px; }
+.d-two { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; text-align: start; }
+.d-two p { font-size: 1.05rem; line-height: 1.65; color: rgba(255,255,255,.75); padding: 16px 18px; border-radius: 12px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); }
+.d-two b { color: #fff; }
+.d-two p:last-child b { color: var(--sky); }
+
+.d-zero { text-align: center; background: linear-gradient(180deg, #0A1F33, #0C4068); padding: 120px 0; }
+.d-zero-num { font-family: 'Frank Ruhl Libre', Georgia, serif; font-weight: 800; font-size: clamp(7rem, 18vw, 15rem); line-height: .82; color: var(--sky); margin-bottom: 14px; font-variant-numeric: tabular-nums; }
+.d-zero .prose { margin-inline: auto; }
+.w7-dual .ofir-sec { background: linear-gradient(165deg, #0C4068, #082B47); }
+@media (max-width: 900px) { .d-stage { position: static; } .d-frames { grid-template-columns: 1fr; } .d-step { min-height: 0; opacity: 1; border-bottom: 1px solid rgba(255,255,255,.08); } .d-two { grid-template-columns: 1fr; } .d-hero { padding: 72px 0 40px; } }
