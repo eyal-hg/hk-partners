@@ -14,7 +14,7 @@ body.w6-cinema { background: #07172A; color: #E6EEF6; }
 .film { position: relative; scroll-snap-type: y proximity; }
 .slide { min-height: 100vh; display: grid; grid-template-rows: 1fr auto; align-items: center; padding: 72px 0 40px; scroll-snap-align: start; position: relative; }
 .slide-stage { width: min(1600px, 94vw); margin: 0 auto; }
-.slide-stage img { width: 100%; max-height: 74vh; object-fit: contain; object-position: top; border-radius: 14px; border: 1px solid rgba(255,255,255,.1); box-shadow: 0 50px 120px rgba(0,0,0,.55); background: #0F2A44; opacity: .35; transform: translateY(18px) scale(.985); transition: opacity .6s ease, transform .7s ease; }
+.slide-stage img { width: 100%; max-height: 74vh; object-fit: contain; object-position: top; border-radius: 14px; border: 1px solid rgba(255,255,255,.1); box-shadow: 0 50px 120px rgba(0,0,0,.55); background: #0F2A44; opacity: .35; transform: translateY(18px) scale(.985); transition: transform .7s ease; }
 .slide.is-on .slide-stage img { opacity: 1; transform: none; }
 .slide-cap { width: min(1600px, 94vw); margin: 22px auto 0; display: grid; grid-template-columns: auto 1fr; gap: 20px 26px; align-items: baseline; opacity: .4; transition: opacity .5s; }
 .slide.is-on .slide-cap { opacity: 1; }

@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&family=Heebo:wght@400;500;700;800;900&family=Karantina:wght@400;700&family=Frank+Ruhl+Libre:wght@700;800&display=swap" />
   <link rel="stylesheet" href="styles.css?v=200" />
-  <link rel="stylesheet" href="w7-dual.css?v=200" />
+  <link rel="stylesheet" href="w7-dual.css?v=210" />
 </head>
 <body class="w7-dual">
   <div class="scroll-bar" id="scrollBar" aria-hidden="true"></div>
@@ -152,6 +152,9 @@
   };
   var settle=null; var onScroll=function(){pick();clearTimeout(settle);settle=setTimeout(pick,150);};
   addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); addEventListener('load',pick); pick();
+  // מעבר לאירוע scroll: לולאת פריימים שמזהה כל שינוי ב-scrollY — מקלדת, עוגן, scrollIntoView
+  var lastY=-1; (function tick(){ if(scrollY!==lastY){lastY=scrollY;pick();} requestAnimationFrame(tick); })();
+
 })();
 </script>
 </body>

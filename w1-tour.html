@@ -8,8 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&family=Heebo:wght@400;500;700;800;900&family=Karantina:wght@400;700&family=Frank+Ruhl+Libre:wght@700;800&display=swap" />
-  <link rel="stylesheet" href="styles.css?v=200" />
-  <link rel="stylesheet" href="w1-tour.css?v=200" />
+  <link rel="stylesheet" href="styles.css?v=210" />
+  <link rel="stylesheet" href="w1-tour.css?v=210" />
 </head>
 <body class="w1-tour">
   <div class="scroll-bar" id="scrollBar" aria-hidden="true"></div>
@@ -176,6 +176,9 @@
   window.addEventListener('resize',onScroll);
   window.addEventListener('load',pick);
   pick();
+  // מעבר לאירוע scroll: לולאת פריימים שמזהה כל שינוי ב-scrollY — מקלדת, עוגן, scrollIntoView
+  var lastY=-1; (function tick(){ if(scrollY!==lastY){lastY=scrollY;pick();} requestAnimationFrame(tick); })();
+
   dots.forEach(function(d){d.addEventListener('click',function(){steps[+d.dataset.i].scrollIntoView({block:'center',behavior:'smooth'})})});
 })();
 </script>
