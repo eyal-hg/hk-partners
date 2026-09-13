@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HK — חמש גרסאות לדף הנחיתה</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&family=Frank+Ruhl+Libre:wght@700&display=swap" />
+  <style>
+    :root { --navy:#0C4068; --coral:#E8635A; --sky:#39ABE2; --line:#E3EAF3; --muted:#6B7C8D; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html, body { height:100%; }
+    body {
+      font-family:'Rubik', system-ui, sans-serif;
+      background:#0C4068; color:#fff;
+      display:flex; flex-direction:column; overflow:hidden;
+    }
+    .bar { flex:0 0 auto; padding:14px 20px 0; }
+    .bar-top { display:flex; align-items:baseline; gap:14px; margin-bottom:14px; }
+    .bar-top h1 { font-family:'Frank Ruhl Libre',Georgia,serif; font-size:1.15rem; font-weight:700; }
+    .bar-top span { font-size:.86rem; color:rgba(255,255,255,.55); }
+    .tabs { display:flex; gap:8px; flex-wrap:wrap; }
+    .tab {
+      flex:1 1 0; min-width:150px;
+      display:block; text-align:start;
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.14);
+      border-bottom:0;
+      border-radius:10px 10px 0 0;
+      padding:11px 16px 13px;
+      color:#fff; font-family:inherit; font-size:.95rem; cursor:pointer;
+      transition:background .15s, border-color .15s;
+    }
+    .tab:hover { background:rgba(255,255,255,.13); }
+    .tab.on { background:#fff; color:var(--navy); border-color:#fff; }
+    .tab b { display:block; font-weight:600; margin-bottom:2px; }
+    .tab i { display:block; font-style:normal; font-size:.79rem; opacity:.65; line-height:1.35; }
+    .tab .k { color:var(--sky); font-weight:700; margin-inline-end:6px; }
+    .tab.on .k { color:var(--coral); }
+    .round1 { margin: 6px 0 0; font-size:.78rem; color:rgba(255,255,255,.45); } .round1 a { color:rgba(255,255,255,.7); text-decoration:none; margin:0 2px; }
+    .stage { flex:1 1 auto; background:#fff; position:relative; }
+    iframe { width:100%; height:100%; border:0; display:block; }
+    .open-new {
+      position:absolute; inset-block-end:16px; inset-inline-start:16px;
+      background:rgba(12,64,104,.9); color:#fff; text-decoration:none;
+      font-size:.8rem; padding:7px 15px; border-radius:50px;
+    }
+    @media (max-width:760px) { .tab { min-width:calc(50% - 4px); } .tab i { display:none; } }
+  </style>
+</head>
+<body>
+  <div class="bar">
+    <div class="bar-top">
+      <h1>האופציות</h1>
+      <span>כל הגרסאות שנבנו — 8 היא הדף הראשי</span>
+    </div>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" data-v="w1-tour"><b><span class="k">1</span>סיור במוצר</b><i>כהה — הצילום מתחלף בגלילה, מסך אחרי מסך</i></button>
+      <button class="tab" role="tab" data-v="w2-bold"><b><span class="k">2</span>ההצהרה</b><i>קורל, ענק, מהיר — "מהיום יש לך מחלקה"</i></button>
+      <button class="tab" role="tab" data-v="w3-split"><b><span class="k">3</span>לפני / אחרי</b><i>מסך מפוצל — היום מימין, עם HK משמאל</i></button>
+      <button class="tab" role="tab" data-v="w4-ai"><b><span class="k">4</span>דבר עם ה-AI</b><i>דמו חי — שואלים את העוזר על לקוח</i></button>
+      <button class="tab" role="tab" data-v="w5-wall"><b><span class="k">5</span>הקיר</b><i>44 מסכים בתנועה, בפלטה של hak.co.il</i></button>
+      <button class="tab" role="tab" data-v="w6-cinema"><b><span class="k">6</span>הקולנוע</b><i>בכיוון של 1 — כל מסך ממלא את המסך</i></button>
+      <button class="tab" role="tab" data-v="w7-dual"><b><span class="k">7</span>שני מסכים</b><i>בכיוון של 1 — אתה מול הלקוח, מתחלפים יחד</i></button>
+      <button class="tab" role="tab" data-v="w8-work"><b><span class="k">8</span>העבודה</b><i>המכניקה של 1 — אבל מה שאנחנו עושים, לא אילו מסכים יש</i></button>
+    </div>
+    <p class="round1">הסבב הקודם: <a href="v1-goods.html">1</a> · <a href="v2-meeting.html">2</a> · <a href="v3-math.html">3</a> · <a href="v4-brand.html">4</a> · <a href="v5-letter.html">5</a></p>
+  </div>
+  <div class="stage">
+    <iframe id="stage" src="w8-work.html" title="גרסה"></iframe>
+    <a class="open-new" id="openNew" href="w8-work.html" target="_blank" rel="noopener">פתח בטאב נפרד ↗</a>
+  </div>
+
+  <script>
+    (function () {
+      var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+      var frame = document.getElementById('stage');
+      var link = document.getElementById('openNew');
+      function show(v, push) {
+        var t = tabs.filter(function (x) { return x.dataset.v === v; })[0];
+        if (!t) return;
+        tabs.forEach(function (x) { x.classList.toggle('on', x === t); });
+        // טעינה מחדש של המסגרת — כל גרסה מתחילה נקייה, האנימציות רצות מההתחלה
+        frame.src = v + '.html';
+        link.href = v + '.html';
+        if (push) history.replaceState(null, '', '#' + v);
+      }
+      tabs.forEach(function (t) {
+        t.addEventListener('click', function () { show(t.dataset.v, true); });
+      });
+      var h = (location.hash || '').slice(1);
+      var valid = tabs.map(function (t) { return t.dataset.v; });
+      show(valid.indexOf(h) > -1 ? h : 'w8-work', false);
+    })();
+  </script>
+</body>
+</html>
