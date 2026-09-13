@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&family=Heebo:wght@400;500;700;800;900&family=Karantina:wght@400;700&family=Frank+Ruhl+Libre:wght@700;800&display=swap" />
   <link rel="stylesheet" href="styles.css?v=200" />
-  <link rel="stylesheet" href="w8-work.css?v=200" />
+  <link rel="stylesheet" href="w8-work.css?v=230" />
 </head>
 <body class="w8-work">
   <div class="scroll-bar" id="scrollBar" aria-hidden="true"></div>
@@ -25,8 +25,8 @@
       <p class="j-kicker">HK · צוות + AI · ליועצים עסקיים</p>
       <h1 class="j-title">אתה מייעץ.<br />ה-AI ואנחנו <em class="rot-wrap"><span id="jobRot">עושים את כל השאר.</span></em></h1>
       <p class="j-lead">
-        מקליטים, מסכמים, זוכרים, מכינים, עונים, רודפים אחרי החומר, סוגרים את החודש —
-        <b>ובן אדם בודק לפני שמשהו יוצא ללקוח.</b> אתה נשאר עם הדבר היחיד ששווה את הזמן שלך: השיחה איתו.
+        מקליטים, מסכמים, זוכרים, מכינים, עונים, רודפים אחרי החומר — ולמי שהתזרים שלו
+        מנוהל אצלנו, גם סוגרים את החודש. <b>ובן אדם בודק לפני שמשהו יוצא ללקוח.</b> אתה נשאר עם הדבר היחיד ששווה את הזמן שלך: השיחה איתו.
       </p>
       <button class="btn btn-primary btn-xl" data-open-modal data-cta="הירו">שלושים דקות עם אופיר</button>
     </div>
@@ -82,7 +82,7 @@
         <div class="job" data-i="5">
           <span class="who who-human">בן אדם</span>
           <h2>סוגרים לו את החודש</h2>
-          <p>מנהל תזרים של HK מקטלג כל תנועה, מתאים לבנק, ומריץ חמש בדיקות. התזרים יוצא סגור ובדוק — ולא נשלח עד שכל חריגה דווחה או הוכרעה.</p>
+          <p>ללקוחות שהתזרים שלהם מנוהל אצלנו: מנהל תזרים של HK מקטלג כל תנועה, מתאים לבנק, ומריץ חמש בדיקות. התזרים יוצא סגור ובדוק — ולא נשלח עד שכל חריגה דווחה או הוכרעה.</p>
         </div>
       </div>
     </div>
@@ -162,9 +162,12 @@
   var rot=document.getElementById('jobRot');
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(rot&&!reduce){
-    var ph=['מסכמים את הפגישה.','זוכרים כל מילה.','מכינים אותך לבאה.','עונים ללקוח ב-23:00.','רודפים אחרי החומר.','סוגרים את החודש.','עושים את כל השאר.'];
+    var ph=['מסכמים את הפגישה.','זוכרים כל מילה.','מכינים אותך לבאה.','עונים ללקוח ב-23:00.','רודפים אחרי החומר.','עושים את כל השאר.'];
     var i=ph.length-1;
-    setInterval(function(){ rot.classList.add('rot-out'); setTimeout(function(){ i=(i+1)%ph.length; rot.textContent=ph[i]; rot.classList.remove('rot-out'); },280); },2400);
+    setInterval(function(){
+      i=(i+1)%ph.length; rot.textContent=ph[i];                 // המילה הבאה כבר במקומה — אין רגע ריק
+      rot.classList.add('rot-in'); requestAnimationFrame(function(){ requestAnimationFrame(function(){ rot.classList.remove('rot-in'); }); });
+    },2400);
   }
   /* הסיור: הצעד הקרוב למרכז המסך */
   var steps=[].slice.call(document.querySelectorAll('.job')), imgs=[].slice.call(document.querySelectorAll('.tour-img')),

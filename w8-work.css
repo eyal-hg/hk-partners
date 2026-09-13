@@ -10,8 +10,8 @@ body.w8-work { background: #0A1F33; color: #E6EEF6; }
 .j-title { font-family: 'Frank Ruhl Libre', Georgia, serif; font-weight: 800; font-size: clamp(2.5rem, 5.6vw, 5rem); line-height: 1.08; letter-spacing: -.02em; color: #fff; max-width: 18ch; margin-bottom: 26px; }
 .j-title em { font-style: normal; color: var(--sky); }
 .rot-wrap { display: inline-block; }
-#jobRot { display: inline-block; transition: opacity .28s ease, transform .28s ease; }
-#jobRot.rot-out { opacity: 0; transform: translateY(12px); }
+#jobRot { display: inline-block; transition: transform .32s ease; }   /* אין opacity — המשפט לעולם לא נעלם */
+#jobRot.rot-in { transform: translateY(10px); transition: none; }
 .j-lead { font-size: clamp(1.1rem, 1.6vw, 1.32rem); line-height: 1.72; color: rgba(255,255,255,.78); max-width: 56ch; margin-bottom: 36px; }
 .j-lead b { color: #fff; }
 
@@ -59,3 +59,6 @@ body.w8-work { background: #0A1F33; color: #E6EEF6; }
   .tour-frame { aspect-ratio: auto; } .tour-img { position: static; display: none; height: auto; } .tour-img.is-on { display: block; }
   .j-hero { padding: 72px 0 56px; } .j-left { padding: 80px 0; }
 }
+
+/* קפיצה (עוגן, scrollIntoView) לא נוחתת מתחת להדר */
+.j-head, .j-left, .j-left-h, .j-client, .job { scroll-margin-top: 96px; }
