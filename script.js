@@ -280,8 +280,22 @@
         setTimeout(closeModal, 2400);
         setTimeout(function () { form.reset(); form.hidden = false; successPanel.hidden = true; }, 2800);
       };
-      fetch(form.getAttribute('action'), { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) })
-        .then(function (r) { return r.json().then(function (j) { return r.ok && String(j.success) === 'true'; }); })
+      // אותם שני מסלולים כמו hak.co.il: השרת של HK (מסך הלידים) + ה-CRM. המייל דרך FormSubmit הוא גיבוי.
+      var fd = new FormData(form);
+      var name = (fd.get('שם מלא') || '').trim(), phone = (fd.get('טלפון') || '').trim(), email = (fd.get('אימייל') || '').trim();
+      var clients = fd.get('מספר לקוחות') || '', cta = fd.get('מקור הפנייה') || '';
+      var lead = { name: name, phone: phone, stageKey: 'new',
+        source: { channel: 'אתר HK Studio', form: 'שלושים דקות עם אופיר' + (cta ? ' · ' + cta : '') } };
+      if (email) lead.email = email;
+      if (clients) lead.notes = 'מספר לקוחות פעילים: ' + clients;
+      var parts = name.split(' ');
+      var crm = { firstName: parts[0] || '', lastName: parts.slice(1).join(' ') || '', full_name: name, phone: phone, email: email,
+        business_name: '', source: 'HK Studio Landing Page', form_id: 'studio', tags: ['hk-studio', 'landing-page'], clients: clients };
+      fetch('https://services.leadconnectorhq.com/hooks/xb3rZ5Z4gIQCgKJUAPAe/webhook-trigger/59e35304-8c8d-4fe5-85ff-43d63f3e36ee',
+        { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(crm) }).catch(function () {});
+      fetch(form.getAttribute('action'), { method: 'POST', headers: { 'Accept': 'application/json' }, body: fd }).catch(function () {});
+      fetch('https://hk-prod-462507.oa.r.appspot.com/api/leads', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(lead) })
+        .then(function (r) { return r.ok; })
         .then(done)
         .catch(function () { done(false); });
     });
