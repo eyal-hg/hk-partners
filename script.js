@@ -293,7 +293,10 @@
         business_name: '', source: 'HK Studio Landing Page', form_id: 'studio', tags: ['hk-studio', 'landing-page'], clients: clients };
       fetch('https://services.leadconnectorhq.com/hooks/xb3rZ5Z4gIQCgKJUAPAe/webhook-trigger/59e35304-8c8d-4fe5-85ff-43d63f3e36ee',
         { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(crm) }).catch(function () {});
-      fetch(form.getAttribute('action'), { method: 'POST', headers: { 'Accept': 'application/json' }, body: fd }).catch(function () {});
+      fetch(form.getAttribute('data-formsubmit'), { method: 'POST', headers: { 'Accept': 'application/json' }, body: fd }).catch(function () {});
+      // גיבוי במייל: טופס Netlify (נשמר ברשימת הטפסים של האתר ונשלח לכתובות שמוגדרות ב-Netlify)
+      var nf = new URLSearchParams({ 'form-name': 'studio-lead', 'שם מלא': name, 'טלפון': phone, 'אימייל': email, 'מספר לקוחות': clients, 'מקור הפנייה': cta });
+      fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: nf.toString() }).catch(function () {});
       fetch('https://hk-prod-462507.oa.r.appspot.com/api/leads', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(lead) })
         .then(function (r) { return r.ok; })
         .then(done)
