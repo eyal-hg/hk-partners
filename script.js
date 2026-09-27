@@ -213,7 +213,7 @@
       lb.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
     };
-    document.querySelectorAll('.shot img, .hero-shot img, .gal-item img').forEach(function (img) {
+    document.querySelectorAll('.shot img, .hero-shot img, .gal-item img, figure:not(.o9-f) img, .tour-frame img, .rec-shot img').forEach(function (img) {
       img.addEventListener('click', function () { openLb(img); });
     });
     // הקישור "להגדלה" פותח את אותו לייטבוקס

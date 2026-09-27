@@ -8,8 +8,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&family=Heebo:wght@400;500;700;800;900&family=Karantina:wght@400;700&family=Frank+Ruhl+Libre:wght@700;800&display=swap" />
-  <link rel="stylesheet" href="styles.css?v=200" />
-  <link rel="stylesheet" href="w9-layers.css?v=202" />
+  <link rel="stylesheet" href="styles.css?v=202" />
+  <link rel="stylesheet" href="w9-layers.css?v=203" />
+  <!-- Google Analytics — אותו נכס כמו hak.co.il -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8E93M3P2YN"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8E93M3P2YN');</script>
 </head>
 <body class="w9-layers">
   <div class="scroll-bar" id="scrollBar" aria-hidden="true"></div>
@@ -17,7 +20,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="#hero" class="logo"><img src="assets/logo.png" alt="HK" /></a>
-      <button class="btn btn-primary btn-sm" data-open-modal data-cta="כותרת">בוא נראה על לקוח שלך</button>
+      <button class="btn btn-primary btn-sm" data-open-modal data-cta="כותרת">פגישת היכרות</button>
     </div>
   </header>
   <!-- ═══ 1 · HERO ═══ -->
@@ -28,7 +31,7 @@
         <h1 class="h9-title">אתה היועץ.<br /><em>אנחנו התשתית שמאחוריך.</em></h1>
         <p class="h9-lead">מערכת עבודה, AI שמכיר כל לקוח וצוות פיננסי שעובד מאחוריך.</p>
         <p class="h9-lead">כדי שתוכל לנהל יותר לקוחות, לתת להם שירות טוב יותר — ולהישאר במה שרק אתה יכול לעשות: <b>לייעץ.</b></p>
-        <button class="btn btn-primary btn-xl" data-open-modal data-cta="הירו">בוא נראה איך זה עובד על לקוח שלך</button>
+        <button class="btn btn-primary btn-xl" data-open-modal data-cta="הירו">בוא נראה איך זה עובד אצלך</button>
       </div>
       <div class="stack stack-hero" aria-hidden="true">
         <div class="layer l-team"><span class="l-name">צוות</span><span class="l-desc">עבודה פיננסית ותזרים</span></div>
@@ -300,15 +303,21 @@
 
   <!-- ═══ 11 · אופיר ═══ -->
   <section id="contact" class="o9">
-    <div class="container narrow o9-grid">
-      <img class="o9-photo" src="assets/founders/ofir.png" alt="אופיר קריספין" loading="lazy" />
-      <div>
-        <h2 class="o9-title">רוצה לראות מה זה מוריד ממך בפועל?</h2>
-        <p class="o9-sub">בוא ניקח לקוח אחד שלך.</p>
-        <p>בפגישה של 30 דקות נעבור על דרך העבודה שלך היום ונראה מה HK יכולה לקחת על עצמה — ומה נכון שיישאר אצלך.</p>
-        <p>בלי מצגת כללית. <b>על לקוח אמיתי שלך.</b></p>
-        <button class="btn btn-primary btn-xl" data-open-modal data-cta="אופיר">קובעים 30 דקות עם אופיר</button>
-        <p class="o9-name"><b>אופיר קריספין</b> · מייסד HK</p>
+    <div class="container narrow">
+      <h2 class="o9-title">רוצה לראות מה זה מוריד ממך בפועל?</h2>
+      <p class="o9-sub">בוא נעבור על המשרד שלך.</p>
+      <p>בפגישת היכרות נעבור על דרך העבודה שלך היום ונראה מה HK יכולה לקחת על עצמה — ומה נכון שיישאר אצלך. בלי מצגת כללית. <b>על העבודה האמיתית שלך.</b></p>
+      <button class="btn btn-primary btn-xl" data-open-modal data-cta="מייסדים">בוא נראה איך זה עובד אצלך</button>
+      <p class="o9-who">מי עומד מאחורי זה</p>
+      <div class="o9-founders">
+        <figure class="o9-f">
+          <img src="assets/founders/eyal.png" alt="אייל חזות" loading="lazy" />
+          <figcaption><b>אייל חזות</b><span>יזם, מייסד bizibox ומייסד HK. הבנה של עסקים בישראל מהצד הפיננסי — מה שהפך את HK למה שהיא.</span></figcaption>
+        </figure>
+        <figure class="o9-f">
+          <img src="assets/founders/ofir.png" alt="אופיר קריספין" loading="lazy" />
+          <figcaption><b>אופיר קריספין</b><span>רו״ח, לשעבר סמנכ״ל כספים, מייסד HK. האיש שיושב איתך על דרך העבודה שלך.</span></figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -316,9 +325,9 @@
   <!-- ═══ 12 · CTA סופי ═══ -->
   <section class="f9">
     <div class="container narrow">
-      <h2 class="f9-title">לא צריך לשנות את כל המשרד ביום אחד.</h2>
-      <p>אפשר להתחיל מלקוח אחד. לראות איך זה עובד. ואז להחליט כמה מהתשתית של HK אתה רוצה מאחוריך.</p>
-      <button class="btn btn-primary btn-xl" data-open-modal data-cta="סיום">בוא נראה את HK על לקוח שלי</button>
+      <h2 class="f9-title">אתה נשאר היועץ. אנחנו נכנסים מאחוריך.</h2>
+      <p>פגישת היכרות אחת על דרך העבודה שלך היום — ואז אתה מחליט כמה מהתשתית של HK אתה רוצה מאחוריך.</p>
+      <button class="btn btn-primary btn-xl" data-open-modal data-cta="סיום">בוא נראה איך זה עובד אצלך</button>
     </div>
   </section>
 
@@ -333,9 +342,10 @@
     <div class="modal-backdrop" data-close-modal></div>
     <div class="modal-card">
       <button class="modal-x" data-close-modal aria-label="סגירה">×</button>
-      <h2 id="modalTitle">קובעים 30 דקות עם אופיר</h2>
-      <p class="modal-sub">על לקוח אמיתי שלך. בלי מצגת כללית.</p>
-      <form action="https://formsubmit.co/ajax/ofir@hak.co.il" method="POST">
+      <h2 id="modalTitle">בוא נראה איך זה עובד אצלך</h2>
+      <p class="modal-sub">אייל או אופיר יחזרו אליך. על דרך העבודה שלך, בלי מצגת כללית.</p>
+      <form name="studio-lead" method="POST" action="/" data-netlify="true" data-netlify-honeypot="_honey" data-formsubmit="https://formsubmit.co/ajax/ofir@hak.co.il">
+        <input type="hidden" name="form-name" value="studio-lead" />
         <input type="hidden" name="_cc" value="info@hak.co.il" />
         <input type="hidden" name="_subject" value="ליד חדש — w9-layers" />
         <input type="hidden" name="_template" value="table" />
@@ -353,13 +363,14 @@
         </label>
         <button type="submit" class="btn btn-primary btn-block btn-lg">שלח</button>
       </form>
-      <div class="form-success" hidden><strong>קיבלנו.</strong><span>אופיר יחזור אליך היום או מחר בבוקר.</span></div>
+      <p id="leadError" class="lead-error" hidden>השליחה לא הצליחה. אפשר לנסות שוב, או לכתוב לנו ישירות: <a href="https://wa.me/972559647897">וואטסאפ</a> · <a href="mailto:ofir@hak.co.il">ofir@hak.co.il</a></p>
+      <div class="form-success" hidden><strong>קיבלנו.</strong><span>נחזור אליך היום או מחר בבוקר.</span></div>
     </div>
   </div>
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <button class="lightbox-x" aria-label="סגירה">×</button><img src="" alt="" />
   </div>
-  <script src="script.js?v=200"></script>
+  <script src="script.js?v=244"></script>
 <script>
 (function(){
   var steps=[].slice.call(document.querySelectorAll('.job')), imgs=[].slice.call(document.querySelectorAll('.tour-img')),
