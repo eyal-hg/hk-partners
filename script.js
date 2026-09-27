@@ -265,22 +265,25 @@
   });
 
   if (form) {
+    var errorPanel = document.getElementById('leadError');
+    var submitBtn = form.querySelector('button[type="submit"], .btn');
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      fetch(form.getAttribute('action'), {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: new FormData(form)
-      }).catch(function () { /* מציגים אישור בכל מקרה */ });
-
-      form.hidden = true;
-      successPanel.hidden = false;
-      setTimeout(closeModal, 2400);
-      setTimeout(function () {
-        form.reset();
-        form.hidden = false;
-        successPanel.hidden = true;
-      }, 2800);
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.dataset.label = submitBtn.textContent; submitBtn.textContent = 'שולח…'; }
+      if (errorPanel) errorPanel.hidden = true;
+      var done = function (ok) {
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = submitBtn.dataset.label; }
+        if (!ok) { if (errorPanel) errorPanel.hidden = false; return; }   // הטופס נשאר מלא — אפשר לנסות שוב או לעבור לוואטסאפ
+        if (window.gtag) gtag('event', 'generate_lead', { source: (document.getElementById('ctaSource') || {}).value || '' });
+        form.hidden = true;
+        successPanel.hidden = false;
+        setTimeout(closeModal, 2400);
+        setTimeout(function () { form.reset(); form.hidden = false; successPanel.hidden = true; }, 2800);
+      };
+      fetch(form.getAttribute('action'), { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) })
+        .then(function (r) { return r.json().then(function (j) { return r.ok && String(j.success) === 'true'; }); })
+        .then(done)
+        .catch(function () { done(false); });
     });
   }
 })();

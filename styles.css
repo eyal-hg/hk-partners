@@ -610,3 +610,6 @@ p.prose { margin-top: 18px; }
 }
 .ver-tag:hover { background: var(--navy); }
 @media print { .ver-tag { display: none; } }
+
+.lead-error { margin-top: 14px; padding: 12px 14px; border-radius: 10px; background: rgba(196,61,48,.08); border: 1px solid rgba(196,61,48,.35); color: #C43D30; font-size: .95rem; line-height: 1.6; opacity: 1 !important; }
+.lead-error a { color: inherit; font-weight: 600; }
