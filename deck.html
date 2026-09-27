@@ -16,7 +16,7 @@
     /* מסך + טקסט */
     .s-shot { grid-template-columns: 1fr 1.9fr; gap:44px; align-items:center; }
     .s-shot .txt { order:1; } .s-shot .img { order:2; }
-    .rail { color:var(--sky); font-size:.95rem; letter-spacing:.08em; font-weight:700; margin-bottom:14px; }
+    .rail { display:flex; gap:6px; color:var(--sky); font-size:.95rem; letter-spacing:.08em; font-weight:700; margin-bottom:14px; }
     .rail b { color:#fff; font-weight:500; }
     h1 { font-family:'Frank Ruhl Libre',Georgia,serif; font-weight:800; font-size:clamp(2rem,3.6vw,3.3rem); line-height:1.12; margin:0 0 18px; letter-spacing:-.01em; text-wrap:balance; }
     h1 em { font-style:normal; color:var(--sky); }
@@ -94,7 +94,7 @@
   <section class="slide s-sec"><div>
     <div class="k">חלק שני</div>
     <h1>הסרגל של החברה — בתוך לקוח אחד</h1>
-    <ul><li>דשבורד</li><li>תקשורת</li><li>ידע על החברה</li><li>תזרים</li><li>ניהול</li></ul>
+    <ul><li>דשבורד</li><li>תקשורת</li><li>ידע על החברה</li><li>תזרים: התזרים קדימה · מה היה · מה קורה · מה יהיה</li><li>ניהול</li></ul>
   </div></section>
 
   <section class="slide s-shot">
@@ -102,7 +102,7 @@
     <div class="img"><img src="assets/shots/all/co-dash.png" alt="דשבורד" /></div>
   </section>
   <section class="slide s-shot">
-    <div class="txt"><div class="rail">תקשורת <b>· קבוצת הוואטסאפ</b></div><h1>קבוצת הוואטסאפ — <em>הסיכום הלילי.</em></h1><p>לכל קבוצה: מי כתב, מה עלה, ומה נכנס לזיכרון החברה. ההודעות עצמן נשמרות, הסיכום הוא מה שקוראים.</p></div>
+    <div class="txt"><div class="rail">תקשורת <b>· קבוצות וואטסאפ</b></div><h1>קבוצת הוואטסאפ — <em>הסיכום הלילי.</em></h1><p>לכל קבוצה: מי כתב, מה עלה, ומה נכנס לזיכרון החברה. ההודעות עצמן נשמרות, הסיכום הוא מה שקוראים.</p></div>
     <div class="img"><img src="assets/shots/all/co-msgs.png" alt="קבוצת הוואטסאפ" /></div>
   </section>
   <section class="slide s-shot">
@@ -125,25 +125,27 @@
     <div class="txt"><div class="rail">ידע על החברה <b>· מדדים</b></div><h1>מדדים — <em>יעד מול ביצוע.</em></h1><p>המדדים שנקבעו לחברה, הביצוע החודשי ואחוז ההשגה. נמשכים מהתזרים ומהכרטסת.</p></div>
     <div class="img"><img src="assets/shots/all/co-metrics.png" alt="מדדים" /></div>
   </section>
-  <section class="slide s-shot">
-    <div class="txt"><div class="rail">תזרים <b>· קליטת מסמכים</b></div><h1>קליטת מסמכים — <em>מה נכנס ומה חסר.</em></h1><p>החומר שהתקבל, מה עוד חסר וממי. תזכורות יוצאות אוטומטית; פריט שלא נענה אחרי שלוש תזכורות מסומן ״חם״ ומגיע ליועץ.</p></div>
-    <div class="img"><img src="assets/shots/all/co-entries.png" alt="קליטת מסמכים" /></div>
+  <section class="slide s-type">
+    <div><div class="rail" style="justify-content:center">תזרים <b>· התזרים קדימה</b></div>
+    <h1>התזרים קדימה — <em>יום-יום, עם העוזר.</em></h1>
+    <p>ציר התזרים של החברה: מה נכנס ומה יוצא יום אחרי יום, החריגה הצפויה ומתי, והעוזר שעונה על הציר עצמו. המסך שמחבר את שלושת הזמנים שמתחתיו.</p>
+    <p style="margin-top:14px;font-size:.9rem;opacity:.6">צילום המסך נכנס עם הגל הבא מהמערכת החיה</p></div>
   </section>
   <section class="slide s-shot">
-    <div class="txt"><div class="rail">תזרים <b>· מעקב ופערים</b></div><h1>מעקב ופערים — <em>מול היעד.</em></h1><p>יעד לכל שורה, הפרדה בין מה שכבר ירד למה שצפוי, וכל פער מסומן עם סיבה.</p></div>
+    <div class="txt"><div class="rail">תזרים <b>· מה היה · תמונת תזרים</b></div><h1>תמונת תזרים — <em>מה קרה בפועל.</em></h1><p>פתיחה, סגירה והפרש מצטבר לכל חודש, עד רמת הקטגוריה. ללקוחות בתזרים מנוהל — הדוח נסגר ונבדק על ידי מנהל תזרים לפני שנשלח.</p></div>
+    <div class="img"><img src="assets/shots/all/co-past.png" alt="תמונת תזרים" /></div>
+  </section>
+  <section class="slide s-shot">
+    <div class="txt"><div class="rail">תזרים <b>· מה קורה · מעקב ופערים</b></div><h1>מעקב ופערים — <em>מול היעד.</em></h1><p>יעד לכל שורה, הפרדה בין מה שכבר ירד למה שצפוי, וכל פער מסומן עם סיבה.</p></div>
     <div class="img"><img src="assets/shots/all/co-budget.png" alt="מעקב ופערים" /></div>
+  </section>
+  <section class="slide s-shot">
+    <div class="txt"><div class="rail">תזרים <b>· מה יהיה · תכנון תזרימי</b></div><h1>תכנון תזרימי — <em>חודשים קדימה.</em></h1><p>בפועל מול תחזית מול יעד, לפי קטגוריות, עם יתרות שמתגלגלות. עריכת תא קובעת יעד.</p></div>
+    <div class="img"><img src="assets/shots/all/co-fcast.png" alt="תכנון תזרימי" /></div>
   </section>
   <section class="slide s-shot">
     <div class="txt"><div class="rail">תזרים <b>· תכנון חשבונאי</b></div><h1>תכנון חשבונאי — <em>מהכרטסת לדוח.</em></h1><p>הכרטסת של רואה החשבון נפרשת לדוח רווח והפסד. AI ממפה את הקטגוריות, קוד דטרמיניסטי מחבר את הסכומים.</p></div>
     <div class="img"><img src="assets/shots/all/co-acct.png" alt="תכנון חשבונאי" /></div>
-  </section>
-  <section class="slide s-shot">
-    <div class="txt"><div class="rail">תזרים <b>· תכנון תזרימי</b></div><h1>תכנון תזרימי — <em>חודשים קדימה.</em></h1><p>בפועל מול תחזית מול יעד, לפי קטגוריות, עם יתרות שמתגלגלות. עריכת תא קובעת יעד.</p></div>
-    <div class="img"><img src="assets/shots/all/co-fcast.png" alt="תכנון תזרימי" /></div>
-  </section>
-  <section class="slide s-shot">
-    <div class="txt"><div class="rail">תזרים <b>· תמונת תזרים</b></div><h1>תמונת תזרים — <em>מה קרה בפועל.</em></h1><p>פתיחה, סגירה והפרש מצטבר לכל חודש, עד רמת הקטגוריה. ללקוחות בתזרים מנוהל — הדוח נסגר ונבדק על ידי מנהל תזרים לפני שנשלח.</p></div>
-    <div class="img"><img src="assets/shots/all/co-past.png" alt="תמונת תזרים" /></div>
   </section>
   <section class="slide s-shot">
     <div class="txt"><div class="rail">ניהול <b>· התהליך שלי · הגדרות חברה</b></div><h1>ניהול — <em>התהליך והגדרות החברה.</em></h1><p>מקצב הפגישות, מה נשלח ומתי, מי מהצוות מטפל במה, וההגדרות של החברה. נקבע פעם אחת לכל לקוח.</p></div>
