@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>HK Studio — המצגת</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&family=Frank+Ruhl+Libre:wght@700;800&display=swap" />
+  <style>
+    :root { --navy:#0C4068; --deep:#082B47; --bg:#0A1F33; --sky:#39ABE2; --coral:#E8635A; --ink:#EAF1F8; --muted:rgba(255,255,255,.66); }
+    * { box-sizing:border-box; }
+    html, body { height:100%; margin:0; background:var(--bg); color:var(--ink); font-family:Rubik,system-ui,sans-serif; overflow:hidden; }
+    .slide { position:absolute; inset:0; display:none; padding:48px 48px 56px; }
+    .slide.is-on { display:grid; }
+    /* מסך + טקסט */
+    .s-shot { grid-template-columns: 1fr 1.9fr; gap:44px; align-items:center; }
+    .s-shot .txt { order:1; } .s-shot .img { order:2; }
+    .rail { color:var(--sky); font-size:.95rem; letter-spacing:.08em; font-weight:700; margin-bottom:14px; }
+    .rail b { color:#fff; font-weight:500; }
+    h1 { font-family:'Frank Ruhl Libre',Georgia,serif; font-weight:800; font-size:clamp(2rem,3.6vw,3.3rem); line-height:1.12; margin:0 0 18px; letter-spacing:-.01em; text-wrap:balance; }
+    h1 em { font-style:normal; color:var(--sky); }
+    p { font-size:clamp(1rem,1.45vw,1.3rem); line-height:1.65; color:var(--muted); margin:0; max-width:34ch; }
+    p b { color:#fff; font-weight:500; }
+    .img img { width:100%; height:auto; max-height:calc(100vh - 110px); object-fit:contain; object-position:right top; border-radius:14px; border:1px solid rgba(255,255,255,.12); box-shadow:0 40px 100px rgba(0,0,0,.5); background:#0F2A44; }
+    /* טיפוגרפיה בלבד */
+    .s-type { place-items:center; text-align:center; background:radial-gradient(ellipse 70% 60% at 85% 10%, rgba(57,171,226,.18), transparent 60%), var(--bg); }
+    .s-type h1 { font-size:clamp(2.6rem,6vw,5.4rem); max-width:16ch; }
+    .s-type p { max-width:52ch; margin-top:8px; }
+    .s-type .logo { height:54px; margin-bottom:38px; filter:brightness(0) invert(1); }
+    .s-sec { place-items:center; text-align:center; background:var(--navy); }
+    .s-sec .k { color:var(--sky); letter-spacing:.14em; font-weight:700; margin-bottom:12px; }
+    .s-sec h1 { font-size:clamp(2.6rem,6vw,5rem); }
+    .s-sec ul { list-style:none; padding:0; margin:22px 0 0; display:flex; gap:12px; flex-wrap:wrap; justify-content:center; }
+    .s-sec li { padding:10px 18px; border-radius:50px; border:1px solid rgba(255,255,255,.28); font-size:1.05rem; }
+    .who { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:36px; width:min(100%,1100px); text-align:right; }
+    .who div { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:16px; padding:22px 24px; }
+    .who b { display:block; font-family:'Frank Ruhl Libre',serif; font-size:1.7rem; margin-bottom:8px; color:#fff; }
+    .who.ai b { color:var(--sky); }
+    .who p { max-width:none; font-size:1.05rem; }
+    .founders { display:flex; gap:40px; margin-top:36px; }
+    .founders figure { margin:0; display:flex; gap:14px; align-items:center; text-align:right; }
+    .founders img { width:76px; height:76px; border-radius:50%; object-fit:cover; object-position:center top; border:3px solid #fff; }
+    .founders b { display:block; color:#fff; } .founders span { color:var(--muted); font-size:.95rem; }
+    /* ניווט */
+    .nav { position:fixed; bottom:18px; left:0; right:0; display:flex; justify-content:center; gap:6px; z-index:5; }
+    .nav i { width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,.25); } .nav i.on { background:var(--sky); width:22px; border-radius:3px; }
+    .cnt { position:fixed; bottom:14px; left:24px; color:var(--muted); font-size:.85rem; direction:ltr; }
+    .brand { position:fixed; top:20px; right:28px; height:26px; filter:brightness(0) invert(1); opacity:.85; }
+    .hint { position:fixed; bottom:14px; right:24px; color:var(--muted); font-size:.8rem; }
+    @media (max-width:900px) { .slide { padding:28px 20px 60px; } .s-shot { grid-template-columns:1fr; gap:18px; align-content:start; } .s-shot .img { order:1; } .s-shot .txt { order:2; } .img img { max-height:48vh; } .who { grid-template-columns:1fr; } .founders { flex-direction:column; } }
+    @media (prefers-reduced-motion: no-preference) { .slide.is-on { animation:in .35s ease; } @keyframes in { from { opacity:0; transform:translateY(8px);} to { opacity:1; transform:none;} } }
+  </style>
+</head>
+<body>
+  <img class="brand" src="assets/logo.png" alt="" />
+
+  <!-- 0 · פתיחה -->
+  <section class="slide s-type is-on"><div>
+    <img class="logo" src="assets/logo.png" alt="HK Studio" />
+    <h1>אתה מייעץ.<br /><em>ה-AI ואנחנו עושים את כל השאר.</em></h1>
+    <p>תשתית ליועצים עסקיים ולרו״ח שמנהלים כספים ללקוחות: מערכת אחת, AI שעובד בשבילך, וצוות מאחוריך — הכל בשם המשרד שלך.</p>
+  </div></section>
+
+  <!-- ═══ הסרגל של היועץ ═══ -->
+  <section class="slide s-sec"><div>
+    <div class="k">חלק ראשון</div>
+    <h1>הסרגל שלך — מעל כל הלקוחות</h1>
+    <ul><li>היום</li><li>משימות</li><li>יומן</li><li>תקשורת</li><li>התיק שלי</li></ul>
+  </div></section>
+
+  <section class="slide s-shot">
+    <div class="txt"><div class="rail">היום</div><h1>מה מחכה לך היום. <em>לא מה שאתה צריך לזכור.</em></h1><p>הפגישות, המשימות שחולצו, מה שחזר מהלקוחות — כבר כאן כשאתה נכנס. המערכת יודעת מה קורה היום לפניך.</p></div>
+    <div class="img"><img src="assets/shots/all/adv-today.png" alt="היום" /></div>
+  </section>
+  <section class="slide s-shot">
+    <div class="txt"><div class="rail">משימות</div><h1>כל מה שנפתח — <em>ומי סוגר אותו.</em></h1><p>משימות מכל הפגישות והשיחות, לכל הלקוחות. מה שלך, מה של הצוות, ומה שכבר נעשה. שום דבר לא נופל בין הפגישות.</p></div>
+    <div class="img"><img src="assets/shots/all/adv-tasks.png" alt="משימות" /></div>
+  </section>
+  <section class="slide s-shot">
+    <div class="txt"><div class="rail">יומן</div><h1>הפגישה הבאה — <em>עם ההכנה שלה.</em></h1><p>כל פגישה ביומן מגיעה מוכנה: סיכום הפעם הקודמת, נקודות פתיחה, המספרים של היום. אף אחד לא מכין ליועץ את הפגישה — כאן זה מוכן.</p></div>
+    <div class="img"><img src="assets/shots/all/adv-cal.png" alt="יומן" /></div>
+  </section>
+  <section class="slide s-shot">
+    <div class="txt"><div class="rail">תקשורת</div><h1>וואטסאפ, טלפון, פגישות — <em>מקום אחד.</em></h1><p>כל מה שנאמר עם כל לקוח, מסוכם. הקבוצות מנוטרות, השיחות מתומללות, ומה שדורש אותך — מסומן. הלקוח כותב בעשר בלילה; יש מי שעונה בשם המשרד שלך.</p></div>
+    <div class="img"><img src="assets/shots/all/adv-comm-wa.png" alt="תקשורת" /></div>
+  </section>
+  <section class="slide s-shot">
+    <div class="txt"><div class="rail">התיק שלי</div><h1>כל הלקוחות שלך. <em>במבט אחד.</em></h1><p>סטטוס, יעד, פגישה הבאה, ומי צריך אותך היום. מכאן נכנסים ללקוח — ולסרגל שלו.</p></div>
+    <div class="img"><img src="assets/shots/all/adv-clients.png" alt="התיק שלי" /></div>
+  </section>
+
+  <!-- ═══ הסרגל של החברה ═══ -->
+  <section class="slide s-sec"><div>
+    <div class="k">חלק שני</div>
+    <h1>הסרגל של הלקוח — בתוך החברה</h1>
+    <ul><li>דשבורד</li><li>תקשורת</li><li>ידע על החברה</li><li>תזרים</li><li>ניהול</li></ul>
+  </div></section>
+
+  <section class="slide s-shot">
+    <div class="txt"><div class="rail">דשבורד</div><h1>הלקוח <em>במסך אחד.</em></h1><p>יתרה, חריגה צפויה, המשימות הפתוחות, הפגישה הבאה, מה חסר. כל מה שאתה צריך לדעת לפני שאתה מרים טלפון.</p></div>
+    <div class="img"><img src="assets/shots/all/co-dash.png" alt="דשבורד" /></div>
+  </section>
+  <section class="slide s-shot">
+    <div class="txt"><div class="rail">תקשורת <b>· קבוצת הוואטסאפ</b></div><h1>הקבוצה של הלקוח — <em>מנוטרת.</em></h1><p>סיכום לילי לכל קבוצה: מי כתב, מה עלה, מה נכנס לזיכרון. אתה קורא דקה במקום לגלול שעה.</p></div>
+    <div class="img"><img src="assets/shots/all/co-msgs.png" alt="קבוצת הוואטסאפ" /></div>
+  </section>
+  <section class="slide s-shot">
+    <div class="txt"><div class="rail">תקשורת <b>· שיחות טלפון</b></div><h1>גם השיחה מהרכב <em>נכנסת לזיכרון.</em></h1><p>שיחות מתומללות ומסוכמות, עם המשימות שעלו בהן. שיחה שלא זוהתה — ממתינה לשיוך, לא נעלמת.</p></div>
+    <div class="img"><img src="assets/shots/all/co-calls.png" alt="שיחות טלפון" /></div>
+  </section>
+  <section class="slide s-shot">
+    <div class="txt"><div class="rail">תקשורת <b>· פגישות</b></div><h1>אתה מדבר. <em>השאר נכתב.</em></h1><p>לחיצה אחת מקליטה — באותו חדר, בטלפון, בזום או ב-Meet. ומשם: הוקלטה ← תמלול ← סיכום ← זיכרון. <b>הסיכום ממתין לאישורך</b> — ויוצא ללקוח בשם המשרד שלך.</p></div>
+    <div class="img"><img src="assets/shots/all/co-meetings.png" alt="פגישות" /></div>
+  </section>
+  <section class="slide s-shot">
+    <div class="txt"><div class="rail">ידע על החברה <b>· זיכרון החברה</b></div><h1>זוכרים כל מה שנאמר. <em>מארבעה ערוצים.</em></h1><p>פגישה, טלפון, וואטסאפ, צ׳אט — כרטיס זיכרון חי, עם מקור ותאריך לכל שורה: מה כואב לו, מה סוכם, איך מדברים איתו.</p></div>
+    <div class="img"><img src="assets/shots/all/co-mem.png" alt="זיכרון החברה" /></div>
+  </section>
+  <section class="slide s-shot">
+    <div class="txt"><div class="rail">ידע על החברה <b>· עוזר AI</b></div><h1>שאלה על הלקוח — <em>תשובה מהמספרים שלו.</em></h1><p>העוזר עונה ליועץ וללקוח מהנתונים של החברה. AI מסכם, זוכר ומכין. החלטה מקצועית? <b>חוזרת אליך.</b></p></div>
+    <div class="img"><img src="assets/shots/all/co-chat.png" alt="עוזר AI" /></div>
+  </section>
+  <section class="slide s-shot">
+    <div class="txt"><div class="rail">ידע על החברה <b>· מדדים</b></div><h1>יעד לכל מדד. <em>והביצוע מולו.</em></h1><p>המדדים שקבעתם יחד, מה הושג החודש ובאיזה אחוז. הבסיס לשיחה על החלטות — לא על מספרים.</p></div>
+    <div class="img"><img src="assets/shots/all/co-metrics.png" alt="מדדים" /></div>
+  </section>
+  <section class="slide s-shot">
+    <div class="txt"><div class="rail">תזרים <b>· קליטת מסמכים</b></div><h1>רודפים אחרי החומר <em>במקומך.</em></h1><p>מה חסר, ממי, ומתי. תזכורות יוצאות אוטומטית; אחרי שלוש בלי מענה הפריט מסומן ״חם״ ומגיע אליך — כי זו כבר שיחה שאתה צריך לנהל.</p></div>
+    <div class="img"><img src="assets/shots/all/co-entries.png" alt="קליטת מסמכים" /></div>
+  </section>
+  <section class="slide s-shot">
+    <div class="txt"><div class="rail">תזרים <b>· מעקב ופערים</b></div><h1>יעד לכל שורה. <em>ומה שסטה ממנו.</em></h1><p>הפרדה בין מה שכבר ירד למה שרק צבוע קדימה, וכל פער מסומן — עם סיבה, לא רק עם מספר.</p></div>
+    <div class="img"><img src="assets/shots/all/co-budget.png" alt="מעקב ופערים" /></div>
+  </section>
+  <section class="slide s-shot">
+    <div class="txt"><div class="rail">תזרים <b>· תכנון חשבונאי</b></div><h1>הכרטסת של רואה החשבון — <em>נפרשת לדוח.</em></h1><p>AI ממפה, קוד דטרמיניסטי מחבר כל שקל. דוח רווח והפסד מלא, על הכרטסת האמיתית.</p></div>
+    <div class="img"><img src="assets/shots/all/co-acct.png" alt="תכנון חשבונאי" /></div>
+  </section>
+  <section class="slide s-shot">
+    <div class="txt"><div class="rail">תזרים <b>· תכנון תזרימי</b></div><h1>חודשים קדימה. <em>בפועל מול תחזית מול יעד.</em></h1><p>יתרות שמתגלגלות, יעד לכל שורה. כאן מתחילה שיחת הייעוץ — כל מה שלפניה נעשה.</p></div>
+    <div class="img"><img src="assets/shots/all/co-fcast.png" alt="תכנון תזרימי" /></div>
+  </section>
+  <section class="slide s-shot">
+    <div class="txt"><div class="rail">תזרים <b>· תמונת תזרים</b></div><h1>מה באמת קרה <em>החודש.</em></h1><p>פתיחה, סגירה והפרש מצטבר — עד רמת הקטגוריה. ולמי שהתזרים שלו מנוהל אצלנו: מנהל תזרים אנושי סוגר את החודש, ולא נשלח עד שכל חריגה הוכרעה.</p></div>
+    <div class="img"><img src="assets/shots/all/co-past.png" alt="תמונת תזרים" /></div>
+  </section>
+  <section class="slide s-shot">
+    <div class="txt"><div class="rail">ניהול <b>· התהליך שלי · הגדרות חברה</b></div><h1>איך אתה עובד עם הלקוח הזה — <em>כתוב פעם אחת.</em></h1><p>מקצב הפגישות, מה נשלח ומתי, מי מהצוות מטפל במה. המערכת עובדת לפי הדרך שלך — לא להפך.</p></div>
+    <div class="img"><img src="assets/shots/all/co-flow.png" alt="התהליך שלי" /></div>
+  </section>
+
+  <!-- ═══ הלקוח · מי עושה מה · סיום ═══ -->
+  <section class="slide s-shot">
+    <div class="txt"><div class="rail">מה הלקוח שלך רואה</div><h1>הלוגו שלך. <em>העבודה שלנו.</em></h1><p>הלקוח מקבל מערכת עם המידע שלו, עוזר שעונה בשמך, ודוחות בשם המשרד שלך. אותנו הוא לא רואה.</p></div>
+    <div class="img"><img src="assets/shots/cli/cli-dash.png" alt="מסך הלקוח" /></div>
+  </section>
+  <section class="slide s-type"><div>
+    <h1>לא פיצ׳רים. <em>עבודה.</em></h1>
+    <div class="who">
+      <div class="ai"><b>AI</b><p>מקליט ומסכם כל פגישה. זוכר כל מה שנאמר. מכין אותך לפגישה הבאה.</p></div>
+      <div><b>בן אדם</b><p>רודף אחרי החומר. בודק לפני שמשהו יוצא ללקוח. ולמי שהתזרים מנוהל — סוגר את החודש.</p></div>
+      <div><b>אתה</b><p>השיחה. הדבר היחיד שהלקוח באמת משלם עליו.</p></div>
+    </div>
+  </div></section>
+  <section class="slide s-type"><div>
+    <h1>בוא נראה <em>איך זה עובד אצלך.</em></h1>
+    <p>פגישת היכרות על דרך העבודה שלך היום — ואז אתה מחליט כמה מהתשתית של HK אתה רוצה מאחוריך.</p>
+    <div class="founders">
+      <figure><img src="assets/founders/eyal.png" alt="" /><figcaption><b>אייל חזות</b><span>יזם, מייסד bizibox ומייסד HK</span></figcaption></figure>
+      <figure><img src="assets/founders/ofir.png" alt="" /><figcaption><b>אופיר קריספין</b><span>רו״ח, לשעבר סמנכ״ל כספים, מייסד HK</span></figcaption></figure>
+    </div>
+    <p style="margin-top:28px;direction:ltr">studio.hak.co.il</p>
+  </div></section>
+
+  <div class="nav" id="nav"></div>
+  <div class="cnt" id="cnt"></div>
+  <div class="hint">← → או רווח · F למסך מלא</div>
+
+  <script>
+  (function () {
+    var slides = [].slice.call(document.querySelectorAll('.slide')), i = 0, nav = document.getElementById('nav'), cnt = document.getElementById('cnt');
+    nav.innerHTML = slides.map(function () { return '<i></i>'; }).join('');
+    var dots = [].slice.call(nav.children);
+    function go(n) {
+      i = Math.max(0, Math.min(slides.length - 1, n));
+      slides.forEach(function (s, k) { s.classList.toggle('is-on', k === i); });
+      dots.forEach(function (d, k) { d.classList.toggle('on', k === i); });
+      cnt.textContent = (i + 1) + ' / ' + slides.length;
+      history.replaceState(null, '', '#' + (i + 1));
+    }
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft' || e.key === ' ' || e.key === 'PageDown' || e.key === 'Enter') { e.preventDefault(); go(i + 1); }   /* RTL: שמאלה = קדימה */
+      else if (e.key === 'ArrowRight' || e.key === 'PageUp' || e.key === 'Backspace') { e.preventDefault(); go(i - 1); }
+      else if (e.key === 'Home') go(0); else if (e.key === 'End') go(slides.length - 1);
+      else if (e.key.toLowerCase() === 'f') { document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); }
+    });
+    document.addEventListener('click', function (e) { if (e.target.closest('.nav')) return; go(e.clientX < window.innerWidth / 2 ? i + 1 : i - 1); });   /* RTL: לחיצה משמאל = קדימה */
+    dots.forEach(function (d, k) { d.addEventListener('click', function (e) { e.stopPropagation(); go(k); }); });
+    var tx = null; document.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; });
+    document.addEventListener('touchend', function (e) { if (tx == null) return; var dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 40) go(dx < 0 ? i + 1 : i - 1); tx = null; });
+    slides.forEach(function (s) { s.querySelectorAll('img').forEach(function (im) { im.loading = 'eager'; }); });
+    go(parseInt(location.hash.slice(1), 10) - 1 || 0);
+  })();
+  </script>
+</body>
+</html>

@@ -303,4 +303,8 @@
         .catch(function () { done(false); });
     });
   }
+
+  /* ---------- כניסה נסתרת: דאבל-קליק על הלוגו פותח את המצגת ---------- */
+  var logo = document.querySelector('.logo');
+  if (logo) logo.addEventListener('dblclick', function (e) { e.preventDefault(); window.open('deck.html', '_blank'); });
 })();
