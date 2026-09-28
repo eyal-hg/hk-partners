@@ -275,6 +275,7 @@
         if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = submitBtn.dataset.label; }
         if (!ok) { if (errorPanel) errorPanel.hidden = false; return; }   // הטופס נשאר מלא — אפשר לנסות שוב או לעבור לוואטסאפ
         if (window.gtag) gtag('event', 'generate_lead', { source: (document.getElementById('ctaSource') || {}).value || '' });
+        if (typeof fbq !== 'undefined') fbq('track', 'Lead');
         form.hidden = true;
         successPanel.hidden = false;
         setTimeout(closeModal, 2400);
