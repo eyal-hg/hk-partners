@@ -40,7 +40,8 @@
     .win.full { aspect-ratio:1680/1050; }
     .win .vp { position:absolute; inset:0; overflow:hidden; }
     .win img { position:absolute; top:0; left:0; width:117.65%; height:auto; max-width:none; transition:transform .7s cubic-bezier(.2,.8,.2,1); transform-origin:50% 50%; }
-    .win.full img { width:100%; }
+    .win.full img, .win.nocut img { width:100%; }
+    .win.nocut { aspect-ratio:1428/711; }
     .win.zoomed img { transform:scale(var(--z,2)); }
     .pin { position:absolute; transform:translate(50%,-50%); display:flex; align-items:center; gap:10px; opacity:0; transition:opacity .3s; z-index:2; pointer-events:none; }
     .pin.on { opacity:1; }
@@ -91,6 +92,7 @@
     <div class="it" data-k="msgs"><i></i>קבוצות וואטסאפ</div>
     <div class="it" data-k="calls"><i></i>שיחות טלפון</div>
     <div class="it" data-k="meet"><i></i>פגישות</div>
+    <div class="it" data-k="prep"><i></i>הכנה לפגישה</div>
     <div class="sec">ידע על החברה</div>
     <div class="it" data-k="mem"><i></i>זיכרון החברה</div>
     <div class="it" data-k="chat"><i></i>עוזר AI</div>
@@ -142,6 +144,8 @@
       pins:[[88,14,'השיחות של החברה'],[50,12,'התמלול והסיכום של השיחה'],[40,28,'המשימות שעלו בשיחה']] },
     { rail:'co', k:'meet', kk:'תקשורת · פגישות', h:'מהקלטה <em>לסיכום.</em>', p:'לחיצה אחת מקליטה — באותו חדר, בטלפון, בזום או ב-Meet.', img:'co-meetings',
       pins:[[36,20,'השרשרת: הוקלטה ← תמלול ← סיכום ← זיכרון', null, 2.1],[36,46,'המשימות שחולצו מהפגישה'],[26,74,'הסיכום ממתין לאישור — ואז יוצא ללקוח']] },
+    { rail:'co', k:'prep', kk:'תקשורת · הכנה לפגישה', h:'ההכנה — <em>נבנית מחדש בכל פתיחה.</em>', p:'מהזיכרון, מהמספרים העדכניים ומהמשימות הפתוחות. כולל הנחיות אישיות על הלקוח.', img:'meet-prep', cut:false,
+      pins:[[80,22,'סיכום AI לפגישה — מה קרה מאז הפעם הקודמת'],[60,40,'נקודות פתיחה ומטרה מוצעת'],[18,22,'הנחיות אישיות: ״פתח במספרים — דורון מאבד סבלנות מהקדמות״','l'],[60,70,'המשימות מהפגישה הקודמת']] },
     { rail:'co', k:'mem', kk:'ידע על החברה · זיכרון החברה', h:'כל מה שנאמר — <em>מארבעה ערוצים.</em>', p:'פגישה, טלפון, וואטסאפ, צ׳אט. מקור ותאריך לכל שורה.', img:'co-mem',
       pins:[[84,12,'העסק — מצב, כאבים, החלטות'],[42,12,'האנשים — סגנון תקשורת, מה חשוב להם'],[28,60,'לכל שורה: מאיפה הגיעה ומתי']] },
     { rail:'co', k:'chat', kk:'ידע על החברה · עוזר AI', h:'שאלה על החברה — <em>תשובה מהמספרים שלה.</em>', p:'עונה ליועץ, ובגרסת הלקוח — ללקוח. מה שדורש שיקול דעת מועבר ליועץ.', img:'co-chat',
@@ -150,7 +154,7 @@
       pins:[[84,26,'המדד והיעד החודשי'],[52,26,'הביצוע בפועל'],[68,34,'אחוז ההשגה']] },
 
     { rail:'co', k:'timeline', kk:'תזרים · התזרים קדימה', h:'התזרים קדימה — <em>יום-יום, עם העוזר.</em>', p:'ציר התזרים של החברה: מה נכנס ומה יוצא יום אחרי יום, החריגה הצפויה ומתי. המסך שמחבר את שלושת הזמנים שמתחתיו.', img:'live/live-timeline', missing:'הצילום מהמערכת החיה בדרך',
-      pins:[[50,20,'הציר: יום-יום'],[80,60,'העוזר — על הציר עצמו']] },
+      pins:[[56,30,'60 יום קדימה — קו המסגרת והחריגה הראשונה'],[16,30,'העוזר: התקציר, ושאלות על הציר עצמו','l'],[56,72,'יום-יום — כולל נגררות מימים קודמים']] },
     { rail:'co', k:'past', kk:'תזרים · מה היה · תמונת תזרים', h:'מה קרה <em>בפועל.</em>', p:'פתיחה, סגירה והפרש מצטבר לכל חודש, עד רמת הקטגוריה.', img:'co-past',
       pins:[[58,5,'פתיחה · סגירה · הפרש מצטבר'],[74,32,'לפי חודש — ועד הקטגוריה'],[16,10,'העוזר עונה על הדוח עצמו','l']] },
     { rail:'co', k:'gaps', kk:'תזרים · מה קורה · מעקב ופערים', h:'מול <em>היעד.</em>', p:'מה שכבר ירד מול מה שצפוי, וכל פער עם סיבה.', img:'co-budget',
@@ -179,14 +183,14 @@
       el.className += ' type'; el.innerHTML = '<div><div class="k">' + s.k + '</div><h1>' + s.h + '</h1><p>' + s.p + '</p><div class="walk">' + s.walk.map(function (w) { return '<span>' + w + '</span>'; }).join('') + '</div></div>';
       el.dataset.steps = s.walk.length;
     } else {
-      var src = s.img.indexOf('/') > -1 ? 'assets/shots/' + s.img + '.png' : 'assets/shots/all/' + s.img + '.png';
+      var src = s.img.indexOf('/') > -1 ? 'assets/shots/' + s.img + '.png' : (s.cut === false ? 'assets/shots/' : 'assets/shots/all/') + s.img + '.png';
       var pins = (s.pins || []).map(function (p, n) {
         var x = p[0], y = p[1], side = p[3] === 'l' ? ' l' : '';
         return '<div class="pin' + side + '" style="right:' + (100 - x) + '%;top:' + y + '%" data-zoom="' + (p[4] || '') + '" data-x="' + x + '" data-y="' + y + '"><b>' + (n + 1) + '</b><span>' + p[2] + '</span></div>';
       }).join('');
       var miss = '<div class="missing"><div><b>' + (s.missing || 'הצילום חסר') + '</b>' + s.kk + '</div></div>';
       el.innerHTML = '<div class="scr"><div class="head"><span class="k">' + s.kk + '</span><h1>' + s.h + '</h1><p class="sub">' + s.p + '</p></div>' +
-        '<div class="win' + (s.full ? ' full' : '') + '"><div class="vp"><img src="' + src + '" alt="" loading="eager"></div>' + pins + '</div></div>';
+        '<div class="win' + (s.full ? ' full' : '') + (s.cut === false ? ' nocut' : '') + '"><div class="vp"><img src="' + src + '" alt="" loading="eager"></div>' + pins + '</div></div>';
       var im = el.querySelector('img'); im.addEventListener('error', function () { im.style.display = 'none'; im.parentNode.insertAdjacentHTML('beforeend', miss); });
       el.dataset.steps = (s.pins || []).length;
     }
