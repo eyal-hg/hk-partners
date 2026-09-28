@@ -43,11 +43,11 @@
     .win.full img, .win.nocut img { width:100%; }
     .win.nocut { aspect-ratio:1428/711; }
     .win.zoomed img { transform:scale(var(--z,2)); }
-    .pin { position:absolute; transform:translate(50%,-50%); display:flex; align-items:center; gap:10px; opacity:0; transition:opacity .3s; z-index:2; pointer-events:none; }
+    .pin { position:absolute; transform:translate(17px,-50%); display:flex; align-items:center; gap:10px; opacity:0; transition:opacity .3s; z-index:2; pointer-events:none; }
     .pin.on { opacity:1; }
     .pin b { width:34px; height:34px; border-radius:50%; background:var(--coral); color:#fff; display:grid; place-items:center; font-weight:700; font-size:1rem; box-shadow:0 0 0 6px rgba(232,99,90,.28), 0 10px 24px rgba(0,0,0,.35); flex:none; }
     .pin span { background:#fff; color:var(--navy); padding:8px 14px; border-radius:10px; font-size:.95rem; font-weight:500; white-space:nowrap; box-shadow:0 12px 30px rgba(0,0,0,.35); }
-    .pin.l { flex-direction:row-reverse; transform:translate(50%,-50%); }
+    .pin.l { flex-direction:row-reverse; transform:translate(-17px,-50%); }
     .missing { position:absolute; inset:0; display:grid; place-items:center; text-align:center; color:var(--muted); padding:40px; }
     .missing b { display:block; color:#fff; font-family:'Frank Ruhl Libre',serif; font-size:1.6rem; margin-bottom:8px; }
 
@@ -186,7 +186,8 @@
       var src = s.img.indexOf('/') > -1 ? 'assets/shots/' + s.img + '.png' : (s.cut === false ? 'assets/shots/' : 'assets/shots/all/') + s.img + '.png';
       var pins = (s.pins || []).map(function (p, n) {
         var x = p[0], y = p[1], side = p[3] === 'l' ? ' l' : '';
-        return '<div class="pin' + side + '" style="right:' + (100 - x) + '%;top:' + y + '%" data-zoom="' + (p[4] || '') + '" data-x="' + x + '" data-y="' + y + '"><b>' + (n + 1) + '</b><span>' + p[2] + '</span></div>';
+        var pos = side ? 'left:' + x + '%' : 'right:' + (100 - x) + '%';
+        return '<div class="pin' + side + '" style="' + pos + ';top:' + y + '%" data-zoom="' + (p[4] || '') + '" data-x="' + x + '" data-y="' + y + '"><b>' + (n + 1) + '</b><span>' + p[2] + '</span></div>';
       }).join('');
       var miss = '<div class="missing"><div><b>' + (s.missing || 'הצילום חסר') + '</b>' + s.kk + '</div></div>';
       el.innerHTML = '<div class="scr"><div class="head"><span class="k">' + s.kk + '</span><h1>' + s.h + '</h1><p class="sub">' + s.p + '</p></div>' +
