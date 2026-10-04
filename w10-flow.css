@@ -1,0 +1,146 @@
+/* ══ 10 · ניהול תזרים ══ לפי HK_Studio_Landing_Page_Final.md: שירות, לא תוכנה. עמוד בהיר, קצר, 12 סקשנים. Mobile first. */
+body.w10 { background: #fff; color: var(--text); }
+.w10 .site-header { background: rgba(255,255,255,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.w10 h1, .w10 h2, .w10 h3 { font-family: 'Frank Ruhl Libre', Georgia, serif; color: var(--navy); text-wrap: balance; letter-spacing: -.01em; }
+.w10 em { font-style: normal; color: var(--coral); }
+.x-sec { padding: 72px 0; }
+.x-h2 { font-weight: 800; font-size: clamp(2rem, 6.4vw, 3.6rem); line-height: 1.1; margin-bottom: 20px; }
+.x-lead { font-size: 1.12rem; line-height: 1.75; color: var(--text); max-width: 58ch; }
+.x-shot { margin: 0; }
+.x-shot img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); box-shadow: 0 24px 60px rgba(12,64,104,.14); cursor: zoom-in; }
+
+/* 1 · HERO */
+.x-hero { padding: 44px 0 56px; background: var(--off); overflow: hidden; }
+.x-hero-grid { display: grid; gap: 34px; }
+.x-kicker { color: var(--navy); font-weight: 600; font-size: .95rem; letter-spacing: .02em; margin-bottom: 16px; opacity: .8; }
+.x-title { font-weight: 800; font-size: clamp(2.5rem, 9.6vw, 4.6rem); line-height: 1.04; margin-bottom: 20px; }
+.x-sub { font-size: 1.16rem; line-height: 1.6; color: var(--navy); font-weight: 600; margin-bottom: 12px; max-width: 34ch; }
+.x-sub2 { font-size: 1.05rem; line-height: 1.7; color: var(--muted); margin-bottom: 26px; max-width: 40ch; }
+.x-cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; }
+.x-peek { color: var(--navy); font-weight: 600; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+.x-stage { position: relative; }
+.x-lap { transform-origin: center; }
+.x-lap .scr { border: 10px solid #16283a; border-radius: 16px 16px 4px 4px; overflow: hidden; background: #16283a; box-shadow: 0 30px 70px rgba(12,64,104,.22); }
+.x-lap .scr img { display: block; width: 100%; height: auto; }
+.x-lap .base { height: 14px; margin: 0 -5%; background: linear-gradient(#e2e9f0, #b9c6d2); border-radius: 0 0 22px 22px; }
+.x-phone { position: absolute; bottom: -18px; inset-inline-end: 4%; width: 22%; min-width: 92px; border: 6px solid #16283a; border-radius: 22px; overflow: hidden; background: #16283a; box-shadow: 0 20px 44px rgba(12,64,104,.3); }
+.x-phone img { display: block; width: 100%; height: auto; }
+
+/* 2 · שלושת העוגנים */
+.x-anchors { padding: 40px 0 8px; }
+.x-cards { display: grid; gap: 14px; }
+.x-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 22px 22px 24px; box-shadow: var(--shadow); }
+.x-card svg { width: 30px; height: 30px; stroke: var(--coral); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; margin-bottom: 12px; }
+.x-card h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 6px; }
+.x-card p { color: var(--muted); line-height: 1.65; }
+
+/* 3 · שירות ניהול תזרים */
+.x-svc-grid { display: grid; gap: 34px; align-items: center; }
+.x-list { list-style: none; margin: 18px 0 20px; display: grid; gap: 9px; }
+.x-list li { position: relative; padding-inline-start: 26px; font-size: 1.08rem; color: var(--text); }
+.x-list li::before { content: ''; position: absolute; inset-inline-start: 0; top: .62em; width: 12px; height: 2px; background: var(--coral); }
+.x-strong { font-weight: 700; color: var(--navy); font-size: 1.12rem; }
+
+/* 4 · המודל — נייבי, בלי צילום */
+.x-model { background: linear-gradient(165deg, var(--navy), var(--navy-deep)); color: #fff; padding: 84px 0; }
+.x-model .x-h2 { color: #fff; }
+.x-steps { display: grid; gap: 14px; margin: 34px 0 44px; counter-reset: s; }
+.x-step { border-top: 1px solid rgba(255,255,255,.22); padding-top: 18px; }
+.x-step i { font-style: normal; font-family: 'Frank Ruhl Libre', serif; font-weight: 800; font-size: 2.6rem; color: var(--coral); line-height: 1; display: block; margin-bottom: 8px; }
+.x-step h3 { color: #fff; font-size: 1.4rem; font-weight: 800; margin-bottom: 6px; }
+.x-step p { color: rgba(255,255,255,.74); line-height: 1.65; }
+.x-close { font-family: 'Frank Ruhl Libre', serif; font-weight: 800; font-size: clamp(1.9rem, 6.6vw, 3.6rem); line-height: 1.12; color: #fff; }
+.x-close span { display: block; color: var(--sky); }
+
+/* 5 · מי עושה מה — ארבעה בלוקים, קווים, לא כרטיסים */
+.x-who { display: grid; gap: 0; margin-top: 30px; }
+.x-who div { padding: 20px 0 20px; border-top: 1px solid var(--line); }
+.x-who b { display: block; font-family: 'Frank Ruhl Libre', serif; font-weight: 800; font-size: 1.45rem; color: var(--navy); margin-bottom: 4px; }
+.x-who div:first-child b { color: var(--coral); }
+.x-who p { color: var(--muted); line-height: 1.65; max-width: 40ch; }
+
+/* 6 · המערכת — שלוש שורות קצרות */
+.x-sys { background: var(--off); }
+.x-rows { display: grid; gap: 44px; margin-top: 34px; }
+.x-row { display: grid; gap: 18px; align-items: center; }
+.x-row h3 { font-size: 1.6rem; font-weight: 800; margin-bottom: 6px; }
+.x-row p { color: var(--muted); font-size: 1.08rem; line-height: 1.65; }
+
+/* 7 · White Label */
+.x-wl-top { display: grid; gap: 22px; margin-bottom: 30px; }
+.x-wl-list { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 10px; margin-top: 16px; }
+.x-wl-list li { border: 1px solid var(--line); border-radius: 50px; padding: 7px 16px; font-size: .98rem; color: var(--navy); background: #fff; }
+.x-big { font-family: 'Frank Ruhl Libre', serif; font-weight: 800; font-size: clamp(1.8rem, 6vw, 3.2rem); line-height: 1.12; color: var(--navy); }
+.x-big span { display: block; color: var(--coral); }
+
+/* 8 · מה יורד מהמשרד — טיפוגרפיה בלבד */
+.x-off { text-align: center; padding: 88px 0; }
+.x-words { list-style: none; margin: 26px auto 40px; display: grid; gap: 6px; }
+.x-words li { font-family: 'Frank Ruhl Libre', serif; font-weight: 700; font-size: clamp(1.5rem, 5.4vw, 2.5rem); color: var(--navy); line-height: 1.25; }
+.x-words li:nth-child(even) { color: #7f93a6; }
+.x-off .x-big { max-width: 20ch; margin: 0 auto; }
+
+/* 9 · WhatsApp / AI — קטן */
+.x-wa { background: var(--off); padding: 60px 0; }
+.x-wa-grid { display: grid; gap: 26px; align-items: center; }
+.x-wa h2 { font-weight: 800; font-size: clamp(1.6rem, 5vw, 2.4rem); line-height: 1.15; margin-bottom: 12px; }
+.x-wa p { color: var(--text); line-height: 1.7; max-width: 46ch; }
+.x-wa p + p { margin-top: 8px; font-weight: 600; color: var(--navy); }
+.x-mob { width: min(270px, 78%); margin: 0 auto; border: 7px solid #16283a; border-radius: 28px; overflow: hidden; background: #fff; box-shadow: 0 24px 54px rgba(12,64,104,.22); }
+.x-mob img { display: block; width: 100%; height: auto; cursor: zoom-in; }
+
+/* 10 · רמות שירות */
+.x-levels { display: grid; gap: 12px; margin: 26px 0 26px; }
+.x-level { border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; background: #fff; }
+.x-level h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 4px; }
+.x-level p { color: var(--muted); line-height: 1.6; }
+.x-level small { display: block; margin-top: 10px; color: #8ea0b1; font-size: .8rem; letter-spacing: .06em; }
+.x-level.top { border-color: var(--navy); box-shadow: var(--shadow); }
+.x-link-cta { color: var(--coral); font-weight: 700; text-decoration: none; border-bottom: 2px solid currentColor; padding-bottom: 2px; }
+
+/* 11 · מייסדים */
+.x-founders { display: grid; gap: 18px; margin-top: 24px; }
+.x-f { display: grid; grid-template-columns: 76px 1fr; gap: 16px; align-items: center; }
+.x-f img { width: 76px; height: 76px; border-radius: 50%; object-fit: cover; object-position: center top; border: 3px solid #fff; box-shadow: 0 8px 22px rgba(12,64,104,.2); }
+.x-f b { display: block; color: var(--navy); font-size: 1.12rem; } .x-f span { color: var(--muted); }
+
+/* 12 · CTA סופי + טופס */
+.x-final { background: linear-gradient(165deg, var(--navy), var(--navy-deep)); color: #fff; padding: 84px 0; }
+.x-final .x-h2 { color: #fff; }
+.x-final p { color: rgba(255,255,255,.78); font-size: 1.1rem; line-height: 1.7; max-width: 52ch; }
+.x-form { display: grid; gap: 12px; margin-top: 28px; max-width: 520px; }
+.x-form label { display: grid; gap: 6px; font-size: .92rem; color: rgba(255,255,255,.82); }
+.x-form input, .x-form select { font: inherit; padding: 14px 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.08); color: #fff; width: 100%; }
+.x-form select option { color: var(--text); }
+.x-form input:focus-visible, .x-form select:focus-visible { outline: 2px solid var(--sky); outline-offset: 2px; }
+.x-form .btn { margin-top: 6px; }
+.x-form .honey { position: absolute; left: -9999px; }
+.x-msg { margin-top: 14px; padding: 12px 14px; border-radius: 10px; line-height: 1.6; }
+.x-msg.ok { background: rgba(19,137,91,.2); border: 1px solid rgba(19,137,91,.55); color: #fff; }
+.x-msg.err { background: rgba(255,255,255,.96); color: #C43D30; } .x-msg.err a { color: inherit; font-weight: 600; }
+
+/* Sticky CTA במובייל, אחרי ה-Hero */
+.x-sticky { position: fixed; inset-inline: 12px; bottom: 12px; z-index: 60; transform: translateY(140%); transition: transform .3s ease; text-align: center; box-shadow: 0 14px 34px rgba(12,64,104,.35); }
+.x-sticky.on { transform: none; }
+.w10 .site-footer p { color: rgba(255,255,255,.62); }
+
+@media (min-width: 900px) {
+  .x-sec { padding: 110px 0; }
+  .x-hero { padding: 72px 0 96px; }
+  .x-hero-grid { grid-template-columns: 48fr 52fr; gap: 48px; align-items: center; }
+  .x-lap { transform: perspective(1600px) rotateY(7deg) rotateX(2deg); }
+  .x-anchors { padding: 0; margin-top: -44px; position: relative; z-index: 2; }
+  .x-cards { grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .x-svc-grid { grid-template-columns: 0.85fr 1.15fr; gap: 56px; }
+  .x-steps { grid-template-columns: repeat(3, 1fr); gap: 34px; }
+  .x-who { grid-template-columns: repeat(4, 1fr); gap: 34px; }
+  .x-who div { border-top: 0; border-inline-start: 1px solid var(--line); padding: 4px 22px 4px 0; padding-inline-start: 22px; }
+  .x-row { grid-template-columns: 0.7fr 1.3fr; gap: 48px; }
+  .x-row:nth-child(even) .x-row-t { order: 2; }
+  .x-wl-top { grid-template-columns: 1.2fr 0.8fr; align-items: end; }
+  .x-wa-grid { grid-template-columns: 1.3fr 0.7fr; }
+  .x-levels { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .x-founders { grid-template-columns: 1fr 1fr; gap: 34px; max-width: 760px; }
+  .x-sticky { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .x-sticky { transition: none; } .x-lap { transform: none !important; } }
