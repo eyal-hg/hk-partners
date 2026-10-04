@@ -295,7 +295,10 @@
         business_name: '', source: 'HK Studio Landing Page', form_id: 'studio', tags: ['hk-studio', 'landing-page'], clients: clients };
       fetch('https://services.leadconnectorhq.com/hooks/xb3rZ5Z4gIQCgKJUAPAe/webhook-trigger/59e35304-8c8d-4fe5-85ff-43d63f3e36ee',
         { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(crm) }).catch(function () {});
-      fetch(form.getAttribute('data-formsubmit'), { method: 'POST', headers: { 'Accept': 'application/json' }, body: fd }).catch(function () {});
+      // גיבוי במייל (FormSubmit): JSON עם שמות שדות באנגלית. כשנשלח FormData עם שמות שדות בעברית המייל הגיע לאופיר ריק.
+      var mail = { _subject: 'ליד חדש מ-HK Studio: ' + name, _template: 'table', _captcha: 'false', _cc: (fd.get('_cc') || ''),
+        Name: name, Phone: phone, Email: email, Clients: clients, Source: cta || 'studio.hak.co.il' };
+      fetch(form.getAttribute('data-formsubmit'), { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(mail) }).catch(function () {});
       // גיבוי במייל: טופס Netlify (נשמר ברשימת הטפסים של האתר ונשלח לכתובות שמוגדרות ב-Netlify)
       var nf = new URLSearchParams({ 'form-name': 'studio-lead', 'שם מלא': name, 'טלפון': phone, 'אימייל': email, 'מספר לקוחות': clients, 'מקור הפנייה': cta });
       fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: nf.toString() }).catch(function () {});
