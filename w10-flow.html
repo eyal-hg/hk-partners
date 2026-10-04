@@ -265,7 +265,7 @@
         body: JSON.stringify({ firstName: parts[0] || '', lastName: parts.slice(1).join(' ') || '', full_name: name, phone: phone, email: '', business_name: '', source: 'HK Studio Landing Page', form_id: 'studio', tags: ['hk-studio', 'landing-page', 'w10'], clients: clients }) }).catch(function () {});
       fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams({ 'form-name': 'studio-lead', 'שם מלא': name, 'טלפון': phone, 'מספר לקוחות': clients, 'מקור הפנייה': 'גרסה 10' }).toString() }).catch(function () {});
-      fetch('https://hk-prod-462507.oa.r.appspot.com/api/leads', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      fetch('/api/leads', { method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: name, phone: phone, stageKey: 'new', source: { channel: 'אתר HK Studio', form: 'הראו לי את Studio · גרסה 10' }, notes: 'מספר לקוחות עסקיים: ' + clients }) })
         .then(function (r) { return r.ok; }).then(done).catch(function () { done(false); });
     });

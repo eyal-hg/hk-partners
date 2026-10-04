@@ -282,6 +282,7 @@
         setTimeout(function () { form.reset(); form.hidden = false; successPanel.hidden = true; }, 2800);
       };
       // אותם שני מסלולים כמו hak.co.il: השרת של HK (מסך הלידים) + ה-CRM. המייל דרך FormSubmit הוא גיבוי.
+      // השרת של HK לא מחזיר CORS ל-studio.hak.co.il, ולכן הפנייה אליו עוברת דרך proxy של Netlify באותו דומיין (/api/leads ב-_redirects).
       var fd = new FormData(form);
       var name = (fd.get('שם מלא') || '').trim(), phone = (fd.get('טלפון') || '').trim(), email = (fd.get('אימייל') || '').trim();
       var clients = fd.get('מספר לקוחות') || '', cta = fd.get('מקור הפנייה') || '';
@@ -298,7 +299,7 @@
       // גיבוי במייל: טופס Netlify (נשמר ברשימת הטפסים של האתר ונשלח לכתובות שמוגדרות ב-Netlify)
       var nf = new URLSearchParams({ 'form-name': 'studio-lead', 'שם מלא': name, 'טלפון': phone, 'אימייל': email, 'מספר לקוחות': clients, 'מקור הפנייה': cta });
       fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: nf.toString() }).catch(function () {});
-      fetch('https://hk-prod-462507.oa.r.appspot.com/api/leads', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(lead) })
+      fetch('/api/leads', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(lead) })
         .then(function (r) { return r.ok; })
         .then(done)
         .catch(function () { done(false); });
